@@ -27,9 +27,6 @@
 
           <Servicios class="ser"/>
 
-
-
-
     <q-footer reveal elevated class="bg-grey-8 text-white">
       <q-toolbar>
         <q-toolbar-title style="text-align: center;">
