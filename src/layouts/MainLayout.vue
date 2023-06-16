@@ -1,98 +1,58 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated style="background-color: blue">
+  <q-layout view="LHh Lpr lFf">
+    <q-header reveal elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
-        <!-- <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        /> -->
-
-        <q-toolbar-title> EmprendeFacil</q-toolbar-title>
+        <q-toolbar-title class="titulo">
+          <q-avatar class="logo" >
+            <img src="public/logo.png" />
+          </q-avatar>
+          EmprendeFacil
+        </q-toolbar-title>
       </q-toolbar>
+
+      <q-tabs align="right">
+        <q-route-tab to="/page1" label="Login" />
+        <q-route-tab to="/page2" label="Sign Up" />
+        <q-route-tab to="/page3" label="Servicios" />
+        <q-route-tab to="/page1" label="Comunidad" />
+        <q-route-tab to="/page2" label="Quienes Somos" />
+        <q-route-tab to="/page3" label="Inicio" />
+      </q-tabs>
     </q-header>
 
-    <!-- <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> componet </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer> -->
-
     <q-page-container>
-      <!--aqui va todo el main-->
-      <p>contenido</p>
-
-      <router-view />
+        <Brindar/>
     </q-page-container>
-    <q-page-footer>
-      <p>pie de pagina</p>
-    </q-page-footer>
+
+
+          <Servicios class="ser"/>
+
+
+
+
+    <q-footer reveal elevated class="bg-grey-8 text-white">
+      <q-toolbar>
+        <q-toolbar-title style="text-align: center;">
+          <q-avatar style="position: fixed; margin-left: 120px;">
+            <img src="public/favicon.ico" />
+          </q-avatar>
+          <div>EmprendeFacil &copy; 2023</div>
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
   </q-layout>
 </template>
 
 <script>
 import { defineComponent, ref } from "vue";
-//import EssentialLink from 'components/EssentialLink.vue'
-
-const linksList = [
-  {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
-  },
-  {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
-  },
-  {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
-  },
-  {
-    title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
-  },
-  {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
-  },
-];
-
+import Brindar from 'src/components/Brindar.vue'
+import Servicios from 'src/components/Servicios.vue'
 export default defineComponent({
   name: "MainLayout",
 
   components: {
-    // EssentialLink,
+    Brindar,
+    Servicios
   },
 
   setup() {
@@ -108,3 +68,20 @@ export default defineComponent({
   },
 });
 </script>
+<style scoped>
+.logo {
+  width: 120px;
+  height: 120px;
+  margin-top: 20px;
+}
+.titulo{
+  font-size :45px ;
+
+}
+
+.ser{
+  align-items: center;
+  margin-left: 3%;
+  padding-bottom: 70px;
+}
+</style>
