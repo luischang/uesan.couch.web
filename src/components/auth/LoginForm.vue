@@ -1431,7 +1431,7 @@ export default {
   overflow-y: hidden;
 
   background-image: url("https://www.equiposytalento.com/contenido/noticias/cursocoahing943.png");
-  background-size: 1350px 660px;
+  background-size: cover;
   background-repeat: no-repeat;
   font-family: "Open Sans", sans-serif;
 }
