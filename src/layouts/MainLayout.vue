@@ -6,14 +6,14 @@
           <q-avatar class="logo">
             <img src="public/logo.png" />
           </q-avatar>
-          EmprendeFacil
+          AyniConnect
         </q-toolbar-title>
       </q-toolbar>
 
       <q-tabs align="right">
         <q-route-tab to="/login" label="Login" />
-        <q-route-tab to="/page2" label="Sign Up" />
-        <q-route-tab to="/page3" label="Servicios" />
+        <q-route-tab to="/Register" label="Sign Up" />
+        <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/page1" label="Comunidad" />
         <q-route-tab to="/page2" label="Quienes Somos" />
         <q-route-tab to="/page3" label="Inicio" />
@@ -26,13 +26,13 @@
 
     <Servicios class="ser" />
 
-    <q-footer reveal elevated class="bg-grey-8 text-white">
+    <q-footer reveal elevated class="bg-Blue-8 text-white">
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
           <q-avatar style="position: fixed; margin-left: 120px">
             <img src="public/favicon.ico" />
           </q-avatar>
-          <div>EmprendeFacil &copy; 2023</div>
+          <div>AyniConnect &copy; 2023</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
@@ -66,10 +66,15 @@ export default defineComponent({
 });
 </script>
 <style scoped>
+img:not(.q-icon):not(.q-img__image) {
+  border-radius: 10px;
+  height: inherit;
+  width: inherit;
+}
 .logo {
   width: 120px;
   height: 120px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .titulo {
   font-size: 45px;
