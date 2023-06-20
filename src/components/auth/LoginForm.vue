@@ -10,17 +10,27 @@
           <form class="login">
             <div class="login__field">
               <i class="login__icon fas fa-user"></i>
-              <input type="text" class="login__input" placeholder="Correo" />
+              <input
+                type="text"
+                v-model="correoElectronico"
+                class="login__input"
+                placeholder="Correo"
+                name="uname"
+                required
+              />
             </div>
             <div class="login__field">
               <i class="login__icon fas fa-lock"></i>
               <input
+                v-model="contrasena"
                 type="password"
                 class="login__input"
                 placeholder="Contraseña"
+                name="psw"
+                required
               />
             </div>
-            <button class="button login__submit">
+            <button class="button login__submit" @click="login">
               Log In Now
               <i class="button__icon fas fa-chevron-right"></i>
             </button>
@@ -1365,7 +1375,51 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import axios from "axios";
+
+export default {
+  name: "LoginForm",
+  data() {
+    return {
+      correoElectronico: "",
+      contraseña: "",
+    };
+  },
+  methods: {
+    login: function () {
+      var url = "http://localhost:5083/api/Usuarios/SignIn";
+      var data = {
+        correoElectronico: this.correoElectronico,
+        contrasena: this.contrasena,
+      };
+      axios
+        .post(url, data)
+        .then((response) => {
+          console.log("Aquí va la respuesta " + JSON.stringify(response));
+          localStorage.setItem("userResult", JSON.stringify(response.data));
+          this.$q.notify({
+            message: "Inicio de sesión correcta",
+            color: "positive",
+            position: "bottom",
+            timeout: 3000,
+          });
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          console.log("Ocurrió un error " + error);
+          localStorage.removeItem("userResult");
+          this.$q.notify({
+            message: "Ocurrió un error",
+            color: "negative",
+            position: "top",
+            timeout: 3000,
+          });
+        });
+    },
+  },
+};
+</script>
 
 <style>
 .burbu {

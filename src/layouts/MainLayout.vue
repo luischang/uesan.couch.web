@@ -43,6 +43,7 @@
 import { defineComponent, ref } from "vue";
 import Brindar from "src/components/Brindar.vue";
 import Servicios from "src/components/Servicios.vue";
+import { computed } from "vue";
 export default defineComponent({
   name: "MainLayout",
 
