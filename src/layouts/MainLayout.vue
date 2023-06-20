@@ -3,7 +3,7 @@
     <q-header reveal elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
         <q-toolbar-title class="titulo">
-          <q-avatar class="logo" >
+          <q-avatar class="logo">
             <img src="public/logo.png" />
           </q-avatar>
           EmprendeFacil
@@ -11,7 +11,7 @@
       </q-toolbar>
 
       <q-tabs align="right">
-        <q-route-tab to="/page1" label="Login" />
+        <q-route-tab to="/login" label="Login" />
         <q-route-tab to="/page2" label="Sign Up" />
         <q-route-tab to="/page3" label="Servicios" />
         <q-route-tab to="/page1" label="Comunidad" />
@@ -21,16 +21,15 @@
     </q-header>
 
     <q-page-container>
-        <Brindar/>
+      <Brindar />
     </q-page-container>
 
-
-          <Servicios class="ser"/>
+    <Servicios class="ser" />
 
     <q-footer reveal elevated class="bg-grey-8 text-white">
       <q-toolbar>
-        <q-toolbar-title style="text-align: center;">
-          <q-avatar style="position: fixed; margin-left: 120px;">
+        <q-toolbar-title style="text-align: center">
+          <q-avatar style="position: fixed; margin-left: 120px">
             <img src="public/favicon.ico" />
           </q-avatar>
           <div>EmprendeFacil &copy; 2023</div>
@@ -42,14 +41,15 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import Brindar from 'src/components/Brindar.vue'
-import Servicios from 'src/components/Servicios.vue'
+import Brindar from "src/components/Brindar.vue";
+import Servicios from "src/components/Servicios.vue";
+import { computed } from "vue";
 export default defineComponent({
   name: "MainLayout",
 
   components: {
     Brindar,
-    Servicios
+    Servicios,
   },
 
   setup() {
@@ -71,12 +71,11 @@ export default defineComponent({
   height: 120px;
   margin-top: 20px;
 }
-.titulo{
-  font-size :45px ;
-
+.titulo {
+  font-size: 45px;
 }
 
-.ser{
+.ser {
   align-items: center;
   margin-left: 3%;
   padding-bottom: 70px;
