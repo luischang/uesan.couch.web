@@ -17,7 +17,12 @@
         comienza a hacer realidad tus sueños empresariales!
       </p>
       <div class="q-pa-md q-gutter-sm">
-        <q-btn  color="green" text-color="black" label="Iniciar Registro" to="/RegisterEmprendedor" />
+        <q-btn
+          color="green"
+          text-color="black"
+          label="Iniciar Registro"
+          to="/RegisterEmprendedor"
+        />
       </div>
     </div>
     <div class="block">
@@ -40,7 +45,12 @@
         construir un futuro.
       </p>
       <div class="q-pa-md q-gutter-sm">
-        <q-btn  color="green" text-color="black" label="Iniciar Registro" to="/RegisterEmprendedor" />
+        <q-btn
+          color="green"
+          text-color="black"
+          label="Iniciar Registro"
+          to="/RegisterCoach"
+        />
       </div>
     </div>
   </div>

@@ -140,7 +140,7 @@ export default {
         nroContacto: "",
         correoElectronico: "",
         contrasena: "",
-        idTipo: 2,
+        idTipo: 1,
         isActive: true,
       },
     };

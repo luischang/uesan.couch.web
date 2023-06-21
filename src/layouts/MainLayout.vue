@@ -2,8 +2,21 @@
   <q-layout view="LHh Lpr lFf">
     <q-header reveal elevated class="bg-primary text-white" height-hint="98">
       <q-toolbar>
-        <q-toolbar-title class="titulo">
-          <q-avatar class="logo">
+        <q-toolbar-title
+          class="titulo"
+          style="
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+              sans-serif;
+          "
+        >
+          <q-avatar
+            style="
+              width: 90px;
+              height: 90px;
+              border-radius: 10%;
+              margin-top: 15px;
+            "
+          >
             <img src="public/logo.png" />
           </q-avatar>
           AyniConnect
@@ -14,7 +27,7 @@
         <q-route-tab to="/login" label="Login" />
         <q-route-tab to="/Register" label="Sign Up" />
         <q-route-tab to="/Servicios" label="Servicios" />
-        <q-route-tab to="/page1" label="Comunidad" />
+
         <q-route-tab to="/page2" label="Quienes Somos" />
         <q-route-tab to="/page3" label="Inicio" />
       </q-tabs>
@@ -29,9 +42,6 @@
     <q-footer reveal elevated class="bg-Blue-8 text-white">
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
-          <q-avatar style="position: fixed; margin-left: 120px">
-            <img src="public/favicon.ico" />
-          </q-avatar>
           <div>AyniConnect &copy; 2023</div>
         </q-toolbar-title>
       </q-toolbar>
@@ -66,18 +76,10 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-img:not(.q-icon):not(.q-img__image) {
-  border-radius: 10px;
-  height: inherit;
-  width: inherit;
-}
-.logo {
-  width: 120px;
-  height: 120px;
-  margin-top: 10px;
-}
 .titulo {
-  font-size: 45px;
+  font-size: 60px;
+  margin-left: 10px;
+  margin-top: 0px;
 }
 
 .ser {

@@ -17,6 +17,10 @@ const routes = [
     path: "/RegisterEmprendedor",
     component: () => import("components/auth/RegisterForm.vue"),
   },
+  {
+    path: "/RegisterCoach",
+    component: () => import("components/auth/RegisterFormCoach.vue"),
+  },
 
   {
     path: "/Servicios",
