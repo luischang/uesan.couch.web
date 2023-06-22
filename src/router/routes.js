@@ -26,6 +26,10 @@ const routes = [
     path: "/Servicios",
     component: () => import("components/Servicios.vue"),
   },
+  {
+    path:"/Inicio",
+    component: () => import("layouts/MainLayout.vue"),
+  },
   // Always leave this as last one,
   // but you can also remove it
   {

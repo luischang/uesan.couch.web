@@ -1439,7 +1439,7 @@ export default {
 }
 body .footer {
   z-index: 1;
-  --footer-background: #722e1d;
+  --footer-background: #13096d;
   display: grid;
   position: relative;
   grid-area: footer;
