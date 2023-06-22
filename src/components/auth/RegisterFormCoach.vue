@@ -1,4 +1,5 @@
 <template>
+  <div class="burbu">
   <div class="container">
     <h5>Register</h5>
     <p>Please fill in this form to create an account.</p>
@@ -56,7 +57,7 @@
     </p>
     <button @click="signUp" class="registerbtn">Register</button>
   </div>
-
+</div>
   <div class="container signin">
     <p>Already have an account? <a href="#">Sign in</a>.</p>
   </div>
@@ -73,6 +74,7 @@
   display: grid;
   justify-content: center;
   align-items: center;
+  border-color: #831818;
 }
 
 /* Full-width input fields */
@@ -123,6 +125,10 @@ a {
 .signin {
   background-color: #f1f1f1;
   text-align: center;
+}
+.burbu {
+  background-image: url("https://www.equiposytalento.com/contenido/noticias/cursocoahing943.png");
+  display: block;
 }
 </style>
 
