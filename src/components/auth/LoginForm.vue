@@ -36,7 +36,8 @@
             </button>
           </form>
           <div class="social-login">
-            ¿No tienes una cuenta?
+            <input type="checkbox" checked="checked" name="remember" />
+            Remember me | ¿No tienes una cuenta?
             <a href="#" class="social-login__icon">Regístrate</a>
           </div>
         </div>
@@ -1549,13 +1550,13 @@ body .footer .content > div .image {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 10rem); /* Resta la altura del pie de página */
-}
 
+  min-height: calc(110vh - 13rem); /* Resta la altura del pie de página */
+}
 .screen {
   background: linear-gradient(90deg, #042e5a71, #041629ef);
   position: relative;
-  height: 450px;
+  height: 470px;
   width: 250px;
   box-shadow: 0px 0px 5px #083e777e;
 }
@@ -1683,7 +1684,7 @@ body .footer .content > div .image {
 
 .social-login {
   position: absolute;
-  height: 35px;
+  height: 45px;
   width: 150px;
   text-align: center;
   bottom: 0px;
@@ -1693,7 +1694,7 @@ body .footer .content > div .image {
 
 .social-login__icon {
   position: absolute;
-  left: 155px;
+  left: 140px;
   color: #ffffff;
   text-decoration: none;
   text-shadow: 0px 0px 8px #1e1697;
