@@ -34,7 +34,7 @@
     </q-header>
     <q-page-container>
       <div class="demo">
-        <div class="container">
+        <div class="containerSs">
           <div class="row">
             <div class="col-md-12">
               <div id="testimonial-slider" class="owl-carousel">
@@ -147,6 +147,13 @@
 <script></script>
 
 <style>
+.containerSs {
+  padding: 80px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  animation: containerFadeIn 1.1s ease-in-out forwards;
+}
 .testimonial .pic {
   width: 22%;
   padding: 20px 0;
@@ -247,6 +254,7 @@
   border-radius: 1rem;
   box-shadow: 0px -10px 0px rgb(6, 0, 90);
   background-color: #516cc45b;
+  animation: containerFadeIn 1.1s ease-in-out forwards;
 }
 @media (max-width: 767px) {
   .card {
@@ -314,5 +322,25 @@ a:hover {
   align-items: center;
   margin-left: 3%;
   padding-bottom: 70px;
+}
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes containerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

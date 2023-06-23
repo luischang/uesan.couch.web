@@ -73,6 +73,7 @@
   display: grid;
   justify-content: center;
   align-items: center;
+  animation: containerFadeIn 1.1s ease-in-out forwards;
 }
 
 /* Full-width input fields */
@@ -123,6 +124,26 @@ a {
 .signin {
   background-color: #f1f1f1;
   text-align: center;
+}
+@keyframes textFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes containerFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
 
