@@ -5,7 +5,7 @@ const routes = [
     children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
   },
   {
-    path:"/termi",
+    path: "/termi",
     component: () => import("src/pages/terminos.vue"),
   },
   {
@@ -38,6 +38,12 @@ const routes = [
   {
     path: "/QuienesSomos",
     component: () => import("components/QuienesSomos.vue"),
+  },
+
+  // Zona de tests
+  {
+    path: "/intCoach",
+    component: () => import("src/components/interfaces/InterfazCoach.vue"),
   },
 
   // Always leave this as last one,
