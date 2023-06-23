@@ -28,8 +28,8 @@
         <q-route-tab to="/Register" label="Sign Up" />
         <q-route-tab to="/Servicios" label="Servicios" />
 
-        <q-route-tab to="/page2" label="Quienes Somos" />
-        <q-route-tab to="/page3" label="Inicio" />
+        <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
+        <q-route-tab to="/" label="Inicio" />
       </q-tabs>
     </q-header>
 
