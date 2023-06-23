@@ -29,7 +29,7 @@
         <q-route-tab to="/Servicios" label="Servicios" />
 
         <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
-        <q-route-tab to="/" label="Inicio" />
+        <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>
     </q-header>
 
