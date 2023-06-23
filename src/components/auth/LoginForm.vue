@@ -1564,7 +1564,8 @@ body .footer .content > div .image {
 .screen__content {
   z-index: 1;
   position: relative;
-  height: 100%;
+  
+
 }
 
 .screen__background {

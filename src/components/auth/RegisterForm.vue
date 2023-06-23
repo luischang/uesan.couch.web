@@ -1,74 +1,119 @@
 <template>
-  <div class="container">
-    <h5>Register</h5>
-    <p>Please fill in this form to create an account.</p>
-    <hr />
+  <div class="burbu">
+    <div class="container">
+      <div class="todo">
+      <h5><strong>REGISTRO DE USUARIO</strong></h5>
+      <p><strong>Por favor, complete este formulario para crear una cuenta de Usuario.</strong></p>
 
-    <label for="nombre"><b>Nombre</b></label>
-    <input
-      type="text"
-      v-model="Usuarios.nombre"
-      placeholder="Nombre"
-      required
-    />
-    <label for="apellido"><b>Apellido</b></label>
-    <input
-      type="text"
-      v-model="Usuarios.apellido"
-      placeholder="Apellido"
-      required
-    />
-    <label for="genero"><b>Genero</b></label>
-    <input
-      type="text"
-      v-model="Usuarios.genero"
-      placeholder="Genero"
-      required
-    />
-    <label for="nroContacto"><b>NroContacto</b></label>
-    <input
-      type="text"
-      v-model="Usuarios.nroContacto"
-      placeholder="N° Contacto"
-      required
-    />
-    <label for="correoElectronico"><b>CorreElectronico</b></label>
-    <input
-      type="text"
-      v-model="Usuarios.correoElectronico"
-      placeholder="Email"
-      name="email"
-      id="email"
-      required
-    />
-    <label for="contraseña"><b>Contraseña</b></label>
-    <input
-      type="contraseña"
-      v-model="Usuarios.contrasena"
-      placeholder="Enter Password"
-      name="psw"
-      id="psw"
-      required
-    />
-    <hr />
-    <p>
-      By creating an account you agree to our <a href="#">Terms & Privacy</a>.
-    </p>
-    <button @click="signUp" class="registerbtn">Register</button>
+      <label for="nombre"><b><strong>Nombre</strong></b></label>
+      <input type="text" v-model="Usuarios.nombre" placeholder="Nombre" required />
+
+      <label for="apellido"><b><strong>Apellido</strong></b></label>
+      <input type="text" v-model="Usuarios.apellido" placeholder="Apellido" required />
+
+      <label for="genero"><b><strong>Genero</strong></b></label>
+      <input type="text" v-model="Usuarios.genero" placeholder="Genero" required />
+
+      <label for="nroContacto"><b><strong>NroContacto</strong></b></label>
+      <input type="text" v-model="Usuarios.nroContacto" placeholder="N° Contacto" required />
+
+      <label for="correoElectronico"><b><strong>CorreElectronico</strong></b></label>
+      <input type="text" v-model="Usuarios.correoElectronico" placeholder="Email" name="email" id="email" required />
+
+      <label for="contraseña"><b><strong>Contraseña</strong></b></label>
+      <input type="contraseña" v-model="Usuarios.contrasena" placeholder="Enter Password" name="psw" id="psw" required />
+
+      <hr />
+
+      <div class="terminos-condiciones">
+        <input type="checkbox" id="acepto-terminos">
+        <label for="acepto-terminos"><strong>Al crear una cuenta, aceptas nuestros términos y condiciones</strong><a  href="src\pages\terminos.html">Terms & Privacy</a>.</label>
+      </div>
+
+      <button @click="signUp" class="registerbtn"><strong>Registrar</strong></button>
+
+
+      <div class="containersignin">
+      <p><strong>¿Ya tienes una cuenta?</strong> <router-link to="/login">Sign in</router-link>.</p>
+      </div>
   </div>
-
-  <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
   </div>
 </template>
 
+
 <style>
+input{
+  border-radius: 10px;
+}
+b{
+  color: rgb(231, 214, 214);
+  font-weight:bold;
+
+}
+p{
+  color: rgb(235, 214, 187);
+}
+h5{
+  color: red;
+}
+.todo{
+  background-color: rgba(4, 38, 41,0.8);
+  padding: 20px;
+  border-radius: 10px;
+  width: 35%;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  backdrop-filter: blur(10px);
+  opacity: 0.9;
+  z-index: 2;
+}
+.terminos-condiciones {
+  color:rgb(231, 214, 214);
+  margin-top: 0px;
+  margin-bottom: 40px;
+}
+
+.terminos-condiciones input[type="checkbox"] {
+  display: none;
+}
+
+.terminos-condiciones label:before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #999;
+  border-radius: 3px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.terminos-condiciones input[type="checkbox"]:checked + label:before {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.terminos-condiciones label {
+  cursor: pointer;
+}
+.containersignin{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.burbu {
+  background-image: url("https://www.equiposytalento.com/contenido/noticias/cursocoahing943.png");
+  display: block;
+}
 * {
   box-sizing: border-box;
 }
 
 /* Add padding to containers */
 .container {
+
   padding: 16px;
   display: grid;
   justify-content: center;
@@ -131,6 +176,7 @@ import axios from "axios";
 
 export default {
   name: "RegisterForm",
+
   data() {
     return {
       Usuarios: {
@@ -172,6 +218,10 @@ export default {
           });
         });
     },
+
   },
-};
+
+  };
+
+
 </script>

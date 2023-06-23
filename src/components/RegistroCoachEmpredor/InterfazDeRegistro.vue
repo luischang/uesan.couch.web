@@ -1,7 +1,7 @@
 <template>
   <div class="burbu">
     <div class="boot">
-      <q-btn color="green" label="Regresar" text-color="black" to="/Inicio" />
+      <q-btn class="crystal-button" color="verde" label="Regresar" text-color="black" to="/Inicio" />
     </div>
     <div class="block2">
       <h3><strong>Registrarse como Emprendedor</strong></h3>
@@ -22,6 +22,7 @@
       </p>
       <div class="q-pa-md q-gutter-sm">
         <q-btn
+        class="btne"
           color="green"
           text-color="black"
           label="Iniciar Registro"
@@ -51,6 +52,7 @@
       </p>
       <div class="q-pa-md q-gutter-sm">
         <q-btn
+          class="btnc"
           color="green"
           text-color="black"
           label="Iniciar Registro"
@@ -64,6 +66,16 @@
 <script></script>
 
 <style scoped>
+.btnc{
+  left: 60px;
+}
+.btne{
+  left: 60px;
+}
+.crystal-button {
+  backdrop-filter: blur(10px);
+  opacity: 0.9;
+}
 .burbu {
   background-image: url("https://www.equiposytalento.com/contenido/noticias/cursocoahing943.png");
   display: block;
@@ -73,12 +85,15 @@
 .block1 {
   height: 97.8%;
   width: 25%;
-  background-color: rgb(4, 38, 41);
+  background-color: rgba(4, 38, 41,0.8);
   padding: 15px;
   position: absolute;
   border-radius: 10px;
   text-align: auto;
   align-items: center;
+  backdrop-filter: blur(10px);
+  opacity: 0.9;
+  z-index: 2;
 }
 .block1 {
   right: 22%;
@@ -89,11 +104,14 @@
 .block2 {
   height: auto;
   width: 25%;
-  background-color: rgb(4, 38, 41);
+  background-color: rgba(4, 38, 41, 0.8);
   position: absolute;
   border-radius: 10px;
   padding: 10px;
   align-items: center;
+  backdrop-filter: blur(10px);
+  opacity: 0.9;
+  z-index: 2;
 }
 .block2 {
   left: 22%;

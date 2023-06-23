@@ -106,4 +106,7 @@ table tr td img{
 
     margin-right: 90px;
 }
+p{
+  color: black;
+}
 </style>

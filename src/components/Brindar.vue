@@ -21,6 +21,10 @@ import { defineComponent } from "vue";
   transition-property: initial;
   gap: 20px;
   align-items: center;
+
+}
+p{
+  color: black;
 }
 .ima {
   width: 300px;
