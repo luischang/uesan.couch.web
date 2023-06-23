@@ -4,6 +4,13 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
   />
   <div class="burbu">
+    <button
+      class="retrocederrr"
+      href="#"
+      onclick="history.back(); return false;"
+    >
+      &larr; Volver
+    </button>
     <div class="container">
       <div class="screen">
         <div class="screen__content">
@@ -38,7 +45,9 @@
           <div class="social-login">
             <input type="checkbox" checked="checked" name="remember" />
             Remember me | ¿No tienes una cuenta?
-            <a href="#" class="social-login__icon">Regístrate</a>
+            <a href="/Register#/Register" class="social-login__icon"
+              >Regístrate</a
+            >
           </div>
         </div>
         <div class="screen__background">
@@ -1420,6 +1429,10 @@ export default {
     },
   },
 };
+
+function goBack() {
+  window.history.back();
+}
 </script>
 
 <style>
@@ -1702,5 +1715,26 @@ body .footer .content > div .image {
 
 .social-login__icon:hover {
   transform: scale(1.1);
+}
+.retrocederrr {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  background-color: #ccc;
+
+  color: #021d3a;
+  /* sss */
+  background: #fff;
+
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+
+  box-shadow: 0px 2px 10px #021d3a;
+  cursor: pointer;
+  transition: 0.3s;
 }
 </style>
