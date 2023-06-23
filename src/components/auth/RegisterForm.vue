@@ -59,12 +59,12 @@ h5{
 }
 .todo{
   background-color: rgba(4, 38, 41,0.8);
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   width: 35%;
   margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   backdrop-filter: blur(10px);
   opacity: 0.9;
   z-index: 2;

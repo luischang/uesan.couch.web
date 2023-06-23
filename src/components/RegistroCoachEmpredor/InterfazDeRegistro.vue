@@ -1,7 +1,7 @@
 <template>
   <div class="burbu">
     <div class="boot">
-      <q-btn class="crystal-button" color="verde" label="Regresar" text-color="black" to="/Inicio" />
+      <q-btn class="crystal-button" color="verde" label="Regresar" text-color="white" to="/Inicio" />
     </div>
     <div class="block2">
       <h3><strong>Registrarse como Emprendedor</strong></h3>
@@ -73,7 +73,8 @@
   left: 60px;
 }
 .crystal-button {
-  backdrop-filter: blur(10px);
+  color: aliceblue;
+  backdrop-filter: blur(1000px);
   opacity: 0.9;
 }
 .burbu {
@@ -121,8 +122,8 @@
 }
 .boot {
   position: absolute;
-  top: 600px;
-  right: 160px;
+  top: 20px;
+  right: 1200px;
 }
 h3 {
   font-size: 25px;
