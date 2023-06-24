@@ -1572,7 +1572,7 @@ body .footer .content > div .image {
   background: linear-gradient(90deg, #042e5a71, #041629ef);
   position: relative;
   height: 470px;
-  width: 250px;
+  width: 350px;
   box-shadow: 0px 0px 5px #083e777e;
   animation: containerFadeIn 1.1s ease-in-out forwards;
 }
@@ -1580,8 +1580,6 @@ body .footer .content > div .image {
 .screen__content {
   z-index: 1;
   position: relative;
-  
-
 }
 
 .screen__background {
@@ -1704,8 +1702,8 @@ body .footer .content > div .image {
   height: 45px;
   width: 150px;
   text-align: center;
-  bottom: 0px;
-  left: 23px;
+  top: 415px;
+  left: 140px;
   color: #ffffff;
 }
 
