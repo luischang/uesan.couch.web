@@ -1,10 +1,11 @@
 <template>
-  <div class="burbu">
+  <div class="contenido">
     <div class="boot">
       <q-btn class="crystal-button" color="verde" label="Regresar" text-color="white" to="/Inicio" />
     </div>
     <div class="block2">
-      <h3><strong>Registrarse como Emprendedor</strong></h3>
+      <h3><strong>Registrarse como Emprendedor&nbsp;</strong></h3>
+      <br>
       <p>
         ¡Bienvenido, emprendedor! En nuestra comunidad, Te apoyaremos a impulsar
         tu proyecto y alcanzar tus metas empresariales.
@@ -31,7 +32,7 @@
       </div>
     </div>
     <div class="block1">
-      <h3><strong>Registrarse como Coach</strong></h3>
+      <h3><strong>Registrarse como <br>Coach</strong></h3>
       <p>
         ¡Hola, coach! En nuestra plataforma, encontrarás una oportunidad para
         compartir tus conocimientos y experiencia con emprendedores.
@@ -66,25 +67,42 @@
 <script></script>
 
 <style scoped>
+.contenido {
+  background-image: url("https://www.equiposytalento.com/contenido/noticias/cursocoahing943.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0.9;
+}
+
 .btnc{
-  left: 60px;
+  left: 90px;
 }
 .btne{
-  left: 60px;
+  left: 90px;
+}
+.boot{
+  position: absolute;
+  top: 20px;
+  right: 1200px;
+}
+.boot{
+  left:90px;
 }
 .crystal-button {
   color: aliceblue;
   backdrop-filter: blur(1000px);
   opacity: 0.9;
 }
-.burbu {
-  background-image: url("https://www.equiposytalento.com/contenido/noticias/cursocoahing943.png");
-  display: block;
-  width: 100%;
-  height: auto;
-}
+
 .block1 {
-  height: 97.8%;
+  height: auto;
   width: 25%;
   background-color: rgba(4, 38, 41,0.8);
   padding: 15px;
@@ -152,5 +170,8 @@ li{
   text-align:left;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: aliceblue;
+}
+.contenido {
+
 }
 </style>
