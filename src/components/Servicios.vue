@@ -1,8 +1,8 @@
-
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <q-layout view="LHh Lpr lFf">
-    <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98">
-      <q-toolbar class="">
+    <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98" :class="{ 'header-hidden': headerHidden } ">
+      <q-toolbar class="" >
         <q-toolbar-title
           class="titulo"
           style="
@@ -38,7 +38,8 @@
         <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>
     </q-header>
-<q-page-container>
+
+<q-page-container class="contenservico">
   <div class="servicio">
     <h2>Servicios de  Coaching</h2>
     <table>
@@ -88,10 +89,47 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-
+export default {
+  data() {
+    return {
+      headerHidden: false
+    };
+  },
+  mounted() {
+    // Agrega un listener para ocultar el header al hacer scroll hacia abajo
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    // Elimina el listener cuando el componente se destruye
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      // Si el scroll vertical es mayor a 100px, oculta el header
+      this.headerHidden = window.pageYOffset > 100;
+    }
+  }
+};
 </script>
 
 <style scoped>
+.header-hidden {
+  transform: translateY(-100%);
+}
+.contenservico{
+
+  background-image: url("public/imagenPro/register.png");
+  width: 100%;
+  height: auto;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position:initial;
+  background-attachment: fixed;
+  background-size: cover;
+
+
+}
+
 .letra2{
   width: 30%;
   height: 30%;
@@ -110,11 +148,6 @@ import { defineComponent, ref } from "vue";
   align-items: center;
   margin-left: 3%;
   padding-bottom: 70px;
-}
-.histo {
-  top: 20px;
-  bottom: 20px;
-  background-color: aqua;
 }
 .titulo {
   font-size: 60px;

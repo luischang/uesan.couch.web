@@ -38,17 +38,51 @@
       </q-tabs>
     </q-header>
 
-    <q-page-container>
-      <Brindar />
-    </q-page-container>
+    <q-page-container class="conti" >
+      <div>
+        <Brindar />
+      </div>
+      <div>
+        <h1>Historias de exito</h1>
+        <historias />
+      </div>
+      <div>
 
-    <q-page-container >
-      <h1>Historias de exito</h1>
-      <historias />
-    </q-page-container>
+      </div>
+      <div class="servicioscoach">
+        <h2>Servicios de  Coaching</h2>
+    <table>
+      <tr>
+        <td>
+          <img class="admi" src="img_Servicios/administracion.jpg" />
+          <p class="pAdmi">Coaching Administración</p>
+        </td>
+        <td>
+          <img class="cont" src="img_Servicios/contabilidad.jpg" />
+          <p class="pCont">Coaching Contabilidad</p>
+        </td>
+        <td>
+          <img class="deCorp" src="img_Servicios//derecho corporativo.jpg" />
+          <p>Coaching Derecho Corporativo</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img class="Fina" src="img_Servicios/finanzas.jpg" />
+          <p>Coaching Finanzas</p>
+        </td>
+        <td>
+          <img class="logi" src="img_Servicios/logistica.jpg" />
+          <p>Coaching Logistica</p>
+        </td>
+        <td>
+          <img class="mark" src="img_Servicios/Marketing.png" />
+          <p>Coaching Marketing</p>
+        </td>
+      </tr>
+    </table>
+      </div>
 
-    <q-page-container >
-      <Servicios class="ser" />
     </q-page-container>
 
     <q-footer reveal elevated class="bg-yellow-7  text-black">
@@ -64,14 +98,14 @@
 <script>
 import { defineComponent, ref } from "vue";
 import Brindar from "src/components/Brindar.vue";
-import Servicios from "src/components/Servicios.vue";
+
 
 export default defineComponent({
   name: "MainLayout",
 
   components: {
     Brindar,
-    Servicios,
+
   },
 
   setup() {
@@ -88,6 +122,7 @@ export default defineComponent({
 </script>
 
 <style scoped>
+
 .letra2{
   width: 30%;
   height: 30%;
@@ -102,14 +137,93 @@ export default defineComponent({
   margin-top: 0px;
 }
 
-.ser {
-  align-items: center;
-  margin-left: 3%;
-  padding-bottom: 70px;
-}
 .histo {
   top: 20px;
   bottom: 20px;
   background-color: aqua;
+}
+.servicioscoach{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.conti{
+background-image: url("public/imagenPro/register.png");
+width: 100%;
+height: auto;
+background-size:contain;
+background-repeat: no-repeat;
+background-position:initial;
+background-attachment: fixed;
+background-size: cover;
+
+
+}
+
+.servicio h2 {
+  padding: 20px;
+  font-size: 40px;
+  text-align: center;
+}
+.admi {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+  margin-top: 90px;
+  margin-left: 150px;
+}
+.admi1 p {
+  align-items: center;
+}
+.cont {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+  margin-top: 90px;
+  margin-left: 150px;
+}
+.deCorp {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+  margin-top: 90px;
+  margin-left: 150px;
+}
+.Fina {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+  margin-top: 90px;
+  margin-left: 150px;
+}
+.logi {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+  margin-top: 90px;
+  margin-left: 150px;
+}
+.mark {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+  margin-top: 90px;
+  margin-left: 150px;
+}
+table {
+  margin-left: 15%;
+}
+table p {
+  text-align: center;
+}
+table tr td p {
+  font-size: 20px;
+  margin-left: 50px;
+}
+table tr td img {
+  margin-right: 90px;
+}
+p{
+  color: black;
 }
 </style>
