@@ -1,6 +1,6 @@
 <template>
   <q-layout view="LHh Lpr lFf">
-    <q-header reveal elevated class="bg-primary text-white" height-hint="98">
+    <q-header reveal elevated class="bg-amber-6 text-black" height-hint="98">
       <q-toolbar class="">
         <q-toolbar-title
           class="titulo"
@@ -19,13 +19,13 @@
           >
             <img src="public/logo.png" />
           </q-avatar>
-          Emprende Facil
+          EmprendeFacil.
         </q-toolbar-title>
       </q-toolbar>
 
       <q-tabs align="right">
-        <q-route-tab to="/login" label="Login" />
-        <q-route-tab to="/Register" label="Sign Up" />
+        <q-route-tab to="/login" label="Iniciar sesión" />
+        <q-route-tab to="/Register" label="Registrarse" />
         <q-route-tab to="/Servicios" label="Servicios" />
 
         <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
@@ -36,14 +36,17 @@
     <q-page-container>
       <Brindar />
     </q-page-container>
-    <q-page-container>
-    <historias class="histo"/>
-    </q-page-container>
-    <q-page-container class="bg-primary">
-    <Servicios class="ser" />
+
+    <q-page-container class="palette:red">
+      <h1>Historias de exito</h1>
+      <historias />
     </q-page-container>
 
-    <q-footer reveal elevated class="bg-Blue-8 text-white">
+    <q-page-container class="bg-primary">
+      <Servicios class="ser" />
+    </q-page-container>
+
+    <q-footer reveal elevated class="bg-amber-6 text-white">
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
           <div>Emprende Facil &copy; 2023</div>
@@ -57,17 +60,13 @@
 import { defineComponent, ref } from "vue";
 import Brindar from "src/components/Brindar.vue";
 import Servicios from "src/components/Servicios.vue";
-import historias from "src/components/historias.vue";
-
 
 export default defineComponent({
   name: "MainLayout",
 
   components: {
     Brindar,
-    historias,
-    Servicios
-
+    Servicios,
   },
 
   setup() {
@@ -84,9 +83,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.bg-primary {
-  background: var(--q-primary= "#ffdd29") !important;
+.bg-Primary {
+  color: #f2f2f2;
 }
+
 .titulo {
   font-size: 60px;
   margin-left: 10px;
@@ -98,7 +98,7 @@ export default defineComponent({
   margin-left: 3%;
   padding-bottom: 70px;
 }
-.histo{
+.histo {
   top: 20px;
   bottom: 20px;
   background-color: aqua;
