@@ -1,6 +1,6 @@
 <template>
   <q-layout view="LHh Lpr lFf">
-    <q-header reveal elevated class="bg-amber-6 text-black" height-hint="98">
+    <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98">
       <q-toolbar class="">
         <q-toolbar-title
           class="titulo"
@@ -11,15 +11,20 @@
         >
           <q-avatar
             style="
-              width: 90px;
-              height: 90px;
+              width: auto;
+              height: 120px;
               border-radius: 10%;
               margin-top: 15px;
+              left: 50px;
             "
           >
             <img src="public/logo.png" />
           </q-avatar>
-          EmprendeFacil.
+          <div class="letra2">
+            <img  class="let" src="public/imagenPro/letra2.png" alt=".png">
+
+        </div>
+
         </q-toolbar-title>
       </q-toolbar>
 
@@ -27,7 +32,7 @@
         <q-route-tab to="/login" label="Iniciar sesión" />
         <q-route-tab to="/Register" label="Registrarse" />
         <q-route-tab to="/Servicios" label="Servicios" />
-
+        <q-route-tab to="/Servicios" label="Comunidad" />
         <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
         <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>
@@ -37,16 +42,16 @@
       <Brindar />
     </q-page-container>
 
-    <q-page-container class="palette:red">
+    <q-page-container >
       <h1>Historias de exito</h1>
       <historias />
     </q-page-container>
 
-    <q-page-container class="bg-primary">
+    <q-page-container >
       <Servicios class="ser" />
     </q-page-container>
 
-    <q-footer reveal elevated class="bg-amber-6 text-white">
+    <q-footer reveal elevated class="bg-yellow-7  text-black">
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
           <div>Emprende Facil &copy; 2023</div>
@@ -83,8 +88,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.bg-Primary {
-  color: #f2f2f2;
+.letra2{
+  width: 30%;
+  height: 30%;
+  position:absolute;
+  left: 270px;
+  bottom: 260px;
 }
 
 .titulo {

@@ -1,6 +1,6 @@
 <template>
   <div class="pri1">
-    <img class="ima" src="public/logo.png" />
+    <img class="ima" src="public\imagenPro\Circle Education Badge Logo (3).png" />
     <p class="pri11">
       Nuestros servicios de coaching para emprendedores se dedica a brindar el
       apoyo y la orientación necesaria para que los emprendedores alcancen su
@@ -27,8 +27,8 @@ p{
   color: black;
 }
 .ima {
-  width: 300px;
-  height: 300px;
+  width: 370px;
+  height: 440px;
   border-radius: 18px;
   margin-top: 70px;
   margin-left: 150px;
