@@ -2,7 +2,12 @@ const routes = [
   {
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
-    children: [{ path: "", component: () => import("pages/IndexPage.vue") }],
+    children: [{
+      path: "", component: () => import("pages/IndexPage.vue"),
+      path:"",component: () => import("components/historias.vue"),
+      path:"",component: () => import("components/Servicios.vue"),
+
+  }],
   },
   {
     path: "/termi",
@@ -24,6 +29,10 @@ const routes = [
   {
     path: "/RegisterCoach",
     component: () => import("components/auth/RegisterFormCoach.vue"),
+  },
+  {
+    path: "/historias",
+    component: () => import("components/historias.vue")
   },
 
   {

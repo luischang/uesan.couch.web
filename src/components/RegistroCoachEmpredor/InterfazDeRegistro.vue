@@ -76,6 +76,7 @@
   color: aliceblue;
   backdrop-filter: blur(1000px);
   opacity: 0.9;
+  display: flex;
 }
 .burbu {
   background-image: url("https://www.equiposytalento.com/contenido/noticias/cursocoahing943.png");

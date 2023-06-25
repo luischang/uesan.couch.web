@@ -1,4 +1,6 @@
 <template>
+
+
   <div class="servicio">
     <h2>Servicios Coaching</h2>
     <table>
@@ -32,11 +34,20 @@
       </tr>
     </table>
   </div>
+
 </template>
+
+
+
 <script>
 import { defineComponent } from "vue";
 </script>
 <style scoped>
+.titulo {
+  font-size: 60px;
+  margin-left: 10px;
+  margin-top: 0px;
+}
 .servicio h2 {
   padding: 20px;
   font-size: 40px;
