@@ -63,7 +63,7 @@
       <div class="q-pa-md q-gutter-sm">
         <q-btn
         class="btne"
-          color="green"
+          color="white"
           text-color="black"
           label="Iniciar Registro"
           to="/RegisterEmprendedor"
@@ -93,7 +93,7 @@
       <div class="q-pa-md q-gutter-sm">
         <q-btn
           class="btnc"
-          color="green"
+          color="white"
           text-color="black"
           label="Iniciar Registro"
           to="/RegisterCoach"
@@ -182,21 +182,21 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 15px;
-  left: 0px;
 }
 
 .block2 {
   height: auto;
   width: 25%;
-  background-color: rgba(4, 38, 41,0.8);
+  background-color: rgba(252, 251, 248, 0.966);
   padding: 15px;
   margin-right: 20%;
+  margin-bottom: 4%;
   align-items: center;
+  border-color: black;
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  opacity: 0.9;
-  z-index: 2;
+  opacity: 1;
+  z-index: 5;
 }
 
 
@@ -205,12 +205,13 @@ export default {
   width: 25%;
   padding: 15px;
   margin-left: 20%;
+  margin-bottom: 4%;
   align-items: center;
-  background-color: rgba(4, 38, 41, 0.8);
+  background-color: rgba(252, 251, 248, 0.966);
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  opacity: 0.9;
-  z-index: 2;
+  opacity: 1;
+  z-index: 5;
 }
 h3 {
   font-size: 25px;
@@ -226,7 +227,7 @@ p{
   font-size: 15px;
   text-align: justify;
   font-family: Georgia, "Times New Roman", Times, serif;
-  color:aliceblue;
+  color:rgb(0, 5, 10);
   font-weight: 700;
 }
 ul{
@@ -238,7 +239,7 @@ li{
   font-size: 15px;
   text-align:left;
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: aliceblue;
+  color: rgb(0, 5, 10);
 }
 .header-hidden {
   transform: translateY(-100%);
