@@ -86,10 +86,7 @@ https://quasar.dev/vue-components/card#example--expandable
               <q-img src="public\imagenes\team.jpg"></q-img>
 
               <q-card-section>
-                <div class="text-caption text-grey">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </div>
+                <div class="text-caption text-grey">JAJAJJAJAJAJ</div>
               </q-card-section>
             </q-card>
             <q-card class="my-card" flat bordered>
