@@ -205,7 +205,8 @@ export default {
   margin-left: 150px;
 }
 table {
-  margin-left: 10%;
+  margin-left: 15%;
+  padding-bottom: 40px;
 }
 table p {
   text-align: center;

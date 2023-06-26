@@ -21,10 +21,8 @@
             <img src="public/logo.png" />
           </q-avatar>
           <div class="letra2">
-            <img  class="let" src="public/imagenPro/letra2.png" alt=".png">
-
-        </div>
-
+            <img class="let" src="public/imagenPro/letra2.png" alt=".png" />
+          </div>
         </q-toolbar-title>
       </q-toolbar>
 
@@ -38,54 +36,127 @@
       </q-tabs>
     </q-header>
 
-    <q-page-container class="conti" >
+    <q-page-container class="conti">
       <div>
         <Brindar />
       </div>
-      <div>
-        <h1>Historias de exito</h1>
-        <historias />
-      </div>
-      <div>
 
-      </div>
-      <div class="servicioscoach">
-        <h2>Servicios de  Coaching</h2>
-    <table>
-      <tr>
-        <td>
-          <img class="admi" src="img_Servicios/administracion.jpg" />
-          <p class="pAdmi">Coaching Administración</p>
-        </td>
-        <td>
-          <img class="cont" src="img_Servicios/contabilidad.jpg" />
-          <p class="pCont">Coaching Contabilidad</p>
-        </td>
-        <td>
-          <img class="deCorp" src="img_Servicios//derecho corporativo.jpg" />
-          <p>Coaching Derecho Corporativo</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img class="Fina" src="img_Servicios/finanzas.jpg" />
-          <p>Coaching Finanzas</p>
-        </td>
-        <td>
-          <img class="logi" src="img_Servicios/logistica.jpg" />
-          <p>Coaching Logistica</p>
-        </td>
-        <td>
-          <img class="mark" src="img_Servicios/Marketing.png" />
-          <p>Coaching Marketing</p>
-        </td>
-      </tr>
-    </table>
-      </div>
+      <div style="text-align: center;">
+        <h2>Historias de exito</h2>
+<!--
+Forked from:
+https://quasar.dev/vue-components/card#example--expandable
+-->
+<div id="q-app" style="min-height: 100vh;">
+<div class="q-pa-md row items-start q-gutter-md " style="margin-left: 40px;margin-top: 80px;">
 
+  <q-card class="my-card" flat bordered>
+      <q-img
+        src="public\imagenes\gerson.jpg"
+      ></q-img>
+
+      <q-card-section>
+        <div class="text-caption text-grey">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+      </q-card-section>
+
+    </q-card>
+    <q-card class="my-card" flat bordered>
+      <q-img
+        src="public\imagenes\Melva.jpg"
+      ></q-img>
+
+      <q-card-section>
+        <div class="text-caption text-grey">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+      </q-card-section>
+
+    </q-card>
+    <q-card class="my-card" flat bordered>
+      <q-img
+        src="public\imagenes\sebastian.jpg"
+      ></q-img>
+
+      <q-card-section>
+        <div class="text-caption text-grey">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+      </q-card-section>
+
+    </q-card>
+    <q-card class="my-card" flat bordered>
+      <q-img
+        src="public\imagenes\team.jpg"
+      ></q-img>
+
+      <q-card-section>
+        <div class="text-caption text-grey">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+      </q-card-section>
+
+    </q-card>
+    <q-card class="my-card" flat bordered>
+      <q-img
+        src="public\imagenes\jose.jpg"
+      ></q-img>
+
+      <q-card-section>
+        <div class="text-caption text-grey">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </div>
+      </q-card-section>
+
+    </q-card>
+
+
+
+  </div>
+</div>
+  </div>
+
+
+      <div class="servicioscoach" >
+        <h2>Servicios de Coaching</h2>
+        <table >
+          <tr>
+            <td>
+              <img class="admi" src="img_Servicios/administracion.jpg" />
+              <p class="pAdmi">Coaching Administración</p>
+            </td>
+            <td>
+              <img class="cont" src="img_Servicios/contabilidad.jpg" />
+              <p class="pCont">Coaching Contabilidad</p>
+            </td>
+            <td>
+              <img
+                class="deCorp"
+                src="img_Servicios//derecho corporativo.jpg"
+              />
+              <p>Coaching Derecho Corporativo</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img class="Fina" src="img_Servicios/finanzas.jpg" />
+              <p>Coaching Finanzas</p>
+            </td>
+            <td>
+              <img class="logi" src="img_Servicios/logistica.jpg" />
+              <p>Coaching Logistica</p>
+            </td>
+            <td>
+              <img class="mark" src="img_Servicios/Marketing.png" />
+              <p>Coaching Marketing</p>
+            </td>
+          </tr>
+        </table>
+      </div>
     </q-page-container>
 
-    <q-footer reveal elevated class="bg-yellow-7  text-black">
+    <q-footer reveal elevated class="bg-yellow-7 text-black">
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
           <div>Emprende Facil &copy; 2023</div>
@@ -99,34 +170,27 @@
 import { defineComponent, ref } from "vue";
 import Brindar from "src/components/Brindar.vue";
 
-
 export default defineComponent({
   name: "MainLayout",
 
   components: {
     Brindar,
-
   },
 
-  setup() {
-    const leftDrawerOpen = ref(false);
 
-    return {
-      leftDrawerOpen,
-      toggleLeftDrawer() {
-        leftDrawerOpen.value = !leftDrawerOpen.value;
-      },
-    };
-  },
 });
+
 </script>
 
 <style scoped>
-
-.letra2{
+.my-card {
+  width: 100%;
+  max-width: 250px;
+}
+.letra2 {
   width: 30%;
   height: 30%;
-  position:absolute;
+  position: absolute;
   left: 270px;
   bottom: 260px;
 }
@@ -142,22 +206,22 @@ export default defineComponent({
   bottom: 20px;
   background-color: aqua;
 }
-.servicioscoach{
+.servicioscoach {
+  position:relative;
   align-items: center;
   justify-content: center;
   text-align: center;
+  bottom: 160px;
 }
-.conti{
-background-image: url("public/imagenPro/register.png");
-width: 100%;
-height: auto;
-background-size:contain;
-background-repeat: no-repeat;
-background-position:initial;
-background-attachment: fixed;
-background-size: cover;
-
-
+.conti {
+  background-image: url("public/imagenPro/register.png");
+  width: 100%;
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: initial;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .servicio h2 {
@@ -223,7 +287,7 @@ table tr td p {
 table tr td img {
   margin-right: 90px;
 }
-p{
+p {
   color: black;
 }
 </style>
