@@ -36,7 +36,7 @@
         <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>
     </q-header>
-    <q-page-container>
+    <q-page-container class="contss">
       <div class="demo">
         <div class="containerSs">
           <div class="row">
@@ -158,6 +158,16 @@
 <script></script>
 
 <style>
+.contss{
+  background-image: url("public/imagenPro/comu.png");
+width: 100%;
+height: 100%;
+background-repeat: no-repeat;
+background-size:contain;
+background-size:fullscream;
+background-position:-0.2px 60px ;
+
+}
 .letra2{
   width: 30%;
   height: 30%;
@@ -272,7 +282,7 @@
 .card {
   border-radius: 1rem;
   box-shadow: 0px -10px 0px rgb(6, 0, 90);
-  background-color: #516cc45b;
+  background-color: #083ef35b;
   animation: containerFadeIn 1.1s ease-in-out forwards;
 }
 @media (max-width: 767px) {
