@@ -1,9 +1,69 @@
-<template>
+<template onload="reloadPage()">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
   />
-  <div class="burbu">
+  <div class="burbuu">
+    <div class="container">
+      <div class="screenn">
+        <div class="screenn__content">
+          <div class="welcome-container">
+            <img class="welcome-image" src="public/logo.png" />
+            <p class="welcome-text">Bienvenido!</p>
+          </div>
+          <form class="loginn">
+            <div class="loginn__field">
+              <i class="loginn__icon fas fa-user"></i>
+              <input
+                type="text"
+                v-model="correoElectronico"
+                class="loginn__input"
+                placeholder="Correo"
+                name="uname"
+                required
+              />
+            </div>
+            <div class="loginn__field">
+              <i class="loginn__icon fas fa-lock"></i>
+              <input
+                v-model="contrasena"
+                type="password"
+                class="loginn__input"
+                placeholder="Contraseña"
+                name="psw"
+                required
+              />
+            </div>
+            <button class="button loginn__submit" @click="login">
+              Ingresar
+              <i class="button__icon fas fa-chevron-right"></i>
+            </button>
+          </form>
+          <div class="social-loginn">
+            <input type="checkbox" checked="checked" name="remember" />
+            Recordar | ¿No tienes una cuenta?
+            <a href="/Register#/Register" class="social-loginn__icon"
+              >Regístrate</a
+            >
+          </div>
+        </div>
+        <div class="screenn__background">
+          <span
+            class="screenn__background__shape screenn__background__shape4"
+          ></span>
+          <span
+            class="screenn__background__shape screenn__background__shape3"
+          ></span>
+          <span
+            class="screenn__background__shape screenn__background__shape2"
+          ></span>
+          <span
+            class="screenn__background__shape screenn__background__shape1"
+          ></span>
+        </div>
+      </div>
+    </div>
+    <!-- partial:index.partial.html -->
     <button
       class="retrocederrr"
       href="#"
@@ -11,62 +71,6 @@
     >
       &larr; Volver
     </button>
-    <div class="container">
-      <div class="screen">
-        <div class="screen__content">
-          <form class="login">
-            <div class="login__field">
-              <i class="login__icon fas fa-user"></i>
-              <input
-                type="text"
-                v-model="correoElectronico"
-                class="login__input"
-                placeholder="Correo"
-                name="uname"
-                required
-              />
-            </div>
-            <div class="login__field">
-              <i class="login__icon fas fa-lock"></i>
-              <input
-                v-model="contrasena"
-                type="password"
-                class="login__input"
-                placeholder="Contraseña"
-                name="psw"
-                required
-              />
-            </div>
-            <button class="button login__submit" @click="login">
-              Log In Now
-              <i class="button__icon fas fa-chevron-right"></i>
-            </button>
-          </form>
-          <div class="social-login">
-            <input type="checkbox" checked="checked" name="remember" />
-            Remember me | ¿No tienes una cuenta?
-            <a href="/Register#/Register" class="social-login__icon"
-              >Regístrate</a
-            >
-          </div>
-        </div>
-        <div class="screen__background">
-          <span
-            class="screen__background__shape screen__background__shape4"
-          ></span>
-          <span
-            class="screen__background__shape screen__background__shape3"
-          ></span>
-          <span
-            class="screen__background__shape screen__background__shape2"
-          ></span>
-          <span
-            class="screen__background__shape screen__background__shape1"
-          ></span>
-        </div>
-      </div>
-    </div>
-    <!-- partial:index.partial.html -->
   </div>
 </template>
 
@@ -81,6 +85,7 @@ export default {
       contraseña: "",
     };
   },
+
   methods: {
     login: function () {
       var url = "http://localhost:5083/api/Usuarios/SignIn";
@@ -122,42 +127,73 @@ function goBack() {
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
-.burbu {
-  display: grid;
-  grid-template-rows: 1fr 10rem auto;
-  min-height: vh;
-  grid-template-areas: "main" "." "footer";
-  overflow-x: hidden;
-  overflow-y: hidden;
-
-  background-image: url("https://www.equiposytalento.com/contenido/noticias/cursocoahing943.png");
-  background-size: cover;
+.burbuu {
+  position: relative;
+  overflow: hidden;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("public/imagenPro/register.png");
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-  font-family: "Open Sans", sans-serif;
+  background-position: initial;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+  margin-top: 2rem;
+  margin-bottom: -2.5rem;
+}
+
+.welcome-image {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.welcome-text {
+  font-size: 24px;
+  color: #5f59598e;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  min-height: calc(94vh - 5rem); /* Resta la altura del pie de página */
+  align-items: center;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
-.screen {
-  background: linear-gradient(90deg, #042e5a71, #041629ef);
+
+.screenn {
+  background: linear-gradient(90deg, #bb9221, #f0b923);
   position: relative;
   height: 470px;
   width: 300px;
-  box-shadow: 0px 0px 5px #083e777e;
+  box-shadow: 0px 0px 50px #ad871f;
   animation: containerFadeIn 1.1s ease-in-out forwards;
 }
 
-.screen__content {
+.screenn__content {
   z-index: 1;
   position: relative;
 }
 
-.screen__background {
+.screenn__background {
   position: absolute;
   top: 0;
   left: 0;
@@ -168,12 +204,12 @@ function goBack() {
   clip-path: inset(0 0 0 0);
 }
 
-.screen__background__shape {
+.screenn__background__shape {
   transform: rotate(45deg);
   position: absolute;
 }
 
-.screen__background__shape1 {
+.screenn__background__shape1 {
   height: 520px;
   width: 520px;
   background: #fff;
@@ -182,67 +218,67 @@ function goBack() {
   border-radius: 0 72px 0 0;
 }
 
-.screen__background__shape2 {
+.screenn__background__shape2 {
   height: 220px;
   width: 220px;
-  background: #0f386352;
+  background: #ecc24e;
   top: -172px;
   right: 0;
   border-radius: 32px;
 }
 
-.screen__background__shape3 {
+.screenn__background__shape3 {
   height: 540px;
   width: 190px;
-  background: linear-gradient(270deg, #0531617c, #021d3ac0);
+  background: linear-gradient(270deg, #f3c853, rgb(219, 179, 68));
   top: -24px;
   right: 0;
   border-radius: 32px;
 }
 
-.screen__background__shape4 {
+.screenn__background__shape4 {
   height: 400px;
   width: 200px;
-  background: #0f386381;
+  background: #d6ae3e;
   top: 420px;
   right: 50px;
   border-radius: 60px;
 }
 
-.login {
+.loginn {
   width: 325px;
   padding: 30px;
-  padding-top: 156px;
 }
 
-.login__field {
+.loginn__field {
   padding: 20px 0px;
   position: relative;
 }
-.login__icon {
+.loginn__icon {
   position: absolute;
   top: 30px;
-  color: #021d3a;
+  color: #f2c037bb;
 }
-.login__input {
+.loginn__input {
   border: none;
-  border-bottom: 2px solid #021d3a;
+  border-bottom: 2px solid #f2c037;
   background: none;
   padding: 10px;
   padding-left: 18px;
   font-weight: 700;
+
   width: 75%;
   transition: 0.2s;
 }
 
-.login__input:active,
-.login__input:focus,
-.login__input:hover {
+.loginn__input:active,
+.loginn__input:focus,
+.loginn__input:hover {
   outline: none;
-  border-bottom-color: #103257;
+  border-bottom-color: #f2c037;
 }
 
-.login__submit {
+.loginn__submit {
   background: #fff;
   margin-top: 22px;
   margin-left: 19px;
@@ -253,44 +289,45 @@ function goBack() {
   font-weight: 700;
   display: flex;
   width: 65%;
-  color: #021d3a;
-  box-shadow: 0px 2px 10px #021d3a;
+  color: #c2970a;
+  box-shadow: 0px 2px 20px #f2c037;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.login__submit:active,
-.login__submit:focus,
-.login__submit:hover {
-  border-color: #151168;
+.loginn__submit:active,
+.loginn__submit:focus,
+.loginn__submit:hover {
+  border-color: #946f10;
   outline: none;
 }
 
 .button__icon {
   font-size: 20px;
   margin-left: auto;
-  color: #021d3a;
+  color: #f2c037;
 }
 
-.social-login {
+.social-loginn {
   position: absolute;
   height: 45px;
   width: 150px;
   text-align: center;
-  top: 415px;
+  top: 380px;
   left: 80px;
   color: #ffffff;
 }
 
-.social-login__icon {
+.social-loginn__icon {
   position: absolute;
-  left: 140px;
+  left: 120px;
   color: #ffffff;
+
   text-decoration: none;
-  text-shadow: 0px 0px 8px #1e1697;
+  text-shadow: 0px 0px 20px #f2c037;
 }
 
-.social-login__icon:hover {
+.social-loginn__icon:hover {
   transform: scale(1.1);
 }
 .retrocederrr {
@@ -300,7 +337,7 @@ function goBack() {
   padding: 10px;
   background-color: #ccc;
 
-  color: #021d3a;
+  color: #c2970a;
   /* sss */
   background: #fff;
 
@@ -310,7 +347,7 @@ function goBack() {
   font-weight: 700;
   display: flex;
 
-  box-shadow: 0px 2px 10px #021d3a;
+  box-shadow: 0px 2px 10px #f2c037;
   cursor: pointer;
   transition: 0.3s;
   animation: containerFadeIn 1.1s ease-in-out forwards;

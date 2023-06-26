@@ -21,15 +21,13 @@
             <img src="public/logo.png" />
           </q-avatar>
           <div class="letra2">
-            <img  class="let" src="public/imagenPro/letra2.png" alt=".png">
-
-        </div>
-
+            <img class="let" src="public/imagenPro/letra2.png" alt=".png" />
+          </div>
         </q-toolbar-title>
       </q-toolbar>
 
       <q-tabs align="right">
-        <q-route-tab to="/login" label="Iniciar sesión" />
+        <q-route-tab to="/login" @click="reloadPage" label="Iniciar sesión" />
         <q-route-tab to="/Register" label="Registrarse" />
         <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/Servicios" label="Comunidad" />
@@ -42,16 +40,16 @@
       <Brindar />
     </q-page-container>
 
-    <q-page-container >
+    <q-page-container>
       <h1>Historias de exito</h1>
       <historias />
     </q-page-container>
 
-    <q-page-container >
+    <q-page-container>
       <Servicios class="ser" />
     </q-page-container>
 
-    <q-footer reveal elevated class="bg-yellow-7  text-black">
+    <q-footer reveal elevated class="bg-yellow-7 text-black">
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
           <div>Emprende Facil &copy; 2023</div>
@@ -88,10 +86,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.letra2{
+.letra2 {
   width: 30%;
   height: 30%;
-  position:absolute;
+  position: absolute;
   left: 270px;
   bottom: 260px;
 }
