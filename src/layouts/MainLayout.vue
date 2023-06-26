@@ -141,16 +141,15 @@ https://quasar.dev/vue-components/card#example--expandable
       </div>
     </q-page-container>
 
-    <q-page-container>
+    <!-- <q-page-container>
       <h1>Historias de exito</h1>
       <historias />
-    </q-page-container>
+    </q-page-container> -->
 
-    <q-page-container>
+    <!-- <q-page-container>
       <Servicios class="ser" />
-    </q-page-container>
+    </q-page-container> -->
 
-    ======= >>>>>>> 9db3254e5d1377730109468f219b6a723dd7e92a
     <q-footer reveal elevated class="bg-yellow-7 text-black">
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
