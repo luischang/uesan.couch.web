@@ -34,17 +34,22 @@
                 />
               </div>
             </div>
+
             <div class="login__field">
               <div class="column">
                 <i class="login__icon fas fa-male"></i>
-                <input
-                  class="login__input"
-                  type="text"
-                  v-model="Usuarios.genero"
-                  placeholder="Genero"
-                  required
-                />
-              </div>
+              <q-select
+              label="Género"
+              color="teal"
+              options-selected-class="text-deep-orange"
+                class="login__input"
+                v-model="Usuarios.genero"
+                :options="generoOptions"
+                placeholder="Género"
+                required
+              />
+            </div>
+
               <div class="column">
                 <i class="login__icon fas fa-phone-alt"></i>
                 <input
@@ -126,6 +131,8 @@
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+
+
 .burbu {
   position: relative;
   display: grid;
@@ -139,6 +146,7 @@
   background-position: initial;
   background-attachment: fixed;
   background-size: cover;
+  border-radius: 10px;
   /* Reflejar horizontalmente */
 }
 
@@ -153,9 +161,10 @@
 }
 
 .welcome-image {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .welcome-text {
@@ -187,11 +196,13 @@
   width: 500px;
   box-shadow: 0px 0px 50px #ad871f;
   animation: containerFadeIn 1.1s ease-in-out forwards;
+  border-radius: 10px;
 }
 
 .screen__content {
   z-index: 1;
   position: relative;
+
 }
 
 .screen__background {
@@ -203,6 +214,7 @@
   z-index: 0;
   -webkit-clip-path: inset(0 0 0 0);
   clip-path: inset(0 0 0 0);
+
 }
 
 .screen__background__shape {
@@ -248,7 +260,7 @@
 
 .login {
   width: 480px;
-  padding: 30px;
+  padding: 34px;
 }
 
 .login__field {
@@ -291,7 +303,7 @@
 
 .login__submit {
   background: #fff;
-  margin-top: 70px;
+  margin-top: 50px;
   margin-left: 70px;
   padding: 16px 30px;
   border-radius: 26px;
@@ -324,7 +336,7 @@
   height: 45px;
   width: 400px;
   text-align: center;
-  top: 360px;
+  top: 380px;
   left: 40px;
   color: #5c5a5a;
 }
@@ -401,9 +413,10 @@ export default {
         nroContacto: "",
         correoElectronico: "",
         contrasena: "",
-        idTipo: 2,
+        idTipo: 1,
         isActive: true,
       },
+      generoOptions: ['Femenino', 'Masculino']
     };
   },
   methods: {

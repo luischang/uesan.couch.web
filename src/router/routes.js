@@ -52,6 +52,10 @@ const routes = [
     path: "/QuienesSomos",
     component: () => import("components/QuienesSomos.vue"),
   },
+  {
+    path: "/Comunidad",
+    component: () => import("components/Comunidad.vue"),
+  },
 
   // Zona de tests
   {

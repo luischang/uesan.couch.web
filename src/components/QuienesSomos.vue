@@ -31,7 +31,7 @@
         <q-route-tab to="/login" label="Iniciar sesión" />
         <q-route-tab to="/Register" label="Registrarse" />
         <q-route-tab to="/Servicios" label="Servicios" />
-        <q-route-tab to="/Servicios" label="Comunidad" />
+        <q-route-tab to="/Comunidad" label="Comunidad" />
         <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
         <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>

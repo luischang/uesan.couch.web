@@ -34,17 +34,22 @@
                 />
               </div>
             </div>
+
             <div class="login__field">
               <div class="column">
                 <i class="login__icon fas fa-male"></i>
-                <input
-                  class="login__input"
-                  type="text"
-                  v-model="Usuarios.genero"
-                  placeholder="Genero"
-                  required
-                />
-              </div>
+              <q-select
+              label="Género"
+              color="teal"
+              options-selected-class="text-deep-orange"
+                class="login__input"
+                v-model="Usuarios.genero"
+                :options="generoOptions"
+                placeholder="Género"
+                required
+              />
+            </div>
+
               <div class="column">
                 <i class="login__icon fas fa-phone-alt"></i>
                 <input
@@ -192,6 +197,7 @@
 .screen__content {
   z-index: 1;
   position: relative;
+
 }
 
 .screen__background {
@@ -248,7 +254,7 @@
 
 .login {
   width: 480px;
-  padding: 30px;
+  padding: 20px;
 }
 
 .login__field {
@@ -291,7 +297,7 @@
 
 .login__submit {
   background: #fff;
-  margin-top: 70px;
+  margin-top: 60px;
   margin-left: 70px;
   padding: 16px 30px;
   border-radius: 26px;
@@ -324,7 +330,7 @@
   height: 45px;
   width: 400px;
   text-align: center;
-  top: 360px;
+  top: 370px;
   left: 40px;
   color: #5c5a5a;
 }
@@ -404,6 +410,7 @@ export default {
         idTipo: 2,
         isActive: true,
       },
+      generoOptions: ['Femenino', 'Masculino']
     };
   },
   methods: {
