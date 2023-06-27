@@ -10,7 +10,7 @@
           "
         >
           <q-avatar
-          style="
+            style="
               width: auto;
               height: 120px;
               border-radius: 10%;
@@ -21,9 +21,8 @@
             <img src="public/logo.png" />
           </q-avatar>
           <div class="letra2">
-            <img  class="let" src="public/imagenPro/letra2.png" alt=".png">
-
-        </div>
+            <img class="let" src="public/imagenPro/letra2.png" alt=".png" />
+          </div>
         </q-toolbar-title>
       </q-toolbar>
 
@@ -145,7 +144,7 @@
         </div>
       </div>
     </q-page-container>
-    <q-footer reveal elevated class="bg-yellow-7  text-black" >
+    <q-footer reveal elevated class="bg-yellow-7 text-black">
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
           <div>Emprende Facil &copy; 2023</div>
@@ -158,20 +157,19 @@
 <script></script>
 
 <style>
-.contss{
-  background-image: url("public/imagenPro/comu.png");
-width: 100%;
-height: 100%;
-background-repeat: no-repeat;
-background-size:contain;
-background-size:fullscream;
-background-position:-0.2px 60px ;
-
+.contss {
+  background-image: url("public/imagenPro/register.png");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-size: cover;
+  background-position: -0.2px 60px;
 }
-.letra2{
+.letra2 {
   width: 30%;
   height: 30%;
-  position:absolute;
+  position: absolute;
   left: 270px;
   bottom: 260px;
 }
@@ -196,7 +194,7 @@ background-position:-0.2px 60px ;
   content: "";
   width: 130px;
   height: 150px;
-  background: #0d0852;
+  background: #f0b923a1;
   position: absolute;
   z-index: -1;
 }
@@ -212,7 +210,7 @@ background-position:-0.2px 60px ;
   width: 100%;
   height: auto;
   border-radius: 2rem;
-  border: 3px solid #17033b;
+  border: 3px solid #c5a039a1;
 }
 .testimonial .testimonial-content {
   width: 70%;
@@ -281,8 +279,8 @@ background-position:-0.2px 60px ;
 }
 .card {
   border-radius: 1rem;
-  box-shadow: 0px -10px 0px rgb(6, 0, 90);
-  background-color: #083ef35b;
+  box-shadow: 0px -10px 0px #f0b923;
+  background-color: #f0b92394;
   animation: containerFadeIn 1.1s ease-in-out forwards;
 }
 @media (max-width: 767px) {

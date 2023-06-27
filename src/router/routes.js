@@ -2,12 +2,16 @@ const routes = [
   {
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
-    children: [{
-      path: "", component: () => import("pages/IndexPage.vue"),
-      path:"",component: () => import("components/HistoriaExito.vue"),
-      path:"",component: () => import("components/Servicios.vue"),
-
-  }],
+    children: [
+      {
+        path: "",
+        component: () => import("pages/IndexPage.vue"),
+        path: "",
+        component: () => import("components/HistoriaExito.vue"),
+        path: "",
+        component: () => import("components/Servicios.vue"),
+      },
+    ],
   },
   {
     path: "/HistoriaExito.vue",
@@ -36,13 +40,14 @@ const routes = [
   },
   {
     path: "/historias",
-    component: () => import("components/historias.vue")
+    component: () => import("components/historias.vue"),
   },
 
   {
     path: "/Servicios",
     component: () => import("components/Servicios.vue"),
   },
+
   {
     path: "/Inicio",
     component: () => import("layouts/MainLayout.vue"),
@@ -55,6 +60,10 @@ const routes = [
   {
     path: "/Comunidad",
     component: () => import("components/Comunidad.vue"),
+  },
+  {
+    path: "/ElecCoach",
+    component: () => import("components/ElecCoach.vue"),
   },
 
   // Zona de tests
