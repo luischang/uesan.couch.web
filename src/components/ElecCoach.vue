@@ -1,43 +1,62 @@
 <template>
-  <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98">
-    <q-toolbar>
-      <q-toolbar-title
-        class="titulo"
-        style="
-          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
-            sans-serif;
-        "
-      >
-        <q-avatar
+<q-layout view="LHh Lpr lFf">
+    <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98">
+      <q-toolbar class="">
+        <q-toolbar-title
+          class="titulo"
           style="
-            width: auto;
-            height: 120px;
-            border-radius: 10%;
-            margin-top: 15px;
-            left: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+              sans-serif;
           "
         >
-          <img src="public/logo.png" />
-        </q-avatar>
-        <div class="letra2">
-          <img class="let" src="public/imagenPro/letra2.png" alt=".png" />
-        </div>
-      </q-toolbar-title>
-    </q-toolbar>
+          <q-avatar
+            style="
+              width: auto;
+              height: 120px;
+              border-radius: 10%;
+              margin-top: 15px;
+              left: 50px;
+            "
+          >
+            <img src="public/logo.png" />
+          </q-avatar>
+          <div class="letra2">
+            <img class="let" src="public/imagenPro/letra2.png" alt=".png" />
+          </div>
+        </q-toolbar-title>
+      </q-toolbar>
 
-    <q-tabs align="right">
-      <q-route-tab to="/login" label="Iniciar sesión" />
-      <q-route-tab to="/Register" label="Registrarse" />
-      <q-route-tab to="/Servicios" label="Servicios" />
-      <q-route-tab to="/Comunidad" label="Comunidad" />
-      <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
-      <q-route-tab to="/Inicio" label="Inicio" />
-    </q-tabs>
-  </q-header>
+      <q-tabs align="right">
+        <q-route-tab to="/login" @click="reloadPage" label="Iniciar sesión" />
+        <q-route-tab to="/Register" label="Registrarse" />
+        <q-route-tab to="/Servicios" label="Servicios" />
+        <q-route-tab to="/Comunidad" label="Comunidad" />
+        <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
+        <q-route-tab to="/ElecCoach" label="prueba de sebas" />
+        <q-route-tab to="/Inicio" label="Inicio" />
+      </q-tabs>
+    </q-header>
+
+<q-page-container>
+  
+  <h1>hollaA</h1>
+
+</q-page-container>
+
+
+
+    <q-footer reveal elevated class="bg-yellow-7 text-black">
+      <q-toolbar>
+        <q-toolbar-title style="text-align: center">
+          <div>Emprende Facil &copy; 2023</div>
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
+  </q-layout>
 </template>
 <script></script>
 
-<style>
+<style scoped>
 .contss {
   background-image: url("public/imagenPro/register.png");
   width: 100%;

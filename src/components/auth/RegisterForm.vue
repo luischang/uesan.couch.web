@@ -88,7 +88,8 @@
               </div>
             </div>
             <div class="social-login">
-              <input type="checkbox" id="acepto-terminos" />
+              
+              <input type="checkbox" id="acepto-terminos"   />
               <label for="acepto-terminos"
                 ><strong
                   >Al crear una cuenta, aceptas nuestros términos y

@@ -32,6 +32,7 @@
         <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/Comunidad" label="Comunidad" />
         <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
+        <q-route-tab to="/ElecCoach" label="prueba de sebas" />
         <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>
     </q-header>
@@ -140,15 +141,6 @@ https://quasar.dev/vue-components/card#example--expandable
         </table>
       </div>
     </q-page-container>
-
-    <!-- <q-page-container>
-      <h1>Historias de exito</h1>
-      <historias />
-    </q-page-container> -->
-
-    <!-- <q-page-container>
-      <Servicios class="ser" />
-    </q-page-container> -->
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
       <q-toolbar>
