@@ -158,6 +158,17 @@
             </div>
             <div class="clases-text">
               <p>
+                ¿Te gustaría tener una caja que te ayude a ahorrar dinero sin
+                que te des cuenta? Con la caja de auto llenado de reservas,
+                puedes programar una cantidad fija o variable que se transferirá
+                automáticamente a tu cuenta de ahorros cada mes. Así, podrás
+                cumplir tus metas financieras sin esfuerzo ni preocupaciones. La
+                caja es fácil de usar, segura y discreta. Solo tienes que
+                conectarla a tu cuenta bancaria y elegir el plan que más te
+                convenga. ¡No esperes más y pide la tuya hoy mismo!
+              </p>
+              <h5>Aquí van todas las reservas del usuario</h5>
+              <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Voluptates tempore placeat eligendi, dolor inventore expedita
                 deserunt totam! Enim, inventore quod nulla excepturi asperiores
@@ -200,7 +211,7 @@
   margin: 0;
   padding: 0 0px;
   overflow: hidden;
-  background-color: #e5bd51;
+  background-color: #fad935;
   position: fixed;
   top: 0;
   width: 100%;
@@ -241,17 +252,7 @@
   padding: 30px;
   float: inline-start;
   width: 100%;
-  background: #e5bd51; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to top,
-    #cda38a,
-    #e5bd51
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to top,
-    #cda38a,
-    #e5bd51
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-color: #ededed;
 }
 .user {
   float: left;
@@ -336,18 +337,35 @@
   width: fit-content;
   height: fit-content;
   display: inline-block;
-  background-color: #9bb94f;
+  /* background-color: #9bb94f; */
   padding: 10px;
+  opacity: 100%;
+  background: #73c8a9; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #373b44,
+    #73c8a9
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #373b44,
+    #73c8a9
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .clases-details {
+  border-radius: 10px;
   display: block;
-  margin-top: 40px;
-  width: 60%;
+  margin-top: 10px;
+  width: auto;
   background-color: #b183ae;
   padding: 20px;
 }
+.clases-text > p :not(:first-child) {
+  margin-top: 20px;
+}
 
 .clases-text {
+  opacity: 100%;
   width: 63%;
   height: max-content;
   float: right;

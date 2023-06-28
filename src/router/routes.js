@@ -2,12 +2,16 @@ const routes = [
   {
     path: "/",
     component: () => import("layouts/MainLayout.vue"),
-    children: [{
-      path: "", component: () => import("pages/IndexPage.vue"),
-      path:"",component: () => import("components/HistoriaExito.vue"),
-      path:"",component: () => import("components/Servicios.vue"),
-
-  }],
+    children: [
+      {
+        path: "",
+        component: () => import("pages/IndexPage.vue"),
+        path: "",
+        component: () => import("components/HistoriaExito.vue"),
+        path: "",
+        component: () => import("components/Servicios.vue"),
+      },
+    ],
   },
   {
     path: "/HistoriaExito.vue",
@@ -36,7 +40,7 @@ const routes = [
   },
   {
     path: "/historias",
-    component: () => import("components/historias.vue")
+    component: () => import("components/historias.vue"),
   },
 
   {
@@ -61,6 +65,12 @@ const routes = [
   {
     path: "/intCoach",
     component: () => import("src/components/interfaces/InterfazCoach.vue"),
+  },
+
+  {
+    path: "/intEmprendedor",
+    component: () =>
+      import("src/components/interfaces/InterfazEmprendedor.vue"),
   },
 
   // Always leave this as last one,
