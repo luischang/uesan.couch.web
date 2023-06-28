@@ -47,6 +47,7 @@ const routes = [
     path: "/Servicios",
     component: () => import("components/Servicios.vue"),
   },
+
   {
     path: "/Inicio",
     component: () => import("layouts/MainLayout.vue"),
@@ -59,6 +60,10 @@ const routes = [
   {
     path: "/Comunidad",
     component: () => import("components/Comunidad.vue"),
+  },
+  {
+    path: "/ElecCoach",
+    component: () => import("components/ElecCoach.vue"),
   },
 
   // Zona de tests
