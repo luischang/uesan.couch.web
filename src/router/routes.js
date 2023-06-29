@@ -72,6 +72,12 @@ const routes = [
     component: () => import("src/components/interfaces/InterfazCoach.vue"),
   },
 
+  {
+    path: "/intEmprendedor",
+    component: () =>
+      import("src/components/interfaces/InterfazEmprendedor.vue"),
+  },
+
   // Always leave this as last one,
   // but you can also remove it
   {
