@@ -274,4 +274,10 @@ table tr td img {
 p {
   color: black;
 }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
 </style>

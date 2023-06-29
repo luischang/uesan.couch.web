@@ -1,5 +1,5 @@
 <template>
-<q-layout view="LHh Lpr lFf">
+  <q-layout view="LHh Lpr lFf">
     <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98">
       <q-toolbar class="">
         <q-toolbar-title
@@ -27,7 +27,7 @@
       </q-toolbar>
 
       <q-tabs align="right">
-        <q-route-tab to="/login" @click="reloadPage" label="Iniciar sesión" />
+        <q-route-tab to="/login" label="Iniciar sesión" />
         <q-route-tab to="/Register" label="Registrarse" />
         <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/Comunidad" label="Comunidad" />
@@ -37,13 +37,55 @@
       </q-tabs>
     </q-header>
 
-<q-page-container>
-  
-  <h1>hollaA</h1>
+    <q-page-container>
+      <div>
+        <h5>Listado de Coaches</h5>
+        <div>
+          <q-btn
+            type="button"
+            class="modal-button"
+            v-for="coach in coaches"
+            :key="coach.coaches.idServicio"
+            @click="openModal(coach)"
+          >
+            <div class="coach-data">
+              <p>Tarifa por hora: {{ coach.coaches.tarifaHora }}</p>
+              <p>Nombre del usuario: {{ coach.coaches.usuarios.nombre }}</p>
+              <p>Apellido del usuario: {{ coach.coaches.usuarios.apellido }}</p>
+            </div>
+          </q-btn>
+          <div v-if="coaches.length === 0">
+            <p>No se encontraron datos de coach.</p>
+          </div>
+        </div>
 
-</q-page-container>
+        <q-dialog v-model="modalOpen">
+          <q-card>
+            <div class="card-img">
+              <q-img class="img-fluid" :src="selectedCoachImage" />
+            </div>
 
+            <q-card-section>
+              <div class="card-title">
+                <p>Tarifa por hora: {{ selectedCoach.coaches.tarifaHora }}</p>
+                <p>
+                  Nombre del usuario:
+                  {{ selectedCoach.coaches.usuarios.nombre }}
+                </p>
+                <p>
+                  Apellido del usuario:
+                  {{ selectedCoach.coaches.usuarios.apellido }}
+                </p>
+              </div>
+            </q-card-section>
 
+            <q-card-actions>
+              <q-btn class="btn" label="elegir coach" @click="trackDelivery" />
+            </q-card-actions>
+          </q-card>
+        </q-dialog>
+      </div>
+    </q-page-container>
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
       <q-toolbar>
@@ -54,17 +96,129 @@
     </q-footer>
   </q-layout>
 </template>
-<script></script>
-
+<script>
+import axios from "axios";
+export default {
+  mounted() {
+    this.fetchData();
+  },
+  data() {
+    return {
+      modalOpen: false,
+      coaches: [],
+      coaches1: [
+        {
+          coaches: {
+            tarifaHora: 45,
+            usuarios: {
+              nombre: "Messi",
+              apellido: "Argentina",
+            },
+            idServicio: 0,
+          },
+          serviciosCoaching: null,
+        },
+      ],
+      idServicio: "100", // ID de servicio que quieres consultar
+    };
+  },
+  methods: {
+    openModal(coach) {
+      this.selectedCoach = coach;
+      this.modalOpen = true;
+    },
+    trackDelivery() {
+      // Implement your track delivery logic here
+    },
+    computed: {
+      selectedCoachImage() {
+        return this.selectedCoach ? this.selectedCoach.coaches.imagen : "";
+      },
+    },
+    fetchData() {
+      var url = `http://localhost:5083/api/DetalleCouchServicio/GetAllByServicio${this.idServicio}`;
+      var token = JSON.parse(localStorage.getItem("userResult")).token;
+      console.log("Token: " + token);
+      axios
+        .get(url, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        })
+        .then((response) => {
+          console.log(response);
+          console.log(JSON.stringify(response.data));
+          this.coaches = response.data;
+        })
+        .catch((error) => {
+          console.error("Error al obtener los datos:", error);
+        });
+    },
+  },
+};
+</script>
 <style scoped>
-.contss {
-  background-image: url("public/imagenPro/register.png");
+@import url(https://fonts.googleapis.com/css?family=Calibri:400,300,700);
+
+.modal-button {
+  background-color: rgb(243, 230, 42);
+  border-color: rgb(29, 226, 226);
+  border-radius: 6px;
+  color: rgb(0, 0, 0);
+  font-size: 17px;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+@media (max-width: 767px) {
+}
+.card-img {
+  padding: 20px 0;
+  width: 40%;
+}
+
+.card-img img {
+  opacity: 0.7;
+}
+.card-title {
+  margin-bottom: unset;
+}
+.card-title p {
+  color: rgb(29, 226, 226);
+  font-weight: 900;
+  font-size: 30px;
+  margin-bottom: unset;
+}
+.card-text p {
+  color: rgb(226, 213, 26);
+  font-size: 25px;
+  text-align: center;
+  padding: 3vh 0;
+  font-weight: lighter;
+}
+.btn {
   width: 100%;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-size: cover;
-  background-position: -0.2px 60px;
+  background-color: rgb(226, 223, 29);
+  border-color: rgb(223, 226, 29);
+  border-radius: 25px;
+  color: white;
+  font-size: 20px;
+}
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+  box-shadow: none;
+  color: white;
+  -webkit-box-shadow: none;
+  -webkit-user-select: none;
+  transition: none;
+}
+.btn:hover {
+  color: white;
+}
+.coach-data {
+  padding: 10px;
+  margin-bottom: 10px;
 }
 .letra2 {
   width: 30%;
@@ -74,132 +228,6 @@
   bottom: 260px;
 }
 
-.containerSs {
-  padding: 80px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  animation: containerFadeIn 1.1s ease-in-out forwards;
-}
-.testimonial .pic {
-  width: 22%;
-  padding: 20px 0;
-  margin: 0 6% 0 2%;
-  float: left;
-  position: relative;
-  z-index: 1;
-}
-.testimonial .pic:before,
-.testimonial .pic:after {
-  content: "";
-  width: 130px;
-  height: 150px;
-  background: #f0b923a1;
-  position: absolute;
-  z-index: -1;
-}
-.testimonial .pic:before {
-  top: 0;
-  right: -20px;
-}
-.testimonial .pic:after {
-  bottom: 0;
-  left: -20px;
-}
-.testimonial .pic img {
-  width: 100%;
-  height: auto;
-  border-radius: 2rem;
-  border: 3px solid #c5a039a1;
-}
-.testimonial .testimonial-content {
-  width: 70%;
-  float: right;
-}
-.testimonial .title {
-  display: block;
-  font-size: 18px;
-  font-weight: 600;
-  color: #000000;
-  margin: 0;
-  text-transform: uppercase;
-  padding-top: 65px;
-  padding-left: 15px;
-}
-.testimonial .post {
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 27px;
-  color: #000000;
-  text-transform: capitalize;
-  margin-bottom: 25px;
-  padding-left: 15px;
-}
-.testimonial .description {
-  font-size: 16px;
-  color: #000000;
-  padding: 0 15px;
-  margin: 0;
-  position: relative;
-}
-
-@media only screen and (max-width: 990px) {
-  .testimonial {
-    text-align: center;
-  }
-  .testimonial .pic {
-    width: 200px;
-    margin: 0 auto;
-    float: none;
-  }
-  .testimonial .pic:before,
-  .testimonial .pic:after {
-    width: 80px;
-    height: 100px;
-  }
-  .testimonial .testimonial-content {
-    width: 100%;
-    float: none;
-  }
-  .testimonial .title {
-    padding: 15px 0 0 0;
-  }
-  .testimonial .post {
-    padding: 0;
-    margin-bottom: 10px;
-  }
-}
-/*ssssssssssssssssssssssssssssssss*/
-.containerrr {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: calc(130vh - 13rem); /* Resta la altura del pie de página */
-}
-.card {
-  border-radius: 1rem;
-  box-shadow: 0px -10px 0px #f0b923;
-  background-color: #f0b92394;
-  animation: containerFadeIn 1.1s ease-in-out forwards;
-}
-@media (max-width: 767px) {
-  .card {
-    margin: 1rem 0.7rem 1rem;
-    max-width: 80vw;
-  }
-}
-.imagen {
-  padding-top: 20px;
-  display: flex;
-
-  width: 20rem;
-  border-radius: 5rem;
-  margin: 1.3rem auto 1rem auto;
-}
-.col-md-4 {
-  padding: 0 0.5rem;
-}
 .card-title {
   font-size: 2rem;
   margin-bottom: 0;
@@ -214,13 +242,7 @@
   color: rgb(0, 0, 0);
   line-height: 1.4rem;
 }
-.footer {
-  border-top: none;
-  text-align: center;
-  line-height: 1.2rem;
-  padding: 2rem 0 1.4rem 0;
-  font-family: "Varela Round";
-}
+
 #name {
   font-size: 0.8rem;
   font-weight: bold;
