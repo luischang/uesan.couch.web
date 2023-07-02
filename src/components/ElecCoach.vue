@@ -119,7 +119,7 @@ export default {
           serviciosCoaching: null,
         },
       ],
-      idServicio: "100", // ID de servicio que quieres consultar
+      idServicio: "1", // ID de servicio que quieres consultar
     };
   },
   methods: {

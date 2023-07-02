@@ -104,7 +104,14 @@ export default {
             position: "bottom",
             timeout: 3000,
           });
-          this.$router.push("/");
+          setTimeout(() => {
+            // Verificar si el correo electrónico es "@admin"
+            if (response.data.idTipo === 1) {
+              this.$router.push("/intCouch");
+            } else {
+              this.$router.push("/intEmprendedor");
+            }
+          }, 170);
         })
         .catch((error) => {
           console.log("Ocurrió un error " + error);
