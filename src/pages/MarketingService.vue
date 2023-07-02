@@ -44,7 +44,7 @@
       <h2>Coaching de Marketing</h2>
       <p>¡Obtén el asesoramiento que necesitas para impulsar tu estrategia de marketing!</p>
       <p>Ya sea que necesites mejorar tu presencia en redes sociales, desarrollar campañas publicitarias efectivas o aumentar la visibilidad de tu marca, nuestro servicio de coaching de marketing te brinda las herramientas y conocimientos necesarios para alcanzar tus objetivos.</p>
-      <q-btn class="button" label="Pedir Asesoramiento" to="/ElecCoach/:idServicio"/>
+      <q-btn class="button" label="Pedir Asesoramiento" to="planPagos"/>
       <p>Contamos con un equipo de expertos en marketing dispuestos a ayudarte a tomar decisiones inteligentes y estratégicas para tu negocio. No importa si eres un emprendedor individual o una empresa establecida, adaptaremos nuestras sesiones de coaching a tus necesidades específicas.</p>
     </div>
     <div class="image">

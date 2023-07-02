@@ -62,8 +62,10 @@
             <p>6) Gestión del equilibrio entre trabajo y vida personal: <br> Encontrar un equilibrio saludable en la vida emprendedora.</p>
           </div>
           <div class="card-input">
+          <div style="width: 50%; margin-right: 10px;">
             <p>Total a Pagar</p>
-            <input type="text" placeholder="Ingrese un valor">
+            <input type="text" placeholder="El total es" v>
+          </div>
           </div>
           <div class="card-button">
             <q-btn label="Seleccionar" type="submit" color="secundary"/>
@@ -90,8 +92,12 @@
           </div>
 
           <div class="card-input">
+            <div style="width: 50%;margin-right: 10px;">
             <p>Total a Pagar</p>
-            <input type="text" placeholder="Ingrese un valor">
+            <div>
+            <input type="text" placeholder="El total es">
+            </div>
+          </div>
           </div>
           <div class="card-button">
             <q-btn label="Seleccionar" type="submit" color="secundary"/>
@@ -162,10 +168,7 @@ export default {
     .card-description p{
       justify-content: baseline;
     }
-    .card-input {
-      margin-bottom: 10px;
-      display:flexbox;
-    }
+
 
     .card-button {
       background-color: #4CAF50;
