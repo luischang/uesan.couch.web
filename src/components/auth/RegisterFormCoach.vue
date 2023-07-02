@@ -539,7 +539,7 @@ export default {
             position: "bottom",
             timeout: 3000,
           });
-          this.$router.push("/login");
+          this.$router.push("/");
         })
         .catch((error) => {
           console.log("Ocurrió un error " + error);
