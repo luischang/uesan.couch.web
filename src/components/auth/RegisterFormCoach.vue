@@ -1,4 +1,4 @@
- <template>
+<template>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -38,18 +38,18 @@
             <div class="login__field">
               <div class="column">
                 <i class="login__icon fas fa-male"></i>
-              <q-select
-              label="Género"
-              color="teal"
-              options-selected-class="text-deep-orange"
-                class="login__input"
-                v-model="Usuarios.genero"
-                :options="generoOptions"
-                placeholder="Género"
-                filled
-                required
-              />
-            </div>
+                <q-select
+                  label="Género"
+                  color="teal"
+                  options-selected-class="text-deep-orange"
+                  class="login__input"
+                  v-model="Usuarios.genero"
+                  :options="generoOptions"
+                  placeholder="Género"
+                  filled
+                  required
+                />
+              </div>
 
               <div class="column">
                 <i class="login__icon fas fa-phone-alt"></i>
@@ -88,48 +88,56 @@
                 />
               </div>
             </div>
-<!---===========================================================================-->
+            <!---===========================================================================-->
             <div class="login__field">
               <div class="q-gutter-md">
-              <q-input
-              class="login__inputGenero"
-              type="text" rounded standout
-              v-model="Coach.tarifaHora"
-              placeholder="TarifaHora"
-              style="margin-top: -90px; margin-right: -180px; "
-              equired />
-          </div>
-
-            <!-- <div class="q-gutter-md">
                 <q-input
-                class="login__inputGenero"
-                type="text"
-                v-model="Coach.idPersona"
-                placeholder="IdPersona"
-                style="margin-top: -180px; margin-left: 60px; width: 100px;"
-                required
-              >
-              </q-input>
-            </div> -->
+                  class="login__inputGenero"
+                  type="text"
+                  rounded
+                  standout
+                  v-model="Coach.tarifaHora"
+                  placeholder="TarifaHora"
+                  style="margin-top: -90px; margin-right: -180px"
+                  equired
+                />
+              </div>
 
-          <div class="q-pa-md login__inputGenero " >
-            <div class="q-gutter-xm ">
-              <q-select
-                filled
-                rounded standout
-                transition-show="scale"
-                transition-hide="scale"
-                v-model="Coach.idServicio"
-                :options="options"
-                label="especialidad"
-                style="margin-top: -160px; margin-left: -490px; width: 300px;"
-                emit-value
-                map-options
-              />
-    </div>
-  </div>
-</div>
-<!---===========================================================================-->
+              <div class="q-gutter-md">
+                <q-input
+                  class="login__inputGenero"
+                  type="text"
+                  v-model="Coach.idPersona"
+                  placeholder="IdPersona"
+                  style="margin-top: -180px; margin-left: 60px; width: 100px"
+                  required
+                >
+                </q-input>
+              </div>
+
+              <div class="q-pa-md login__inputGenero">
+                <div class="q-gutter-xm">
+                  <q-select
+                    filled
+                    rounded
+                    standout
+                    transition-show="scale"
+                    transition-hide="scale"
+                    v-model="Coach.idServicio"
+                    :options="options"
+                    label="especialidad"
+                    style="
+                      margin-top: -160px;
+                      margin-left: -490px;
+                      width: 300px;
+                    "
+                    emit-value
+                    map-options
+                  />
+                </div>
+              </div>
+            </div>
+            <!---===========================================================================-->
 
             <div class="social-login">
               <input type="checkbox" id="acepto-terminos" />
@@ -140,7 +148,11 @@
                 ><a href="src\pages\terminos.html">Terms & Privacy</a>.</label
               >
             </div>
-            <q-button class="button login__submit" @click=" signUps" to="/planPagos">
+            <q-button
+              class="button login__submit"
+              @click="CoachRegister"
+              to="/login"
+            >
               Registrar
               <i class="button__icon fas fa-chevron-right"></i>
             </q-button>
@@ -175,7 +187,6 @@
 
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
-
 
 .burbu {
   position: relative;
@@ -246,7 +257,6 @@
 .screen__content {
   z-index: 1;
   position: relative;
-
 }
 
 .screen__background {
@@ -258,7 +268,6 @@
   z-index: 0;
   -webkit-clip-path: inset(0 0 0 0);
   clip-path: inset(0 0 0 0);
-
 }
 
 .screen__background__shape {
@@ -331,13 +340,13 @@
   padding: 10px;
   padding-left: 18px;
   font-weight: 700;
-align-items: center;
+  align-items: center;
   flex: 1;
   margin-right: 10px;
   width: 75%;
   transition: 0.2s;
 }
-.login__inputGenero{
+.login__inputGenero {
   border: none;
   border-bottom: 2px solid #f2c037;
   background: none;
@@ -346,7 +355,7 @@ align-items: center;
   font-weight: 600;
   flex: 1;
   margin-left: 470px;
-  margin-top: -117px;;
+  margin-top: -117px;
   width: 75%;
   transition: 0.2s;
 }
@@ -457,102 +466,73 @@ align-items: center;
 
 <script>
 import axios from "axios";
-import {ref} from "vue";
+import { ref } from "vue";
 
 export default {
-    name: "RegisterFormCoach",
+  name: "RegisterFormCoach",
 
-    data() {
-      return {
-        model:ref(null),
-        Coach: {
+  data() {
+    return {
+      model: ref(null),
+      Coach: {
         idCoach: 0,
-        idPersona:0,
+        idPersona: 0,
         tarifaHora: "",
         isActive: true,
         idServicio: "",
-        },
-
-        Usuarios: {
-          IdPersona: 0,
-          nombre: "",
-          apellido: "",
-          genero: "",
-          nroContacto: "",
-          correoElectronico: "",
-          contrasena: "",
-          idTipoNavegation: 1,
-          isActive: true,
-        },
-        generoOptions: ['Femenino', 'Masculino'],
-
-
-        options: [
-          {
-            label: 'Administración',
-            value: '1',
-          },
-          {
-            label: 'Marketing',
-            value: '2',
-
-          },
-          {
-            label: 'Derecho Corporativo',
-            value: '1002',
-
-          },
-          {
-            label: 'Contabilidad',
-            value: '1003',
-
-          },
-          {
-            label: 'Logistica',
-            value: '1004',
-
-          },
-          {
-            label:'Finanzas',
-            value:'1005',
-          }
-        ],
-      };
-    },
-    methods: {
-      signUps() {
-        //console.log("Aquí registrare....." + JSON.stringify(this.user))
-        var url = "http://localhost:5083/api/Usuarios/SignUp";
-
-        axios
-          .post(url, this.Usuarios)
-          .then((response) => {
-            this.Coach.idPersona = response.data.IdPersona;
-            console.log("Aquí va la respuesta " + JSON.stringify(response));
-            this.$q.notify({
-              message: "Registro exitoso",
-              color: "positive",
-              position: "bottom",
-              timeout: 3000,
-            });
-            this.$router.push("/");
-          })
-          .catch((error) => {
-            console.log("Ocurrió un error " + error);
-            this.$q.notify({
-              message: "Ocurrió un error",
-              color: "negative",
-              position: "top",
-              timeout: 3000,
-            });
-          });
       },
-      CoachRegister(){
-      var url = "http://localhost:5083/api/Coach";
 
-        axios.post(url,this.Coach).then((response) => {
-          Coach.IdPersona = this.Usuarios.IdPersona;
-        console.log("Aquí va la respuesta " + JSON.stringify(response));
+      Usuarios: {
+        IdPersona: 0,
+        nombre: "",
+        apellido: "",
+        genero: "",
+        nroContacto: "",
+        correoElectronico: "",
+        contrasena: "",
+        idTipoNavegation: 1,
+        isActive: true,
+      },
+      generoOptions: ["Femenino", "Masculino"],
+
+      options: [
+        {
+          label: "Administración",
+          value: "1",
+        },
+        {
+          label: "Marketing",
+          value: "2",
+        },
+        {
+          label: "Derecho Corporativo",
+          value: "1002",
+        },
+        {
+          label: "Contabilidad",
+          value: "1003",
+        },
+        {
+          label: "Logistica",
+          value: "1004",
+        },
+        {
+          label: "Finanzas",
+          value: "1005",
+        },
+      ],
+    };
+  },
+  methods: {
+    signUps() {
+      //console.log("Aquí registrare....." + JSON.stringify(this.user))
+      var url = "http://localhost:5083/api/Usuarios/SignUp";
+
+      axios
+        .post(url, this.Usuarios)
+        .then((response) => {
+          this.Coach.idPersona = response.Usuarios.data.IdPersona;
+          console.log("Aquí va la respuesta " + JSON.stringify(response));
           this.$q.notify({
             message: "Registro exitoso",
             color: "positive",
@@ -570,8 +550,32 @@ export default {
             timeout: 3000,
           });
         });
-      }
-  }
-}
+    },
+    CoachRegister() {
+      var url = "http://localhost:5083/api/Coach";
 
+      axios
+        .post(url, this.Coach)
+        .then((response) => {
+          console.log("Aquí va la respuesta " + JSON.stringify(response));
+          this.$q.notify({
+            message: "Registro exitoso",
+            color: "positive",
+            position: "bottom",
+            timeout: 3000,
+          });
+          this.$router.push("/login");
+        })
+        .catch((error) => {
+          console.log("Ocurrió un error " + error);
+          this.$q.notify({
+            message: "Ocurrió un error",
+            color: "negative",
+            position: "top",
+            timeout: 3000,
+          });
+        });
+    },
+  },
+};
 </script>

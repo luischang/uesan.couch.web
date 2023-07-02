@@ -1,8 +1,14 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <q-layout view="LHh Lpr lFf">
-    <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98" :class="{ 'header-hidden': headerHidden } ">
-      <q-toolbar class="" >
+    <q-header
+      reveal
+      elevated
+      class="bg-yellow-7 text-black"
+      height-hint="98"
+      :class="{ 'header-hidden': headerHidden }"
+    >
+      <q-toolbar class="">
         <q-toolbar-title
           class="titulo"
           style="
@@ -22,10 +28,8 @@
             <img src="public/logo.png" />
           </q-avatar>
           <div class="letra2">
-            <img  class="let" src="public/imagenPro/letra2.png" alt=".png">
-
-        </div>
-
+            <img class="let" src="public/imagenPro/letra2.png" alt=".png" />
+          </div>
         </q-toolbar-title>
       </q-toolbar>
 
@@ -35,11 +39,57 @@
         <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/Comunidad" label="Comunidad" />
         <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
+
+        <q-route-tab to="/ElecCoach/:idServicio" label="prueba de sebas" />
+
         <q-route-tab to="/planPagos" label="prueba de sebas" />
+
         <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>
     </q-header>
+    <q-page-container>
+      <button @click="redirectToRouteB">Servicio 1</button>
+    </q-page-container>
+    <q-page-container class="contenservico">
+      <div class="servicio">
+        <h2>Servicios de Coaching</h2>
+        <table>
+          <tr>
+            <td>
+              <img class="admi" src="img_Servicios/administracion.jpg" />
+              <p class="pAdmi">Coaching Administración</p>
+            </td>
+            <td>
+              <img class="cont" src="img_Servicios/contabilidad.jpg" />
+              <p class="pCont">Coaching Contabilidad</p>
+            </td>
+            <td>
+              <img
+                class="deCorp"
+                src="img_Servicios//derecho corporativo.jpg"
+              />
+              <p>Coaching Derecho Corporativo</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img class="Fina" src="img_Servicios/finanzas.jpg" />
+              <p>Coaching Finanzas</p>
+            </td>
+            <td>
+              <img class="logi" src="img_Servicios/logistica.jpg" />
+              <p>Coaching Logistica</p>
+            </td>
+            <td>
+              <img class="mark" src="img_Servicios/Marketing.png" />
+              <p>Coaching Marketing</p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </q-page-container>
 
+<<<<<<< HEAD
 <q-page-container class="contenservico">
   <div class="servicio">
     <h2>Servicios de  Coaching</h2>
@@ -91,6 +141,9 @@
 
 
     <q-footer reveal elevated class="bg-yellow-7  text-black">
+=======
+    <q-footer reveal elevated class="bg-yellow-7 text-black">
+>>>>>>> 9e190c3d9aefe104f0e8757687b48653af420a5c
       <q-toolbar>
         <q-toolbar-title style="text-align: center">
           <div>Emprende Facil &copy; 2023</div>
@@ -105,48 +158,87 @@ import { defineComponent, ref } from "vue";
 export default {
   data() {
     return {
-      headerHidden: false
+      headerHidden: false,
     };
   },
+
   mounted() {
     // Agrega un listener para ocultar el header al hacer scroll hacia abajo
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
   },
   beforeUnmount() {
     // Elimina el listener cuando el componente se destruye
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    redirectToRouteB() {
+      var idServicio = "100"; // Aquí define el valor del parámetro que quieres pasar
+      this.$router.push({ name: "ElecCoach", params: { idServicio } });
+    },
     handleScroll() {
       // Si el scroll vertical es mayor a 100px, oculta el header
       this.headerHidden = window.pageYOffset > 100;
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
+.contenservico {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: yellow;
+  height: 100vh;
+}
+
+.servicio {
+  text-align: center;
+}
+
+h2 {
+  color: black;
+}
+
+table {
+  margin-top: 2rem;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 1rem;
+}
+
+img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+p {
+  margin-top: 0.5rem;
+  color: black;
+  font-weight: bold;
+}
 .header-hidden {
   transform: translateY(-100%);
 }
-.contenservico{
-
+.contenservico {
   background-image: url("public/imagenPro/register.png");
   width: 100%;
   height: auto;
-  background-size:contain;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position:initial;
+  background-position: initial;
   background-attachment: fixed;
   background-size: cover;
-
-
 }
 
-.letra2{
+.letra2 {
   width: 30%;
   height: 30%;
-  position:absolute;
+  position: absolute;
   left: 270px;
   bottom: 260px;
 }
@@ -236,8 +328,4 @@ table tr td img {
 cursor: pointer;
 
 }
-p{
-  color: black;
-}
-
 </style>
