@@ -61,6 +61,7 @@ const routes = [
     path: "/Comunidad",
     component: () => import("components/Comunidad.vue"),
   },
+
   {
     path: "/ElecCoach/:idServicio",
     name: "ElecCoach",
@@ -89,6 +90,10 @@ const routes = [
     path: "/:catchAll(.*)*",
     component: () => import("pages/ErrorNotFound.vue"),
   },
+  {
+    path: "/MarketingService",
+    component: () => import("pages/MarketingService.vue"),
+  }
 ];
 
 export default routes;
