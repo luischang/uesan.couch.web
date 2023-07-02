@@ -38,80 +38,140 @@
 
     <q-page-container class="conti">
       <body>
-
-      <div class="q-pa-sm">
-        <div class="q-gutter-sm " style="max-width: 300px; margin-left: 20px;">
-          <q-input rounded standout v-model="text" label="Ingrese n° horas" @input="calcularTotal" />
-
-        </div>
-      </div>
-      <div class="card-container">
-        <div class="card">
-          <div class="card-title">Por Hora:</div>
-          <div class="card-description">
-            <p>Max: 4h</p>
-            <p>1) Desarrollo de habilidades empresariales: <br> Mejora de habilidades clave para el éxito empresarial.</p>
-
-            <p>2) Desarrollo de la visión y estrategia empresarial: <br> Definición de metas y planificación estratégica.</p>
-
-            <p>3) Gestión del cambio y superación de obstáculos: <br> Manejo de desafíos y desarrollo de resiliencia.</p>
-
-            <p>4) Desarrollo de habilidades de gestión: <br> Mejora de la gestión empresarial y organizativa.</p>
-
-            <p>5) Estrategias de networking y establecimiento de relaciones: <br> Creación de conexiones y colaboraciones efectivas. </p>
-
-            <p>6) Gestión del equilibrio entre trabajo y vida personal: <br> Encontrar un equilibrio saludable en la vida emprendedora.</p>
-          </div>
-          <div class="card-input" style="display: flex;">
-  <div style="width: 9%;">
-    <p>Total a Pagar</p>
-  </div>
-  <div style="width: -9px; margin-top:14px">
-    <input type="text" :value="totalPagar" style="float: right;" readonly>
-  </div>
-</div>
-
-          <div class="card-button">
-            <q-btn label="Seleccionar" type="submit" color="secundary"/>
+        <div class="q-pa-sm">
+          <div class="q-gutter-sm" style="max-width: 300px; margin-left: 20px">
+            <q-input
+              rounded
+              standout
+              v-model="text"
+              label="Ingrese n° horas"
+              @input="calcularTotal"
+            />
           </div>
         </div>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-title">Por Hora:</div>
+            <div class="card-description">
+              <p>Max: 4h</p>
+              <p>
+                1) Desarrollo de habilidades empresariales: <br />
+                Mejora de habilidades clave para el éxito empresarial.
+              </p>
 
-        <div class="card">
-          <div class="card-title">Mensual</div>
-          <div class="card-description">
-            <p>Max: 20h</p>
-            <p>1) Desarrollo de habilidades empresariales: <br> Mejora de habilidades clave para el éxito empresarial.</p>
+              <p>
+                2) Desarrollo de la visión y estrategia empresarial: <br />
+                Definición de metas y planificación estratégica.
+              </p>
 
-            <p>2) Desarrollo de la visión y estrategia empresarial: <br> Definición de metas y planificación estratégica.</p>
+              <p>
+                3) Gestión del cambio y superación de obstáculos: <br />
+                Manejo de desafíos y desarrollo de resiliencia.
+              </p>
 
-            <p>3) Gestión del cambio y superación de obstáculos: <br> Manejo de desafíos y desarrollo de resiliencia.</p>
+              <p>
+                4) Desarrollo de habilidades de gestión: <br />
+                Mejora de la gestión empresarial y organizativa.
+              </p>
 
-            <p>4) Desarrollo de habilidades de gestión: <br> Mejora de la gestión empresarial y organizativa.</p>
+              <p>
+                5) Estrategias de networking y establecimiento de relaciones:
+                <br />
+                Creación de conexiones y colaboraciones efectivas.
+              </p>
 
-            <p>5) Estrategias de networking y establecimiento de relaciones: <br> Creación de conexiones y colaboraciones efectivas. </p>
+              <p>
+                6) Gestión del equilibrio entre trabajo y vida personal: <br />
+                Encontrar un equilibrio saludable en la vida emprendedora.
+              </p>
+            </div>
+            <div class="card-input" style="display: flex">
+              <div style="width: 9%">
+                <p>Total a Pagar</p>
+              </div>
+              <div style="width: -9px; margin-top: 14px">
+                <input
+                  type="text"
+                  :value="totalPagar"
+                  style="float: right"
+                  readonly
+                />
+              </div>
+            </div>
 
-            <p>6) Gestión del equilibrio entre trabajo y vida personal: <br> Encontrar un equilibrio saludable en la vida emprendedora.</p>
-
-            <p>Sesiones Grabadas</p>
+            <div class="card-button">
+              <q-btn
+                to="/moduloPago"
+                label="Seleccionar"
+                type="submit"
+                color="secundary"
+              />
+            </div>
           </div>
 
-          <div class="card-input" style="display: flex;">
-  <div style="width: 9%;">
-    <p>Total a Pagar</p>
-  </div>
-  <div style="width: -9px; margin-top:14px">
-    <input type="text" :value="totalPagar" style="float: right;" readonly>
-  </div>
-</div>
+          <div class="card">
+            <div class="card-title">Mensual</div>
+            <div class="card-description">
+              <p>Max: 20h</p>
+              <p>
+                1) Desarrollo de habilidades empresariales: <br />
+                Mejora de habilidades clave para el éxito empresarial.
+              </p>
 
-          <div class="card-button">
-            <q-btn label="Seleccionar" type="submit" color="secundary"/>
+              <p>
+                2) Desarrollo de la visión y estrategia empresarial: <br />
+                Definición de metas y planificación estratégica.
+              </p>
+
+              <p>
+                3) Gestión del cambio y superación de obstáculos: <br />
+                Manejo de desafíos y desarrollo de resiliencia.
+              </p>
+
+              <p>
+                4) Desarrollo de habilidades de gestión: <br />
+                Mejora de la gestión empresarial y organizativa.
+              </p>
+
+              <p>
+                5) Estrategias de networking y establecimiento de relaciones:
+                <br />
+                Creación de conexiones y colaboraciones efectivas.
+              </p>
+
+              <p>
+                6) Gestión del equilibrio entre trabajo y vida personal: <br />
+                Encontrar un equilibrio saludable en la vida emprendedora.
+              </p>
+
+              <p>Sesiones Grabadas</p>
+            </div>
+
+            <div class="card-input" style="display: flex">
+              <div style="width: 9%">
+                <p>Total a Pagar</p>
+              </div>
+              <div style="width: -9px; margin-top: 14px">
+                <input
+                  type="text"
+                  :value="totalPagar"
+                  style="float: right"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="card-button">
+              <q-btn
+                to="/moduloPago"
+                label="Seleccionar"
+                type="submit"
+                color="secundary"
+              />
+            </div>
           </div>
         </div>
-      </div>
-
-    </body>
-
+      </body>
     </q-page-container>
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
@@ -125,87 +185,82 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 export default {
   setup() {
-    const text = ref('');
-    const totalPagar = ref('');
+    const text = ref("");
+    const totalPagar = ref("");
 
     const calcularTotal = () => {
       const horas = parseFloat(text.value);
-      const resultado = isNaN(horas)?0: horas * 3;
+      const resultado = isNaN(horas) ? 0 : horas * 3;
       totalPagar.value = `El total es ${resultado}`;
     };
 
     return {
       text,
       totalPagar,
-      calcularTotal
+      calcularTotal,
     };
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
-.q-pa-md{
+.q-pa-md {
   margin-left: 40px;
 }
 .card-container {
-      display: flex;
-      padding-left: 200px;
-      padding-right: 200px;
+  display: flex;
+  padding-left: 200px;
+  padding-right: 200px;
+}
 
-    }
+.card {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 60px;
 
-    .card {
-      flex: 1;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      margin-right: 60px;
+  height: auto;
+}
 
-      height: auto;
-    }
+.card:last-child {
+  margin-right: 0;
+}
 
-    .card:last-child {
-      margin-right: 0;
-    }
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-    .card-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+.card-description {
+  margin-bottom: 10px;
+}
+.card-description p {
+  justify-content: baseline;
+}
 
-    .card-description {
-      margin-bottom: 10px;
-    }
-    .card-description p{
-      justify-content: baseline;
-    }
+.card-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 
-
-    .card-button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .hours-input {
-      margin-top: 50px;
-      margin-bottom: 20px;
-      margin-left: 500px;
-
-    }
-
-
+.hours-input {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: 500px;
+}
 
 .letra2 {
   width: 30%;
@@ -220,7 +275,6 @@ export default {
   margin-left: 10px;
   margin-top: 0px;
 }
-
 
 .product-grid {
   display: grid;
