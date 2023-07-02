@@ -2,23 +2,9 @@
   <q-layout view="LHh Lpr lFf">
     <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98">
       <q-toolbar class="">
-        <q-toolbar-title
-          class="titulo"
-          style="
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
-              sans-serif;
-          "
-        >
-          <q-avatar
-            style="
-              width: auto;
-              height: 120px;
-              border-radius: 10%;
-              margin-top: 15px;
-              left: 50px;
-            "
-          >
-            <img src="public/logo.png" />
+        <q-toolbar-title class="titulo">
+          <q-avatar class="logo-avatar">
+            <img src="public/logo.png" alt="Logo" />
           </q-avatar>
           <div class="letra2">
             <img class="let" src="public/imagenPro/letra2.png" alt=".png" />
@@ -37,14 +23,12 @@
     </q-header>
 
     <q-page-container class="conti">
-      <body>
-
       <div class="q-pa-sm">
-        <div class="q-gutter-sm " style="max-width: 300px; margin-left: 20px;">
-          <q-input rounded standout v-model="text" label="Ingrese n° horas" @input="calcularTotal" />
-
+        <div class="q-gutter-sm" style="max-width: 300px; margin-left: 20px;">
+          <q-input rounded standout v-model="data.text" label="Ingrese n° horas" @input="calcularTotal" />
         </div>
       </div>
+
       <div class="card-container">
         <div class="card">
           <div class="card-title">Por Hora:</div>
@@ -62,17 +46,17 @@
 
             <p>6) Gestión del equilibrio entre trabajo y vida personal: <br> Encontrar un equilibrio saludable en la vida emprendedora.</p>
           </div>
-          <div class="card-input" style="display: flex;">
-  <div style="width: 9%;">
-    <p>Total a Pagar</p>
-  </div>
-  <div style="width: -9px; margin-top:14px">
-    <input type="text" :value="totalPagar" style="float: right;" readonly>
-  </div>
-</div>
+          <div class="card-input">
+            <div class="total-pagar">
+              <p>Total a Pagar</p>
+            </div>
+            <div class="total-pagar-input">
+              <input type="text" :value="data.totalPagar" readonly />
+            </div>
+          </div>
 
           <div class="card-button">
-            <q-btn label="Seleccionar" type="submit" color="secundary"/>
+            <q-btn label="Seleccionar" type="submit" color="secundary" />
           </div>
         </div>
 
@@ -95,23 +79,20 @@
             <p>Sesiones Grabadas</p>
           </div>
 
-          <div class="card-input" style="display: flex;">
-  <div style="width: 9%;">
-    <p>Total a Pagar</p>
-  </div>
-  <div style="width: -9px; margin-top:14px">
-    <input type="text" :value="totalPagar" style="float: right;" readonly>
-  </div>
-</div>
+          <div class="card-input">
+            <div class="total-pagar">
+              <p>Total a Pagar</p>
+            </div>
+            <div class="total-pagar-input">
+              <input type="text" :value="data.totalPagar" readonly />
+            </div>
+          </div>
 
           <div class="card-button">
-            <q-btn label="Seleccionar" type="submit" color="secundary"/>
+            <q-btn label="Seleccionar" type="submit" color="secundary" />
           </div>
         </div>
       </div>
-
-    </body>
-
     </q-page-container>
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
@@ -125,87 +106,83 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { reactive } from 'vue'
 
 export default {
   setup() {
-    const text = ref('');
-    const totalPagar = ref('');
+    const data = reactive({
+  text: "",
+  totalPagar: "",
+});
 
-    const calcularTotal = () => {
-      const horas = parseFloat(text.value);
-      const resultado = isNaN(horas)?0: horas * 3;
-      totalPagar.value = `El total es ${resultado}`;
-    };
+const calcularTotal = () => {
+  const horas = parseFloat(data.text);
+  const resultado = isNaN(horas) ? 0 : horas * 3;
+  data.totalPagar = `El total es ${resultado}`;
+};
 
-    return {
-      text,
-      totalPagar,
-      calcularTotal
-    };
+return {
+  data,
+  calcularTotal
+};
   }
 }
 </script>
 
 <style scoped>
-.q-pa-md{
+.q-pa-md {
   margin-left: 40px;
 }
+
 .card-container {
-      display: flex;
-      padding-left: 200px;
-      padding-right: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  padding: 0 200px;
+}
 
-    }
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  height: auto;
+}
 
-    .card {
-      flex: 1;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      margin-right: 60px;
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 
-      height: auto;
-    }
+.card-description {
+  margin-bottom: 10px;
+}
 
-    .card:last-child {
-      margin-right: 0;
-    }
+.card-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    .card-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
+.total-pagar p {
+  margin: 0;
+}
 
-    .card-description {
-      margin-bottom: 10px;
-    }
-    .card-description p{
-      justify-content: baseline;
-    }
+.total-pagar-input input {
+  margin-top: 14px;
+}
 
-
-    .card-button {
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .hours-input {
-      margin-top: 50px;
-      margin-bottom: 20px;
-      margin-left: 500px;
-
-    }
-
-
+.card-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
 
 .letra2 {
   width: 30%;
@@ -221,6 +198,13 @@ export default {
   margin-top: 0px;
 }
 
+.logo-avatar {
+  width: auto;
+  height: 120px;
+  border-radius: 10%;
+  margin-top: 15px;
+  margin-left: 50px;
+}
 
 .product-grid {
   display: grid;

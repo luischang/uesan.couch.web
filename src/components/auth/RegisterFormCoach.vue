@@ -150,7 +150,7 @@
             </div>
             <q-button
               class="button login__submit"
-              @click="CoachRegister"
+              @click="signUps"
               to="/login"
             >
               Registrar
@@ -483,7 +483,7 @@ export default {
       },
 
       Usuarios: {
-        IdPersona: 0,
+        idPersona:0,
         nombre: "",
         apellido: "",
         genero: "",
@@ -531,7 +531,10 @@ export default {
       axios
         .post(url, this.Usuarios)
         .then((response) => {
-          this.Coach.idPersona = response.Usuarios.data.IdPersona;
+          this.Usuarios.idUsuario = response.data.IdPersona;
+      // Obtener el valor de idPersona
+      const idPersona = this.Usuarios.idPersona;
+        console.log("Valor de idPersona:", idPersona);
           console.log("Aquí va la respuesta " + JSON.stringify(response));
           this.$q.notify({
             message: "Registro exitoso",
