@@ -18,8 +18,9 @@
                 <input
                   type="text"
                   v-model="Usuarios.nombre"
-                  class="login__input"
+                  class="login__input "
                   placeholder="Nombre"
+
                   required
                 />
               </div>
@@ -46,13 +47,14 @@
                 v-model="Usuarios.genero"
                 :options="generoOptions"
                 placeholder="Género"
+                filled
                 required
               />
             </div>
 
               <div class="column">
                 <i class="login__icon fas fa-phone-alt"></i>
-                <input
+                <q-input
                   type="password"
                   class="login__input"
                   v-model="Usuarios.nroContacto"
@@ -87,9 +89,9 @@
                 />
               </div>
             </div>
+
             <div class="social-login">
-              
-              <input type="checkbox" id="acepto-terminos"   />
+              <input type="checkbox" id="acepto-terminos" />
               <label for="acepto-terminos"
                 ><strong
                   >Al crear una cuenta, aceptas nuestros términos y
@@ -97,10 +99,10 @@
                 ><a href="src\pages\terminos.html">Terms & Privacy</a>.</label
               >
             </div>
-            <button class="button login__submit" @click="signUp">
+            <q-button class="button login__submit" @click="signUps" to="/Inicio">
               Registrar
               <i class="button__icon fas fa-chevron-right"></i>
-            </button>
+            </q-button>
           </form>
         </div>
         <div class="screen__background">
@@ -119,7 +121,7 @@
         </div>
       </div>
     </div>
-    <!-- partial:index.partial.html -->
+
     <button
       class="retrocederrr"
       href="#"
@@ -130,8 +132,10 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+
+
 .burbu {
   position: relative;
   display: grid;
@@ -145,6 +149,7 @@
   background-position: initial;
   background-attachment: fixed;
   background-size: cover;
+  border-radius: 10px;
   /* Reflejar horizontalmente */
 }
 
@@ -159,9 +164,10 @@
 }
 
 .welcome-image {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   margin-bottom: 10px;
+  border-radius: 10px;
 }
 
 .welcome-text {
@@ -189,10 +195,11 @@
 .screen {
   background: linear-gradient(90deg, #bb9221, #f0b923);
   position: relative;
-  height: 530px;
-  width: 500px;
+  height: 550px;
+  width: 450px;
   box-shadow: 0px 0px 50px #ad871f;
   animation: containerFadeIn 1.1s ease-in-out forwards;
+  border-radius: 10px;
 }
 
 .screen__content {
@@ -210,6 +217,7 @@
   z-index: 0;
   -webkit-clip-path: inset(0 0 0 0);
   clip-path: inset(0 0 0 0);
+
 }
 
 .screen__background__shape {
@@ -255,7 +263,7 @@
 
 .login {
   width: 480px;
-  padding: 20px;
+  padding: 34px;
 }
 
 .login__field {
@@ -288,6 +296,19 @@
   width: 75%;
   transition: 0.2s;
 }
+.login__inputGenero{
+  border: none;
+  border-bottom: 2px solid #f2c037;
+  background: none;
+  padding: 10px;
+  padding-left: 0px;
+  font-weight: 600;
+  flex: 1;
+  margin-left: 480px;
+  margin-top: -117px;;
+  width: 75%;
+  transition: 0.2s;
+}
 
 .login__input:active,
 .login__input:focus,
@@ -298,7 +319,7 @@
 
 .login__submit {
   background: #fff;
-  margin-top: 60px;
+  margin-top: 50px;
   margin-left: 70px;
   padding: 16px 30px;
   border-radius: 26px;
@@ -331,7 +352,7 @@
   height: 45px;
   width: 400px;
   text-align: center;
-  top: 370px;
+  top: 380px;
   left: 40px;
   color: #5c5a5a;
 }
@@ -397,31 +418,34 @@
 import axios from "axios";
 
 export default {
-  name: "RegisterForm",
+  name: "RegisterFormCoach",
 
   data() {
     return {
       Usuarios: {
+
         nombre: "",
         apellido: "",
         genero: "",
         nroContacto: "",
         correoElectronico: "",
         contrasena: "",
-        idTipo: 2,
+        idTipoNavegation: 2,
         isActive: true,
       },
-      generoOptions: ['Femenino', 'Masculino']
+      generoOptions: ['Femenino', 'Masculino'],
+
     };
   },
   methods: {
-    signUp() {
+    signUps() {
       //console.log("Aquí registrare....." + JSON.stringify(this.user))
       var url = "http://localhost:5083/api/Usuarios/SignUp";
 
       axios
         .post(url, this.Usuarios)
         .then((response) => {
+
           console.log("Aquí va la respuesta " + JSON.stringify(response));
           this.$q.notify({
             message: "Registro exitoso",
@@ -441,6 +465,9 @@ export default {
           });
         });
     },
-  },
-};
+
+  }
+
+  }
+
 </script>

@@ -1,4 +1,4 @@
-<template>
+ <template>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -46,6 +46,7 @@
                 v-model="Usuarios.genero"
                 :options="generoOptions"
                 placeholder="Género"
+                filled
                 required
               />
             </div>
@@ -87,6 +88,49 @@
                 />
               </div>
             </div>
+<!---===========================================================================-->
+            <div class="login__field">
+              <div class="q-gutter-md">
+              <q-input
+              class="login__inputGenero"
+              type="text" rounded standout
+              v-model="Coach.tarifaHora"
+              placeholder="TarifaHora"
+              style="margin-top: -90px; margin-right: -180px; "
+              equired />
+          </div>
+
+            <div class="q-gutter-md">
+                <q-input
+                class="login__inputGenero"
+                type="text"
+                v-model="Coach.idPersona"
+                placeholder="IdPersona"
+                style="margin-top: -180px; margin-left: 60px; width: 100px;"
+                required
+              >
+              </q-input>
+            </div>
+
+          <div class="q-pa-md login__inputGenero " >
+            <div class="q-gutter-xm ">
+              <q-select
+                filled
+                rounded standout
+                transition-show="scale"
+                transition-hide="scale"
+                v-model="Coach.idServicio"
+                :options="options"
+                label="especialidad"
+                style="margin-top: -160px; margin-left: -490px; width: 300px;"
+                emit-value
+                map-options
+              />
+    </div>
+  </div>
+</div>
+<!---===========================================================================-->
+
             <div class="social-login">
               <input type="checkbox" id="acepto-terminos" />
               <label for="acepto-terminos"
@@ -96,10 +140,10 @@
                 ><a href="src\pages\terminos.html">Terms & Privacy</a>.</label
               >
             </div>
-            <button class="button login__submit" @click="signUp">
+            <q-button class="button login__submit" @click=" CoachRegister" to="/login">
               Registrar
               <i class="button__icon fas fa-chevron-right"></i>
-            </button>
+            </q-button>
           </form>
         </div>
         <div class="screen__background">
@@ -118,7 +162,7 @@
         </div>
       </div>
     </div>
-    <!-- partial:index.partial.html -->
+
     <button
       class="retrocederrr"
       href="#"
@@ -129,7 +173,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 
 
@@ -169,7 +213,7 @@
 
 .welcome-text {
   font-size: 24px;
-  color: #5f59598e;
+  color: #1101018e;
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -192,8 +236,8 @@
 .screen {
   background: linear-gradient(90deg, #bb9221, #f0b923);
   position: relative;
-  height: 530px;
-  width: 500px;
+  height: 550px;
+  width: 850px;
   box-shadow: 0px 0px 50px #ad871f;
   animation: containerFadeIn 1.1s ease-in-out forwards;
   border-radius: 10px;
@@ -225,7 +269,7 @@
 .screen__background__shape1 {
   height: 520px;
   width: 520px;
-  background: #fff;
+  background: #d8cece;
   top: -50px;
   right: 120px;
   border-radius: 0 72px 0 0;
@@ -234,7 +278,7 @@
 .screen__background__shape2 {
   height: 220px;
   width: 220px;
-  background: #ecc24e;
+  background: #d6ae3e;
   top: -172px;
   right: 0;
   border-radius: 32px;
@@ -276,20 +320,33 @@
 }
 .login__icon {
   position: absolute;
+  align-items: center;
   top: 30px;
   color: #f2c037bb;
   margin-right: 160px;
 }
 .login__input {
   border: none;
-  border-bottom: 2px solid #f2c037;
   background: none;
   padding: 10px;
   padding-left: 18px;
   font-weight: 700;
-
+align-items: center;
   flex: 1;
   margin-right: 10px;
+  width: 75%;
+  transition: 0.2s;
+}
+.login__inputGenero{
+  border: none;
+  border-bottom: 2px solid #f2c037;
+  background: none;
+  padding: 10px;
+  padding-left: 0px;
+  font-weight: 600;
+  flex: 1;
+  margin-left: 470px;
+  margin-top: -117px;;
   width: 75%;
   transition: 0.2s;
 }
@@ -338,7 +395,7 @@
   text-align: center;
   top: 380px;
   left: 40px;
-  color: #5c5a5a;
+  color: #160505;
 }
 
 .social-login__icon {
@@ -400,34 +457,102 @@
 
 <script>
 import axios from "axios";
+import {ref} from "vue";
 
 export default {
-  name: "RegisterForm",
+    name: "RegisterFormCoach",
 
-  data() {
-    return {
-      Usuarios: {
-        nombre: "",
-        apellido: "",
-        genero: "",
-        nroContacto: "",
-        correoElectronico: "",
-        contrasena: "",
-        idTipo: 1,
+    data() {
+      return {
+        model:ref(null),
+        Coach: {
+        idCoach: 0,
+        idPersona:0,
+        tarifaHora: "",
         isActive: true,
-      },
-      generoOptions: ['Femenino', 'Masculino']
-    };
-  },
-  methods: {
-    signUp() {
-      //console.log("Aquí registrare....." + JSON.stringify(this.user))
-      var url = "http://localhost:5083/api/Usuarios/SignUp";
+        idServicio: "",
+        },
 
-      axios
-        .post(url, this.Usuarios)
-        .then((response) => {
-          console.log("Aquí va la respuesta " + JSON.stringify(response));
+        Usuarios: {
+          IdPersona: 0,
+          nombre: "",
+          apellido: "",
+          genero: "",
+          nroContacto: "",
+          correoElectronico: "",
+          contrasena: "",
+          idTipoNavegation: 1,
+          isActive: true,
+        },
+        generoOptions: ['Femenino', 'Masculino'],
+
+
+        options: [
+          {
+            label: 'Administración',
+            value: '1',
+          },
+          {
+            label: 'Marketing',
+            value: '2',
+
+          },
+          {
+            label: 'Derecho Corporativo',
+            value: '1002',
+
+          },
+          {
+            label: 'Contabilidad',
+            value: '1003',
+
+          },
+          {
+            label: 'Logistica',
+            value: '1004',
+
+          },
+          {
+            label:'Finanzas',
+            value:'1005',
+          }
+        ],
+      };
+    },
+    methods: {
+      signUps() {
+        //console.log("Aquí registrare....." + JSON.stringify(this.user))
+        var url = "http://localhost:5083/api/Usuarios/SignUp";
+
+        axios
+          .post(url, this.Usuarios)
+          .then((response) => {
+            this.Coach.idPersona = response.Usuarios.data.IdPersona;
+            console.log("Aquí va la respuesta " + JSON.stringify(response));
+            this.$q.notify({
+              message: "Registro exitoso",
+              color: "positive",
+              position: "bottom",
+              timeout: 3000,
+            });
+            this.$router.push("/");
+          })
+          .catch((error) => {
+            console.log("Ocurrió un error " + error);
+            this.$q.notify({
+              message: "Ocurrió un error",
+              color: "negative",
+              position: "top",
+              timeout: 3000,
+            });
+          });
+      },
+      CoachRegister(){
+      var url = "http://localhost:5083/api/Coach";
+
+        axios.post(url,this.Coach).then((response) => {
+
+        console.log("Aquí va la respuesta " + JSON.stringify(response));
           this.$q.notify({
             message: "Registro exitoso",
             color: "positive",
@@ -445,7 +570,8 @@ export default {
             timeout: 3000,
           });
         });
-    },
-  },
-};
+      }
+  }
+}
+
 </script>
