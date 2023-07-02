@@ -100,7 +100,7 @@
               equired />
           </div>
 
-            <div class="q-gutter-md">
+            <!-- <div class="q-gutter-md">
                 <q-input
                 class="login__inputGenero"
                 type="text"
@@ -110,7 +110,7 @@
                 required
               >
               </q-input>
-            </div>
+            </div> -->
 
           <div class="q-pa-md login__inputGenero " >
             <div class="q-gutter-xm ">
@@ -140,7 +140,7 @@
                 ><a href="src\pages\terminos.html">Terms & Privacy</a>.</label
               >
             </div>
-            <q-button class="button login__submit" @click=" CoachRegister" to="/login">
+            <q-button class="button login__submit" @click=" signUps" to="/planPagos">
               Registrar
               <i class="button__icon fas fa-chevron-right"></i>
             </q-button>
@@ -527,7 +527,7 @@ export default {
         axios
           .post(url, this.Usuarios)
           .then((response) => {
-            this.Coach.idPersona = response.Usuarios.data.IdPersona;
+            this.Coach.idPersona = response.data.IdPersona;
             console.log("Aquí va la respuesta " + JSON.stringify(response));
             this.$q.notify({
               message: "Registro exitoso",
@@ -551,7 +551,7 @@ export default {
       var url = "http://localhost:5083/api/Coach";
 
         axios.post(url,this.Coach).then((response) => {
-
+          Coach.IdPersona = this.Usuarios.IdPersona;
         console.log("Aquí va la respuesta " + JSON.stringify(response));
           this.$q.notify({
             message: "Registro exitoso",

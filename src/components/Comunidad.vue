@@ -33,7 +33,7 @@
         <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/Servicios" label="Comunidad" />
         <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
-        <q-route-tab to="/ElecCoach" label="prueba de sebas" />
+        <q-route-tab to="/planPagos" label="prueba de sebas" />
         <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>
     </q-header>
