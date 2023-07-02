@@ -105,21 +105,7 @@ export default {
   data() {
     return {
       modalOpen: false,
-      coaches: [],
-      coaches1: [
-        {
-          coaches: {
-            tarifaHora: 45,
-            usuarios: {
-              nombre: "Messi",
-              apellido: "Argentina",
-            },
-            idServicio: 0,
-          },
-          serviciosCoaching: null,
-        },
-      ],
-      idServicio: "1", // ID de servicio que quieres consultar
+      coaches: [], // ID de servicio que quieres consultar
     };
   },
   methods: {
@@ -130,13 +116,10 @@ export default {
     trackDelivery() {
       // Implement your track delivery logic here
     },
-    computed: {
-      selectedCoachImage() {
-        return this.selectedCoach ? this.selectedCoach.coaches.imagen : "";
-      },
-    },
     fetchData() {
-      var url = `http://localhost:5083/api/DetalleCouchServicio/GetAllByServicio${this.idServicio}`;
+      var idServicio = this.$route.params.idServicio;
+      console.log(idServicio);
+      var url = `http://localhost:5083/api/DetalleCouchServicio/GetAllByServicio${idServicio}`;
       var token = JSON.parse(localStorage.getItem("userResult")).token;
       console.log("Token: " + token);
       axios

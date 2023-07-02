@@ -18,9 +18,8 @@
                 <input
                   type="text"
                   v-model="Usuarios.nombre"
-                  class="login__input "
+                  class="login__input"
                   placeholder="Nombre"
-
                   required
                 />
               </div>
@@ -39,23 +38,23 @@
             <div class="login__field">
               <div class="column">
                 <i class="login__icon fas fa-male"></i>
-              <q-select
-              label="Género"
-              color="teal"
-              options-selected-class="text-deep-orange"
-                class="login__input"
-                v-model="Usuarios.genero"
-                :options="generoOptions"
-                placeholder="Género"
-                filled
-                required
-              />
-            </div>
+                <q-select
+                  label="Género"
+                  color="teal"
+                  options-selected-class="text-deep-orange"
+                  class="login__input"
+                  v-model="Usuarios.genero"
+                  :options="generoOptions"
+                  placeholder="Género"
+                  filled
+                  required
+                />
+              </div>
 
               <div class="column">
                 <i class="login__icon fas fa-phone-alt"></i>
                 <q-input
-                  type="password"
+                  type="text"
                   class="login__input"
                   v-model="Usuarios.nroContacto"
                   placeholder="N° Contacto"
@@ -99,7 +98,11 @@
                 ><a href="src\pages\terminos.html">Terms & Privacy</a>.</label
               >
             </div>
-            <q-button class="button login__submit" @click="signUps" to="/Inicio">
+            <q-button
+              class="button login__submit"
+              @click="signUps"
+              to="/Inicio"
+            >
               Registrar
               <i class="button__icon fas fa-chevron-right"></i>
             </q-button>
@@ -134,7 +137,6 @@
 
 <style scoped>
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
-
 
 .burbu {
   position: relative;
@@ -205,7 +207,6 @@
 .screen__content {
   z-index: 1;
   position: relative;
-
 }
 
 .screen__background {
@@ -217,7 +218,6 @@
   z-index: 0;
   -webkit-clip-path: inset(0 0 0 0);
   clip-path: inset(0 0 0 0);
-
 }
 
 .screen__background__shape {
@@ -296,7 +296,7 @@
   width: 75%;
   transition: 0.2s;
 }
-.login__inputGenero{
+.login__inputGenero {
   border: none;
   border-bottom: 2px solid #f2c037;
   background: none;
@@ -305,7 +305,7 @@
   font-weight: 600;
   flex: 1;
   margin-left: 480px;
-  margin-top: -117px;;
+  margin-top: -117px;
   width: 75%;
   transition: 0.2s;
 }
@@ -423,7 +423,6 @@ export default {
   data() {
     return {
       Usuarios: {
-
         nombre: "",
         apellido: "",
         genero: "",
@@ -433,8 +432,7 @@ export default {
         idTipoNavegation: 2,
         isActive: true,
       },
-      generoOptions: ['Femenino', 'Masculino'],
-
+      generoOptions: ["Femenino", "Masculino"],
     };
   },
   methods: {
@@ -445,7 +443,6 @@ export default {
       axios
         .post(url, this.Usuarios)
         .then((response) => {
-
           console.log("Aquí va la respuesta " + JSON.stringify(response));
           this.$q.notify({
             message: "Registro exitoso",
@@ -453,7 +450,7 @@ export default {
             position: "bottom",
             timeout: 3000,
           });
-          this.$router.push("/");
+          this.$router.push("/login");
         })
         .catch((error) => {
           console.log("Ocurrió un error " + error);
@@ -465,9 +462,6 @@ export default {
           });
         });
     },
-
-  }
-
-  }
-
+  },
+};
 </script>

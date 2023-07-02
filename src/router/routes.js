@@ -62,7 +62,8 @@ const routes = [
     component: () => import("components/Comunidad.vue"),
   },
   {
-    path: "/ElecCoach",
+    path: "/ElecCoach/:idServicio",
+    name: "ElecCoach",
     component: () => import("components/ElecCoach.vue"),
   },
 
