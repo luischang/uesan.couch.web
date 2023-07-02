@@ -93,7 +93,11 @@ const routes = [
   {
     path: "/MarketingService",
     component: () => import("pages/MarketingService.vue"),
-  }
+  },
+  {
+    path: "/moduloPago",
+    component: () => import("pages/modulodePago.vue"),
+  },
 ];
 
 export default routes;
