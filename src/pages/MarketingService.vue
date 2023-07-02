@@ -56,7 +56,7 @@
             <q-btn
               class="button"
               label="Pedir Asesoramiento"
-              to="/ElecCoach/:idServicio"
+              @click="navigateToNextPage('100')"
             />
             <p>
               Contamos con un equipo de expertos en marketing dispuestos a
