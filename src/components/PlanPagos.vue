@@ -41,7 +41,8 @@
 
       <div class="q-pa-sm">
         <div class="q-gutter-sm " style="max-width: 300px; margin-left: 20px;">
-          <q-input rounded standout v-model="text" label="Ingrese n° horas" />
+          <q-input rounded standout v-model="text" label="Ingrese n° horas" @input="calcularTotal" />
+
         </div>
       </div>
       <div class="card-container">
@@ -61,12 +62,15 @@
 
             <p>6) Gestión del equilibrio entre trabajo y vida personal: <br> Encontrar un equilibrio saludable en la vida emprendedora.</p>
           </div>
-          <div class="card-input">
-          <div style="width: 50%; margin-right: 10px;">
-            <p>Total a Pagar</p>
-            <input type="text" placeholder="El total es" v>
-          </div>
-          </div>
+          <div class="card-input" style="display: flex;">
+  <div style="width: 9%;">
+    <p>Total a Pagar</p>
+  </div>
+  <div style="width: -9px; margin-top:14px">
+    <input type="text" :value="totalPagar" style="float: right;" readonly>
+  </div>
+</div>
+
           <div class="card-button">
             <q-btn label="Seleccionar" type="submit" color="secundary"/>
           </div>
@@ -91,14 +95,15 @@
             <p>Sesiones Grabadas</p>
           </div>
 
-          <div class="card-input">
-            <div style="width: 50%;margin-right: 10px;">
-            <p>Total a Pagar</p>
-            <div>
-            <input type="text" placeholder="El total es">
-            </div>
-          </div>
-          </div>
+          <div class="card-input" style="display: flex;">
+  <div style="width: 9%;">
+    <p>Total a Pagar</p>
+  </div>
+  <div style="width: -9px; margin-top:14px">
+    <input type="text" :value="totalPagar" style="float: right;" readonly>
+  </div>
+</div>
+
           <div class="card-button">
             <q-btn label="Seleccionar" type="submit" color="secundary"/>
           </div>
@@ -123,10 +128,21 @@
 import { ref } from 'vue'
 
 export default {
-  setup () {
+  setup() {
+    const text = ref('');
+    const totalPagar = ref('');
+
+    const calcularTotal = () => {
+      const horas = parseFloat(text.value);
+      const resultado = isNaN(horas)?0: horas * 3;
+      totalPagar.value = `El total es ${resultado}`;
+    };
+
     return {
-      text: ref('')
-    }
+      text,
+      totalPagar,
+      calcularTotal
+    };
   }
 }
 </script>
