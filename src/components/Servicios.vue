@@ -1,7 +1,14 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <q-layout view="LHh Lpr lFf">
-    <q-header reveal elevated class="bg-yellow-7 text-black" height-hint="98">
-      <q-toolbar class="">
+    <q-header
+      reveal
+      elevated
+      class="bg-yellow-7 text-black"
+      height-hint="98"
+      :class="{ 'header-hidden': headerHidden }"
+    >
+      <q-toolbar class="body-servicios">
         <q-toolbar-title
           class="titulo"
           style="
@@ -27,60 +34,63 @@
       </q-toolbar>
 
       <q-tabs align="right">
-        <q-route-tab to="/login" @click="reloadPage" label="Iniciar sesión" />
+        <q-route-tab to="/login" label="Iniciar sesión" />
         <q-route-tab to="/Register" label="Registrarse" />
         <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/Comunidad" label="Comunidad" />
         <q-route-tab to="/QuienesSomos" label="Quienes Somos" />
+        <q-route-tab to="/ElecCoach" label="prueba de sebas" />
         <q-route-tab to="/Inicio" label="Inicio" />
       </q-tabs>
     </q-header>
 
-    <q-page-container class="conti">
-      <div class="servicioscoach">
-        <h2>Servicios de Coaching</h2>
-        <table>
-      <tr>
-        <q-td >
-          <RouterLink to="/MarketingService">
-            <img class="admi" src="img_Servicios/administracion.jpg" />
-            <p class="pAdmi">Coaching Administración</p>
-          </RouterLink>
-        </q-td>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img  class="cont" src="img_Servicios/contabilidad.jpg" />
-            <p class="pCont">Coaching Contabilidad</p>
-          </RouterLink>
-        </td>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img  class="deCorp" src="img_Servicios//derecho corporativo.jpg" />
-            <p>Coaching Derecho Corporativo</p>
-          </RouterLink>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img  class="Fina" src="img_Servicios/finanzas.jpg" />
-            <p>Coaching Finanzas</p>
-          </RouterLink>
-        </td>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img class="logi" src="img_Servicios/logistica.jpg" />
-            <p>Coaching Logistica</p>
-          </RouterLink>
-        </td>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img class="mark" src="img_Servicios/Marketing.png" />
-            <p>Coaching Marketing</p>
-          </RouterLink>
-        </td>
-      </tr>
-    </table>
+    <q-page-container class="contenservico">
+      <div class="servicio">
+        <div class="item1">
+          <h2>Servicios de Coaching</h2>
+        </div>
+        <div class="col-2">
+          <q-img src="img_Servicios/administracion.jpg">
+            <div class="absolute-full text-subtitle2 flex flex-center">
+              Coaching Administración
+            </div>
+          </q-img>
+        </div>
+        <div class="col-3">
+          <q-img src="img_Servicios/contabilidad.jpg">
+            <div class="absolute-full text-subtitle2 flex flex-center">
+              Coaching Contabilidad
+            </div>
+          </q-img>
+        </div>
+        <div class="col-4">
+          <q-img src="img_Servicios//derecho corporativo.jpg">
+            <div class="absolute-full text-subtitle2 flex flex-center">
+              Coaching Derecho Corporativo
+            </div>
+          </q-img>
+        </div>
+        <div class="col-5">
+          <q-img src="img_Servicios/finanzas.jpg">
+            <div class="absolute-full text-subtitle2 flex flex-center">
+              Coaching Finanzas
+            </div>
+          </q-img>
+        </div>
+        <div class="col-6">
+          <q-img src="img_Servicios/logistica.jpg">
+            <div class="absolute-full text-subtitle2 flex flex-center">
+              Coaching Logistica
+            </div>
+          </q-img>
+        </div>
+        <div class="col-7">
+          <q-img src="img_Servicios/Marketing.png">
+            <div class="absolute-full text-subtitle2 flex flex-center">
+              Coaching Marketing
+            </div>
+          </q-img>
+        </div>
       </div>
     </q-page-container>
 
@@ -96,12 +106,47 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-
-
-
+export default {
+  data() {
+    return {
+      headerHidden: false,
+    };
+  },
+  mounted() {
+    // Agrega un listener para ocultar el header al hacer scroll hacia abajo
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    // Elimina el listener cuando el componente se destruye
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      // Si el scroll vertical es mayor a 100px, oculta el header
+      this.headerHidden = window.pageYOffset > 100;
+    },
+  },
+};
 </script>
 
 <style scoped>
+.body-servicios {
+  width: 100%;
+}
+.header-hidden {
+  transform: translateY(-100%);
+}
+.contenservico {
+  background-image: url("public/imagenPro/register.png");
+  width: 100%;
+  height: auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: initial;
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 20px;
+}
 
 .letra2 {
   width: 30%;
@@ -117,32 +162,22 @@ import { defineComponent, ref } from "vue";
   margin-top: 0px;
 }
 
-
-.servicioscoach {
-  position: relative;
+.ser {
   align-items: center;
-  justify-content: center;
-  margin-top: 200px;
-  text-align: center;
-  bottom: 160px;
+  margin-left: 3%;
+  padding-bottom: 70px;
 }
-.conti {
-  background-image: url("public/imagenPro/register.png");
-  width: 100%;
-  height: auto;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: initial;
-  background-attachment: fixed;
-  background-size: cover;
+.titulo {
+  font-size: 60px;
+  margin-left: 10px;
+  margin-top: 0px;
 }
-
 .servicio h2 {
   padding: 20px;
   font-size: 40px;
   text-align: center;
 }
-.admi {
+.admi :not(.contenservico, .servicio) {
   width: 100px;
   height: 100px;
   border-radius: 18px;
@@ -152,61 +187,71 @@ import { defineComponent, ref } from "vue";
 .admi1 p {
   align-items: center;
 }
-.cont {
+.cont :not(.contenservico, .servicio) {
   width: 100px;
   height: 100px;
   border-radius: 18px;
   margin-top: 90px;
   margin-left: 150px;
 }
-.deCorp {
+.deCorp:not(.contenservico, .servicio) {
   width: 100px;
   height: 100px;
   border-radius: 18px;
   margin-top: 90px;
   margin-left: 150px;
 }
-.Fina {
+.Fina:not(.contenservico, .servicio) {
   width: 100px;
   height: 100px;
   border-radius: 18px;
   margin-top: 90px;
   margin-left: 150px;
 }
-.logi {
+.logi:not(.contenservico, .servicio) {
   width: 100px;
   height: 100px;
   border-radius: 18px;
   margin-top: 90px;
   margin-left: 150px;
 }
-.mark {
+.mark:not(.contenservico, .servicio) {
   width: 100px;
   height: 100px;
   border-radius: 18px;
   margin-top: 90px;
   margin-left: 150px;
 }
-table {
-  margin-left: 15%;
+.servicio {
+  width: 100%;
+  display: grid;
+  padding: 20px;
+  grid-template-columns: auto auto auto;
+  grid-template-areas:
+    "item1 item1 item1"
+    "item2 item3 item4"
+    "item5 item6 item7";
+  gap: 0px;
 }
-table p {
-  text-align: center;
-}
-table tr td p {
-  font-size: 20px;
-  margin-left: 50px;
-}
-table tr td img {
-  margin-right: 90px;
-}
-p {
-  color: black;
+.servicio > div {
+  /* border: 1px solid red; */
+  padding: 15px 5px;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+.item1 {
+  grid-area: item1;
+}
+.col-2 img,
+.col-3 img,
+.col-4 img,
+.col-5 img,
+.col-6 img,
+.col-7 img {
+  width: 200px; /* Tamaño deseado para la imagen */
+  height: auto; /* Ajusta automáticamente la altura según la proporción de la imagen */
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  margin: 0 auto;
 }
 </style>
