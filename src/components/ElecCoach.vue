@@ -45,36 +45,37 @@
             type="button"
             class="modal-button"
             v-for="coach in coaches"
-            :key="coach.coaches.idServicio"
+            :key="coach.idCoach"
             @click="openModal(coach)"
           >
             <div class="coach-data">
-              <p>Tarifa por hora: {{ coach.coaches.tarifaHora }}</p>
-              <p>Nombre del usuario: {{ coach.coaches.usuarios.nombre }}</p>
-              <p>Apellido del usuario: {{ coach.coaches.usuarios.apellido }}</p>
+              <p>Tarifa por hora: {{ coach.tarifaHora }}</p>
+              <p>Nombre del usuario: {{ coach.idPersonaNavigation.nombre }}</p>
+              <p>
+                Apellido del usuario: {{ coach.idPersonaNavigation.apellido }}
+              </p>
             </div>
           </q-btn>
           <div v-if="coaches.length === 0">
             <p>No se encontraron datos de coach.</p>
           </div>
         </div>
-
         <q-dialog v-model="modalOpen">
           <q-card>
             <div class="card-img">
-              <q-img class="img-fluid" :src="selectedCoachImage" />
+              <q-img class="img-fluid" />
             </div>
 
             <q-card-section>
               <div class="card-title">
-                <p>Tarifa por hora: {{ selectedCoach.coaches.tarifaHora }}</p>
+                <p>Tarifa por hora: {{ selectedCoach.tarifaHora }}</p>
                 <p>
                   Nombre del usuario:
-                  {{ selectedCoach.coaches.usuarios.nombre }}
+                  {{ selectedCoach.idPersonaNavigation.nombre }}
                 </p>
                 <p>
                   Apellido del usuario:
-                  {{ selectedCoach.coaches.usuarios.apellido }}
+                  {{ selectedCoach.idPersonaNavigation.apellido }}
                 </p>
               </div>
             </q-card-section>
@@ -105,7 +106,24 @@ export default {
   data() {
     return {
       modalOpen: false,
-      coaches: [], // ID de servicio que quieres consultar
+      coaches: [],
+      coaches1: [
+        {
+          idCoach: 90001,
+          idPersonaNavigation: {
+            nombre: "Messi",
+            apellido: "Argentina",
+            genero: "1",
+            nroContacto: "67864",
+            correoElectronico: "messi@argentina.com",
+          },
+          idServicioNavigation: {
+            nombreServicio: "Modelaje",
+            isActive: true,
+          },
+          tarifaHora: 45,
+        },
+      ], // ID de servicio que quieres consultar
     };
   },
   methods: {
@@ -119,7 +137,7 @@ export default {
     fetchData() {
       var idServicio = this.$route.params.idServicio;
       console.log(idServicio);
-      var url = `http://localhost:5083/api/DetalleCouchServicio/GetAllByServicio${idServicio}`;
+      var url = `http://localhost:5083/api/Coach/100`;
       var token = JSON.parse(localStorage.getItem("userResult")).token;
       console.log("Token: " + token);
       axios
@@ -131,7 +149,14 @@ export default {
         .then((response) => {
           console.log(response);
           console.log(JSON.stringify(response.data));
-          this.coaches = response.data;
+          this.coaches = [
+            {
+              idCoach: response.data.idCoach,
+              idPersonaNavigation: response.data.idPersonaNavigation,
+              idServicioNavigation: response.data.idServicioNavigation,
+              tarifaHora: response.data.tarifaHora,
+            },
+          ];
         })
         .catch((error) => {
           console.error("Error al obtener los datos:", error);
@@ -141,29 +166,7 @@ export default {
 };
 </script>
 <style scoped>
-@import url(https://fonts.googleapis.com/css?family=Calibri:400,300,700);
-
-.modal-button {
-  background-color: rgb(243, 230, 42);
-  border-color: rgb(29, 226, 226);
-  border-radius: 6px;
-  color: rgb(0, 0, 0);
-  font-size: 17px;
-  padding-right: 30px;
-  padding-left: 30px;
-}
-
-@media (max-width: 767px) {
-}
-.card-img {
-  padding: 20px 0;
-  width: 40%;
-}
-
-.card-img img {
-  opacity: 0.7;
-}
-.card-title {
+card-title {
   margin-bottom: unset;
 }
 .card-title p {
