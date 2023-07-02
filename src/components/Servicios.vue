@@ -50,7 +50,7 @@
         </div>
         <RouterLink to="/MarketingService">
         <div class="col-2">
-          <q-img src="img_Servicios/administracion.jpg">
+          <q-img src="img_Servicios/administracion.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
               Coaching Administración
             </div>
@@ -59,7 +59,7 @@
       </RouterLink>
         <RouterLink to="/MarketingService">
         <div class="col-3">
-          <q-img src="img_Servicios/contabilidad.jpg">
+          <q-img src="img_Servicios/contabilidad.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
               Coaching Contabilidad
             </div>
@@ -68,7 +68,7 @@
       </RouterLink>
         <RouterLink to="/MarketingService">
         <div class="col-4">
-          <q-img src="img_Servicios//derecho corporativo.jpg">
+          <q-img src="img_Servicios//derecho corporativo.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
               Coaching Derecho Corporativo
             </div>
@@ -77,7 +77,7 @@
       </RouterLink>
         <RouterLink to="/MarketingService">
         <div class="col-5">
-          <q-img src="img_Servicios/finanzas.jpg">
+          <q-img src="img_Servicios/finanzas.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
               Coaching Finanzas
             </div>
@@ -86,7 +86,7 @@
       </RouterLink>
         <RouterLink to="/MarketingService">
         <div class="col-6">
-          <q-img src="img_Servicios/logistica.jpg">
+          <q-img src="img_Servicios/logistica.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
               Coaching Logistica
             </div>
@@ -95,7 +95,7 @@
       </RouterLink>
         <RouterLink to="/MarketingService">
         <div class="col-7">
-          <q-img src="img_Servicios/Marketing.png">
+          <q-img src="img_Servicios/Marketing.png" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
               Coaching Marketing
             </div>
@@ -150,7 +150,7 @@ export default {
 .contenservico {
   background-image: url("public/imagenPro/register.png");
   width: 100%;
-  height: auto;
+  height: 90%;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: initial;
@@ -169,7 +169,7 @@ export default {
 
 .titulo {
   font-size: 60px;
-  margin-left: 10px;
+  margin-left: -10px;
   margin-top: 0px;
 }
 
@@ -188,6 +188,7 @@ export default {
   padding: 20px;
   font-size: 40px;
   text-align: center;
+  padding-right: 270px;
 }
 .admi :not(.contenservico, .servicio) {
   width: 100px;
@@ -236,6 +237,7 @@ export default {
 }
 .servicio {
   width: 100%;
+  height: 90%;
   display: grid;
   padding: 20px;
   grid-template-columns: auto auto auto;
@@ -252,6 +254,7 @@ export default {
 
 .item1 {
   grid-area: item1;
+
 }
 .col-2 img,
 .col-3 img,
@@ -259,11 +262,21 @@ export default {
 .col-5 img,
 .col-6 img,
 .col-7 img {
-  width: 200px; /* Tamaño deseado para la imagen */
-  height: auto; /* Ajusta automáticamente la altura según la proporción de la imagen */
+/* Ajusta automáticamente la altura según la proporción de la imagen */
   object-fit: cover;
   display: block;
-  border-radius: 18px;
-  margin: 0 auto;
+  border-radius: 30px;
+
 }
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7{
+  margin-right: 250px;
+  padding-top: 50px;
+
+}
+
 </style>

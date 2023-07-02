@@ -23,42 +23,6 @@
     </q-header>
 
     <q-page-container class="conti">
-<<<<<<< HEAD
-      <div class="q-pa-sm">
-        <div class="q-gutter-sm" style="max-width: 300px; margin-left: 20px;">
-          <q-input rounded standout v-model="data.text" label="Ingrese n° horas" @input="calcularTotal" />
-        </div>
-      </div>
-
-      <div class="card-container">
-        <div class="card">
-          <div class="card-title">Por Hora:</div>
-          <div class="card-description">
-            <p>Max: 4h</p>
-            <p>1) Desarrollo de habilidades empresariales: <br> Mejora de habilidades clave para el éxito empresarial.</p>
-
-            <p>2) Desarrollo de la visión y estrategia empresarial: <br> Definición de metas y planificación estratégica.</p>
-
-            <p>3) Gestión del cambio y superación de obstáculos: <br> Manejo de desafíos y desarrollo de resiliencia.</p>
-
-            <p>4) Desarrollo de habilidades de gestión: <br> Mejora de la gestión empresarial y organizativa.</p>
-
-            <p>5) Estrategias de networking y establecimiento de relaciones: <br> Creación de conexiones y colaboraciones efectivas. </p>
-
-            <p>6) Gestión del equilibrio entre trabajo y vida personal: <br> Encontrar un equilibrio saludable en la vida emprendedora.</p>
-          </div>
-          <div class="card-input">
-            <div class="total-pagar">
-              <p>Total a Pagar</p>
-            </div>
-            <div class="total-pagar-input">
-              <input type="text" :value="data.totalPagar" readonly />
-            </div>
-          </div>
-
-          <div class="card-button">
-            <q-btn label="Seleccionar" type="submit" color="secundary" />
-=======
       <body>
         <div class="q-pa-sm">
           <div class="q-gutter-sm" style="max-width: 300px; margin-left: 20px">
@@ -69,7 +33,7 @@
               label="Ingrese n° horas"
               @input="calcularTotal"
             />
->>>>>>> 161a20d88e769a66223781220e8344f365fd3a72
+
           </div>
         </div>
         <div class="card-container">
@@ -132,22 +96,6 @@
             </div>
           </div>
 
-<<<<<<< HEAD
-          <div class="card-input">
-            <div class="total-pagar">
-              <p>Total a Pagar</p>
-            </div>
-            <div class="total-pagar-input">
-              <input type="text" :value="data.totalPagar" readonly />
-            </div>
-          </div>
-
-          <div class="card-button">
-            <q-btn label="Seleccionar" type="submit" color="secundary" />
-          </div>
-        </div>
-      </div>
-=======
           <div class="card">
             <div class="card-title">Mensual</div>
             <div class="card-description">
@@ -211,7 +159,7 @@
           </div>
         </div>
       </body>
->>>>>>> 161a20d88e769a66223781220e8344f365fd3a72
+
     </q-page-container>
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
@@ -225,29 +173,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-import { reactive } from 'vue'
-
-export default {
-  setup() {
-    const data = reactive({
-  text: "",
-  totalPagar: "",
-});
-
-const calcularTotal = () => {
-  const horas = parseFloat(data.text);
-  const resultado = isNaN(horas) ? 0 : horas * 3;
-  data.totalPagar = `El total es ${resultado}`;
-};
-
-return {
-  data,
-  calcularTotal
-};
-  }
-}
-=======
 import { ref } from "vue";
 
 export default {
@@ -268,7 +193,6 @@ export default {
     };
   },
 };
->>>>>>> 161a20d88e769a66223781220e8344f365fd3a72
 </script>
 
 <style scoped>
@@ -277,7 +201,6 @@ export default {
 }
 
 .card-container {
-<<<<<<< HEAD
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 20px;
@@ -325,7 +248,6 @@ export default {
   font-size: 16px;
   margin-bottom: 10px;
   cursor: pointer;
-=======
   display: flex;
   padding-left: 200px;
   padding-right: 200px;
@@ -374,7 +296,7 @@ export default {
   margin-top: 50px;
   margin-bottom: 20px;
   margin-left: 500px;
->>>>>>> 161a20d88e769a66223781220e8344f365fd3a72
+
 }
 
 .letra2 {
@@ -391,7 +313,6 @@ export default {
   margin-top: 0px;
 }
 
-<<<<<<< HEAD
 .logo-avatar {
   width: auto;
   height: 120px;
@@ -400,8 +321,6 @@ export default {
   margin-left: 50px;
 }
 
-=======
->>>>>>> 161a20d88e769a66223781220e8344f365fd3a72
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
