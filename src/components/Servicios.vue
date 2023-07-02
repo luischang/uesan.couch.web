@@ -162,7 +162,8 @@ export default {
   margin-top: 0px;
 }
 
-.ser {
+.servicioscoach {
+  position: relative;
   align-items: center;
   margin-left: 3%;
   padding-bottom: 70px;

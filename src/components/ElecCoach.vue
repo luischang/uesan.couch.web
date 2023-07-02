@@ -80,7 +80,7 @@
             </q-card-section>
 
             <q-card-actions>
-              <q-btn class="btn" label="elegir coach" @click="trackDelivery" />
+              <q-btn class="btn" label="elegir coach" to="/planPagos" />
             </q-card-actions>
           </q-card>
         </q-dialog>

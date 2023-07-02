@@ -102,7 +102,7 @@ export default {
             message: "Inicio de sesión correcta",
             color: "positive",
             position: "bottom",
-            timeout: 3000,
+            timeout: 1000,
           });
           setTimeout(() => {
             // Verificar si el correo electrónico es "@admin"
@@ -111,7 +111,7 @@ export default {
             } else {
               this.$router.push("/intEmprendedor");
             }
-          }, 170);
+          }, 300);
         })
         .catch((error) => {
           console.log("Ocurrió un error " + error);
@@ -120,7 +120,7 @@ export default {
             message: "Ocurrió un error",
             color: "negative",
             position: "top",
-            timeout: 3000,
+            timeout: 1000,
           });
         });
     },
