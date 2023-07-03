@@ -80,10 +80,10 @@
             </q-card-section>
 
             <q-card-actions>
-              <q-btn to="/planPagos"
+              <q-btn
+                to="/planPagos"
                 class="btn"
                 label="elegir coach"
-                to="/planPagos"
                 @click="
                   seleccionarCoach(
                     selectedCoach.idCoach,
