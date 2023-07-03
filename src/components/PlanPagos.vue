@@ -159,6 +159,11 @@
       </body>
 
     </q-page-container>
+    <q-btn
+      class="retrocederrr"
+      href="#"
+      onclick="history.back(); return false;"
+   />
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
       <q-toolbar>
@@ -199,6 +204,28 @@ export default {
 </script>
 
 <style scoped>
+.retrocederrr {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  padding: 10px;
+  background-color: #ccc;
+
+  color: #c2970a;
+  /* sss */
+  background: #fff;
+
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+
+  box-shadow: 0px 2px 10px #f2c037;
+  cursor: pointer;
+  transition: 0.3s;
+  animation: containerFadeIn 1.1s ease-in-out forwards;
+}
 .container {
   margin: 20px;
 }

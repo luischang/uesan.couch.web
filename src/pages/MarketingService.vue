@@ -56,7 +56,7 @@
             <q-btn
               class="button"
               label="Pedir Asesoramiento"
-              @click="navigateToNextPage('1007')"
+              @click="navigateToNextPage('1005')"
             />
             <p>
               Contamos con un equipo de expertos en marketing dispuestos a
