@@ -80,7 +80,7 @@
             </q-card-section>
 
             <q-card-actions>
-              <q-btn
+              <q-btn to="/planPagos"
                 class="btn"
                 label="elegir coach"
                 to="/planPagos"
