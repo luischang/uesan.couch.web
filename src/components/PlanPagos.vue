@@ -13,7 +13,7 @@
       </q-toolbar>
 
       <q-tabs align="right">
-        <q-route-tab to="/login" @click="reloadPage" label="Iniciar sesión" />
+        <q-route-tab to="/login" label="Iniciar sesión" />
         <q-route-tab to="/Register" label="Registrarse" />
         <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/Comunidad" label="Comunidad" />
@@ -27,12 +27,11 @@
         <div class="q-pa-sm">
           <div class="q-gutter-sm" style="max-width: 300px; margin-left: 20px">
             <q-input
-      outlined
-      v-model="inputValue"
-      type="number"
-      label="Ingresa un valor numérico"
-    />
-
+              outlined
+              v-model="inputValue"
+              type="number"
+              label="Ingresa un valor numérico"
+            />
           </div>
         </div>
         <div class="card-container">
@@ -73,13 +72,10 @@
             </div>
             <div class="card-input" style="display: flex">
               <div style="width: 9%">
-                <q-input
-      outlined
-      :value="result"
-      type="text"
-      label="Resultado"
-      readonly
-    />
+                <p>Total a Pagar</p>
+              </div>
+              <div style="width: -9px; margin-top: 14px">
+                <p>{{ result }}</p>
               </div>
             </div>
 
@@ -136,13 +132,7 @@
                 <p>Total a Pagar</p>
               </div>
               <div style="width: -9px; margin-top: 14px">
-                <q-input
-      outlined
-      :value="result"
-      type="text"
-      label="Resultado"
-      readonly
-    />
+                <p>{{ result }}</p>
               </div>
             </div>
 
@@ -157,7 +147,6 @@
           </div>
         </div>
       </body>
-
     </q-page-container>
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
@@ -172,18 +161,18 @@
 
 <script>
 import { ref } from "vue";
-
 export default {
   data() {
     return {
       inputValue: 0,
-      result: 0
+      result: 0,
     };
   },
   watch: {
     inputValue() {
       this.calculateResult();
-    }
+      this.result = multiplicarYMostrar(this.inputValue);
+    },
   },
   methods: {
     calculateResult() {
@@ -191,11 +180,34 @@ export default {
       if (!isNaN(value)) {
         this.result = value * 2;
       } else {
-        this.result = '';
+        this.result = "";
       }
-    }
-  }
+    },
+  },
 };
+
+function multiplicarYMostrar(inputValue) {
+  // Obtener los datos seleccionados del localStorage
+  var datosSeleccionados = localStorage.getItem("datosSeleccionados");
+
+  if (datosSeleccionados) {
+    // Convertir los datos de texto a objeto JavaScript
+    var datos = JSON.parse(datosSeleccionados);
+
+    // Obtener el otro parámetro necesario para la multiplicación
+    var otroParametro = parseFloat(inputValue);
+
+    // Calcular el resultado de la multiplicación
+    var resultadoMultiplicacion = datos.tarifaHora * otroParametro;
+
+    // Actualizar la regla CSS dinámicamente
+    datos.resultadoMultiplicacion = resultadoMultiplicacion;
+    localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+    return resultadoMultiplicacion;
+  } else {
+    console.log("No se encontraron datos seleccionados en el localStorage");
+  }
+}
 </script>
 
 <style scoped>
@@ -310,7 +322,6 @@ export default {
   margin-top: 50px;
   margin-bottom: 20px;
   margin-left: 500px;
-
 }
 
 .letra2 {

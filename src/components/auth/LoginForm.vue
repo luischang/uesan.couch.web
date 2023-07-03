@@ -102,7 +102,7 @@ export default {
             message: "Inicio de sesión correcta",
             color: "positive",
             position: "bottom",
-            timeout: 1000,
+            timeout: 500,
           });
           setTimeout(() => {
             // Verificar si el correo electrónico es "@admin"

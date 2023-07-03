@@ -83,10 +83,12 @@
               <q-btn
                 class="btn"
                 label="elegir coach"
+                to="/planPagos"
                 @click="
                   seleccionarCoach(
                     selectedCoach.idCoach,
-                    selectedCoach.idServicio
+                    selectedCoach.idServicio,
+                    selectedCoach.tarifaHora
                   )
                 "
               />
@@ -141,14 +143,15 @@ export default {
     };
   },
   methods: {
-    seleccionarCoach(idCoach, idServicio) {
+    seleccionarCoach(idCoach, idServicio, tarifaHora) {
       console.log("coachSeleccionado:", this.coachSeleccionado);
-      this.guardarSeleccionEnLocalStorage(idCoach, idServicio);
+      this.guardarSeleccionEnLocalStorage(idCoach, idServicio, tarifaHora);
     },
-    guardarSeleccionEnLocalStorage(idCoach, idServicio) {
+    guardarSeleccionEnLocalStorage(idCoach, idServicio, tarifaHora) {
       const data = {
         idCoach: idCoach,
         idServicio: idServicio,
+        tarifaHora: tarifaHora,
       };
       localStorage.setItem("datosSeleccionados", JSON.stringify(data));
     },
@@ -226,7 +229,6 @@ card-title {
   box-shadow: none;
   color: white;
   -webkit-box-shadow: none;
-  -webkit-user-select: none;
   transition: none;
 }
 .btn:hover {

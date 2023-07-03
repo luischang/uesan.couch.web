@@ -27,7 +27,7 @@
       </q-toolbar>
 
       <q-tabs align="right">
-        <q-route-tab to="/login" @click="reloadPage" label="Iniciar sesión" />
+        <q-route-tab to="/login" label="Iniciar sesión" />
         <q-route-tab to="/Register" label="Registrarse" />
         <q-route-tab to="/Servicios" label="Servicios" />
         <q-route-tab to="/Comunidad" label="Comunidad" />
@@ -106,47 +106,50 @@ https://quasar.dev/vue-components/card#example--expandable
       <div class="servicioscoach">
         <h2>Servicios de Coaching</h2>
         <table>
-      <tr>
-        <q-td >
-          <RouterLink to="/MarketingService">
-            <img class="admi" src="img_Servicios/administracion.jpg" />
-            <p class="pAdmi">Coaching Administración</p>
-          </RouterLink>
-        </q-td>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img  class="cont" src="img_Servicios/contabilidad.jpg" />
-            <p class="pCont">Coaching Contabilidad</p>
-          </RouterLink>
-        </td>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img  class="deCorp" src="img_Servicios//derecho corporativo.jpg" />
-            <p>Coaching Derecho Corporativo</p>
-          </RouterLink>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img  class="Fina" src="img_Servicios/finanzas.jpg" />
-            <p>Coaching Finanzas</p>
-          </RouterLink>
-        </td>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img class="logi" src="img_Servicios/logistica.jpg" />
-            <p>Coaching Logistica</p>
-          </RouterLink>
-        </td>
-        <td>
-          <RouterLink to="/MarketingService">
-            <img class="mark" src="img_Servicios/Marketing.png" />
-            <p>Coaching Marketing</p>
-          </RouterLink>
-        </td>
-      </tr>
-    </table>
+          <tr>
+            <q-td>
+              <RouterLink to="/MarketingService">
+                <img class="admi" src="img_Servicios/administracion.jpg" />
+                <p class="pAdmi">Coaching Administración</p>
+              </RouterLink>
+            </q-td>
+            <td>
+              <RouterLink to="/MarketingService">
+                <img class="cont" src="img_Servicios/contabilidad.jpg" />
+                <p class="pCont">Coaching Contabilidad</p>
+              </RouterLink>
+            </td>
+            <td>
+              <RouterLink to="/MarketingService">
+                <img
+                  class="deCorp"
+                  src="img_Servicios//derecho corporativo.jpg"
+                />
+                <p>Coaching Derecho Corporativo</p>
+              </RouterLink>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <RouterLink to="/MarketingService">
+                <img class="Fina" src="img_Servicios/finanzas.jpg" />
+                <p>Coaching Finanzas</p>
+              </RouterLink>
+            </td>
+            <td>
+              <RouterLink to="/MarketingService">
+                <img class="logi" src="img_Servicios/logistica.jpg" />
+                <p>Coaching Logistica</p>
+              </RouterLink>
+            </td>
+            <td>
+              <RouterLink to="/MarketingService">
+                <img class="mark" src="img_Servicios/Marketing.png" />
+                <p>Coaching Marketing</p>
+              </RouterLink>
+            </td>
+          </tr>
+        </table>
       </div>
     </q-page-container>
 
