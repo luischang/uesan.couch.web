@@ -80,7 +80,16 @@
             </q-card-section>
 
             <q-card-actions>
-              <q-btn class="btn" label="elegir coach" to="/planPagos" />
+              <q-btn
+                class="btn"
+                label="elegir coach"
+                @click="
+                  seleccionarCoach(
+                    selectedCoach.idCoach,
+                    selectedCoach.idServicio
+                  )
+                "
+              />
             </q-card-actions>
           </q-card>
         </q-dialog>
@@ -101,9 +110,14 @@ import axios from "axios";
 export default {
   mounted() {
     this.fetchData();
+    const seleccionGuardada = localStorage.getItem("coachSeleccionado");
+    if (seleccionGuardada) {
+      this.coachSeleccionado = JSON.parse(seleccionGuardada);
+    }
   },
   data() {
     return {
+      coachSeleccionado: [],
       modalOpen: false,
       coaches: [],
       coaches1: [
@@ -121,15 +135,36 @@ export default {
             isActive: true,
           },
           tarifaHora: 45,
+          idServicio: 2123,
         },
       ], // ID de servicio que quieres consultar
     };
   },
   methods: {
+    seleccionarCoach(idCoach, idServicio) {
+      console.log("coachSeleccionado:", this.coachSeleccionado);
+      this.guardarSeleccionEnLocalStorage(idCoach, idServicio);
+    },
+    guardarSeleccionEnLocalStorage(idCoach, idServicio) {
+      const data = {
+        idCoach: idCoach,
+        idServicio: idServicio,
+      };
+      localStorage.setItem("datosSeleccionados", JSON.stringify(data));
+    },
+    watch: {
+      coachSeleccionado: {
+        handler() {
+          // No es necesario llamar a esta función aquí
+        },
+        deep: true,
+      },
+    },
     openModal(coach) {
       this.selectedCoach = coach;
       this.modalOpen = true;
     },
+
     trackDelivery() {
       // Implement your track delivery logic here
     },
@@ -137,20 +172,16 @@ export default {
       var idServicio = this.$route.params.idServicio;
       console.log(idServicio);
       var url = `http://localhost:5083/api/Coach/${idServicio}`;
-      var token = JSON.parse(localStorage.getItem("userResult")).token;
-      console.log("Token: " + token);
+
       axios
-        .get(url, {
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-        })
+        .get(url, {})
         .then((response) => {
           console.log(response);
           console.log(JSON.stringify(response.data));
           this.coaches = [
             {
               idCoach: response.data.idCoach,
+              idServicio: response.data.idServicio,
               idPersonaNavigation: response.data.idPersonaNavigation,
               idServicioNavigation: response.data.idServicioNavigation,
               tarifaHora: response.data.tarifaHora,
