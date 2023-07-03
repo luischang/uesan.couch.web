@@ -27,12 +27,11 @@
         <div class="q-pa-sm">
           <div class="q-gutter-sm" style="max-width: 300px; margin-left: 20px">
             <q-input
-              rounded
-              standout
-              v-model="text"
-              label="Ingrese n° horas"
-              @input="calcularTotal"
-            />
+      outlined
+      v-model="inputValue"
+      type="number"
+      label="Ingresa un valor numérico"
+    />
 
           </div>
         </div>
@@ -74,15 +73,13 @@
             </div>
             <div class="card-input" style="display: flex">
               <div style="width: 9%">
-                <p>Total a Pagar</p>
-              </div>
-              <div style="width: -9px; margin-top: 14px">
-                <input
-                  type="text"
-                  :value="totalPagar"
-                  style="float: right"
-                  readonly
-                />
+                <q-input
+      outlined
+      :value="result"
+      type="text"
+      label="Resultado"
+      readonly
+    />
               </div>
             </div>
 
@@ -139,12 +136,13 @@
                 <p>Total a Pagar</p>
               </div>
               <div style="width: -9px; margin-top: 14px">
-                <input
-                  type="text"
-                  :value="totalPagar"
-                  style="float: right"
-                  readonly
-                />
+                <q-input
+      outlined
+      :value="result"
+      type="text"
+      label="Resultado"
+      readonly
+    />
               </div>
             </div>
 
@@ -176,26 +174,42 @@
 import { ref } from "vue";
 
 export default {
-  setup() {
-    const text = ref("");
-    const totalPagar = ref("");
-
-    const calcularTotal = () => {
-      const horas = parseFloat(text.value);
-      const resultado = isNaN(horas) ? 0 : horas * 3;
-      totalPagar.value = `El total es ${resultado}`;
-    };
-
+  data() {
     return {
-      text,
-      totalPagar,
-      calcularTotal,
+      inputValue: 0,
+      result: 0
     };
   },
+  watch: {
+    inputValue() {
+      this.calculateResult();
+    }
+  },
+  methods: {
+    calculateResult() {
+      const value = parseFloat(this.inputValue);
+      if (!isNaN(value)) {
+        this.result = value * 2;
+      } else {
+        this.result = '';
+      }
+    }
+  }
 };
 </script>
 
 <style scoped>
+.container {
+  margin: 20px;
+}
+
+.q-input__label {
+  margin-bottom: 10px;
+}
+
+.result-label {
+  margin-top: 20px;
+}
 .q-pa-md {
   margin-left: 40px;
 }
