@@ -136,7 +136,7 @@ export default {
     fetchData() {
       var idServicio = this.$route.params.idServicio;
       console.log(idServicio);
-      var url = `http://localhost:5083/api/Coach/100`;
+      var url = `http://localhost:5083/api/Coach/${idServicio}`;
       var token = JSON.parse(localStorage.getItem("userResult")).token;
       console.log("Token: " + token);
       axios

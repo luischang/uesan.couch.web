@@ -124,7 +124,6 @@ card-title {
   box-shadow: none;
   color: white;
   -webkit-box-shadow: none;
-  -webkit-user-select: none;
   transition: none;
 }
 .btn:hover {
