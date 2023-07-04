@@ -139,8 +139,12 @@
 
             <div class="card-button">
               <q-btn
-                @click="guardarIdTipoEnLocalStorage(1010)"
-                to="/moduloPago"
+                @click="
+                  () => {
+                    guardarIdTipoEnLocalStorage(1010);
+                    set_matricula();
+                  }
+                "
                 label="Seleccionar"
                 type="submit"
                 color="secondary"
@@ -167,6 +171,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import { ref } from "vue";
 export default {
   data() {
@@ -201,6 +206,51 @@ export default {
         localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
       } else {
         console.log("No se encontraron datos seleccionados en el localStorage");
+      }
+    },
+    set_matricula: function () {
+      const storedData = localStorage.getItem("datosSeleccionados");
+      this.datosSeleccionados = JSON.parse(storedData);
+      // Verificar si los valores están definidos y no son nulos
+      if (
+        this.datosSeleccionados &&
+        this.datosSeleccionados.idCoach &&
+        this.datosSeleccionados.idTipo &&
+        this.datosSeleccionados.resultadoMultiplicacion &&
+        this.datosSeleccionados.idServicio
+      ) {
+        // Realizar el resto del código aquí
+        this.idCoach = this.datosSeleccionados.idCoach;
+        this.idTipo = this.datosSeleccionados.idTipo;
+        this.resultadoMultiplicacion =
+          this.datosSeleccionados.resultadoMultiplicacion;
+        this.idServicio = this.datosSeleccionados.idServicio;
+        var data = {
+          idCoach: this.idCoach,
+          idPlan: this.idTipo,
+          multiplicador: this.resultadoMultiplicacion,
+          idServicio: this.idServicio,
+          isActive: true,
+        };
+        var url = "http://localhost:5083/api/DetalleCouchServicio/Insert";
+
+        axios
+          .post(url, data)
+          .then((response) => {
+            console.log("Aquí va la respuesta " + JSON.stringify(response));
+            localStorage.setItem(
+              "idDetCoachServicio",
+              JSON.stringify(response.data)
+            );
+
+            this.$router.push("/moduloPago");
+          })
+          .catch((error) => {
+            console.log("Ocurrió un error " + error);
+          });
+      } else {
+        // Manejar la situación cuando los valores no son válidos o están indefinidos
+        console.log("Los valores no son válidos o están indefinidos");
       }
     },
   },
