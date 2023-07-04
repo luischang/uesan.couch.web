@@ -41,30 +41,26 @@
       <body>
         <div class="container">
           <div class="description">
-            <h2>Coaching de Marketing</h2>
+            <h2>Coaching de Logística</h2>
             <h6>
-              ¡Obtén el asesoramiento que necesitas para impulsar tu estrategia
-              de marketing!
+              ¡Obtén el asesoramiento especializado para optimizar tus operaciones logísticas.!
             </h6>
             <p>
-              Ya sea que necesites mejorar tu presencia en redes sociales,
-              desarrollar campañas publicitarias efectivas o aumentar la
-              visibilidad de tu marca, nuestro servicio de coaching de marketing
-              te brinda las herramientas y conocimientos necesarios para
-              alcanzar tus objetivos.
+              Ya sea que necesites mejorar la gestión de inventario, optimizar rutas de distribución o
+              implementar estrategias de cadena de suministro más eficientes,
+              nuestro servicio de coaching de logística te brinda las herramientas y
+              conocimientos necesarios para alcanzar tus objetivos logísticos.
             </p>
             <q-btn
-              class="button bg-green"
+            class="button bg-green"
               style="margin-left: 45%;"
               label="Pedir Asesoramiento"
               @click="navigateToNextPage('1005')"
             />
             <p>
-              Contamos con un equipo de expertos en marketing dispuestos a
-              ayudarte a tomar decisiones inteligentes y estratégicas para tu
-              negocio. No importa si eres un emprendedor individual o una
-              empresa establecida, adaptaremos nuestras sesiones de coaching a
-              tus necesidades específicas.
+              Contamos con un equipo de expertos en logística dispuestos a ayudarte a identificar oportunidades de mejora y
+              aplicar las mejores prácticas en la gestión de tu cadena de suministro.
+              Nuestro enfoque personalizado se adapta a las necesidades de tu negocio, ya sea pequeño o grande.
             </p>
           </div>
           <div class="image">
@@ -72,7 +68,7 @@
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Marketing_Mix_4P.svg/278px-Marketing_Mix_4P.svg.png"
               alt="Marketing"
             />
-            <p>Imagen referencial de Marketing</p>
+            <p>Imagen referencial de Logistica</p>
           </div>
         </div>
       </body>
@@ -100,6 +96,19 @@ export default {
   },
 };
 </script>
+.description h2{
+  text-align: center;
+  padding-top: 40px;
+}
+.description h6{
+  text-align: center;
+  padding-bottom: 40px;
+}
+description p{
+  text-align:justify;
+  padding-bottom: 40px;
+  width:70px;
+}
 
 <style scoped>
 .description h2{
