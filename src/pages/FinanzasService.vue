@@ -41,30 +41,25 @@
       <body>
         <div class="container">
           <div class="description">
-            <h2>Coaching de Marketing</h2>
+            <h2>Coaching de Finanzas</h2>
             <h6>
-              ¡Obtén el asesoramiento que necesitas para impulsar tu estrategia
-              de marketing!
+              ¡Obtén el asesoramiento financiero necesario para optimizar tus decisiones económicas.!
             </h6>
             <p>
-              Ya sea que necesites mejorar tu presencia en redes sociales,
-              desarrollar campañas publicitarias efectivas o aumentar la
-              visibilidad de tu marca, nuestro servicio de coaching de marketing
-              te brinda las herramientas y conocimientos necesarios para
-              alcanzar tus objetivos.
+              Ya sea que necesites mejorar la gestión de tu flujo de efectivo,
+              elaborar presupuestos efectivos o tomar decisiones de inversión inteligentes,
+              nuestro servicio de coaching de finanzas te brinda las herramientas y
+              conocimientos necesarios para alcanzar tus objetivos financieros.
             </p>
             <q-btn
-              class="button bg-green"
+            class="button bg-green"
               style="margin-left: 45%;"
               label="Pedir Asesoramiento"
               @click="navigateToNextPage('1005')"
             />
             <p>
-              Contamos con un equipo de expertos en marketing dispuestos a
-              ayudarte a tomar decisiones inteligentes y estratégicas para tu
-              negocio. No importa si eres un emprendedor individual o una
-              empresa establecida, adaptaremos nuestras sesiones de coaching a
-              tus necesidades específicas.
+              Contamos con un equipo de expertos en finanzas dispuestos a ayudarte a comprender conceptos financieros complejos y
+              aplicar estrategias efectivas para mejorar la salud financiera de tu empresa o tus finanzas personales.
             </p>
           </div>
           <div class="image">
@@ -72,7 +67,7 @@
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Marketing_Mix_4P.svg/278px-Marketing_Mix_4P.svg.png"
               alt="Marketing"
             />
-            <p>Imagen referencial de Marketing</p>
+            <p>Imagen referencial de Finanzas</p>
           </div>
         </div>
       </body>

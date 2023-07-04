@@ -95,6 +95,26 @@ const routes = [
     component: () => import("pages/MarketingService.vue"),
   },
   {
+    path: "/AdministracionService",
+    component: () => import("pages/AdministracionService.vue"),
+  },
+  {
+    path: "/ContabilidadService",
+    component: () => import("pages/ContabilidadService.vue"),
+  },
+  {
+    path: "/Derecho_CorporativoService",
+    component: () => import("pages/Derecho_CorporativoService.vue"),
+  },
+  {
+    path: "/FinanzasService",
+    component: () => import("pages/FinanzasService.vue"),
+  },
+  {
+    path: "/LogisticaService",
+    component: () => import("pages/LogisticaService.vue"),
+  },
+  {
     path: "/moduloPago",
     component: () => import("pages/modulodePago.vue"),
   },

@@ -108,19 +108,19 @@ https://quasar.dev/vue-components/card#example--expandable
         <table>
           <tr>
             <q-td>
-              <RouterLink to="/MarketingService">
+              <RouterLink to="/AdministracionService">
                 <img class="admi" src="img_Servicios/administracion.jpg" />
                 <p class="pAdmi">Coaching Administración</p>
               </RouterLink>
             </q-td>
             <td>
-              <RouterLink to="/MarketingService">
+              <RouterLink to="/ContabilidadService">
                 <img class="cont" src="img_Servicios/contabilidad.jpg" />
                 <p class="pCont">Coaching Contabilidad</p>
               </RouterLink>
             </td>
             <td>
-              <RouterLink to="/MarketingService">
+              <RouterLink to="/Derecho_CorporativoService">
                 <img
                   class="deCorp"
                   src="img_Servicios//derecho corporativo.jpg"
@@ -131,13 +131,13 @@ https://quasar.dev/vue-components/card#example--expandable
           </tr>
           <tr>
             <td>
-              <RouterLink to="/MarketingService">
+              <RouterLink to="/FinanzasService">
                 <img class="Fina" src="img_Servicios/finanzas.jpg" />
                 <p>Coaching Finanzas</p>
               </RouterLink>
             </td>
             <td>
-              <RouterLink to="/MarketingService">
+              <RouterLink to="/LogisticaService">
                 <img class="logi" src="img_Servicios/logistica.jpg" />
                 <p>Coaching Logistica</p>
               </RouterLink>

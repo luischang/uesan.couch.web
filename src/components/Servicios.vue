@@ -48,7 +48,7 @@
         <div class="item1">
           <h2>Servicios de Coaching</h2>
         </div>
-        <RouterLink to="/MarketingService">
+        <RouterLink to="/AdministracionService">
         <div class="col-2">
           <q-img src="img_Servicios/administracion.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
@@ -57,7 +57,7 @@
           </q-img>
         </div>
       </RouterLink>
-        <RouterLink to="/MarketingService">
+        <RouterLink to="/ContabilidadService">
         <div class="col-3">
           <q-img src="img_Servicios/contabilidad.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
@@ -66,7 +66,7 @@
           </q-img>
         </div>
       </RouterLink>
-        <RouterLink to="/MarketingService">
+        <RouterLink to="/Derecho_CorporativoService">
         <div class="col-4">
           <q-img src="img_Servicios//derecho corporativo.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
@@ -75,7 +75,7 @@
           </q-img>
         </div>
       </RouterLink>
-        <RouterLink to="/MarketingService">
+        <RouterLink to="/FinanzasService">
         <div class="col-5">
           <q-img src="img_Servicios/finanzas.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">
@@ -84,7 +84,7 @@
           </q-img>
         </div>
       </RouterLink>
-        <RouterLink to="/MarketingService">
+        <RouterLink to="/LogisticaService">
         <div class="col-6">
           <q-img src="img_Servicios/logistica.jpg" style="height: 250px; width: 300px; border-radius: 30px;">
             <div class="absolute-full text-subtitle2 flex flex-center">

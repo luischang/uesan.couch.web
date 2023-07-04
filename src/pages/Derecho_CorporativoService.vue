@@ -41,17 +41,17 @@
       <body>
         <div class="container">
           <div class="description">
-            <h2>Coaching de Marketing</h2>
+            <h2>Coaching de Derecho Corporativo</h2>
             <h6>
-              ¡Obtén el asesoramiento que necesitas para impulsar tu estrategia
-              de marketing!
+              ¡Obtén el asesoramiento legal especializado para tu empresa y su estructura corporativa.!
             </h6>
             <p>
-              Ya sea que necesites mejorar tu presencia en redes sociales,
-              desarrollar campañas publicitarias efectivas o aumentar la
-              visibilidad de tu marca, nuestro servicio de coaching de marketing
-              te brinda las herramientas y conocimientos necesarios para
-              alcanzar tus objetivos.
+              Nuestro servicio de coaching de derecho corporativo te brinda las herramientas y
+              conocimientos necesarios para comprender y cumplir con las regulaciones legales y
+              las mejores prácticas en el ámbito empresarial.
+              Ya sea que necesites asesoramiento en la creación de contratos,
+              la protección de la propiedad intelectual o la resolución de conflictos,
+              nuestro equipo de expertos en derecho corporativo está aquí para ayudarte.
             </p>
             <q-btn
               class="button bg-green"
@@ -60,11 +60,9 @@
               @click="navigateToNextPage('1005')"
             />
             <p>
-              Contamos con un equipo de expertos en marketing dispuestos a
-              ayudarte a tomar decisiones inteligentes y estratégicas para tu
-              negocio. No importa si eres un emprendedor individual o una
-              empresa establecida, adaptaremos nuestras sesiones de coaching a
-              tus necesidades específicas.
+              Adaptaremos nuestras sesiones de coaching a las necesidades específicas de tu empresa,
+              brindándote orientación personalizada y
+              estratégica para tomar decisiones legales informadas y proteger los intereses de tu negocio.
             </p>
           </div>
           <div class="image">
@@ -72,7 +70,7 @@
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Marketing_Mix_4P.svg/278px-Marketing_Mix_4P.svg.png"
               alt="Marketing"
             />
-            <p>Imagen referencial de Marketing</p>
+            <p>Imagen referencial a derecho corporativo</p>
           </div>
         </div>
       </body>

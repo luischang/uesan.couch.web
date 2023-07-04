@@ -41,17 +41,14 @@
       <body>
         <div class="container">
           <div class="description">
-            <h2>Coaching de Marketing</h2>
+            <h2>Coaching de Administración</h2>
             <h6>
-              ¡Obtén el asesoramiento que necesitas para impulsar tu estrategia
-              de marketing!
+              ¡Obtén el asesoramiento especializado que necesitas para optimizar la gestión de tu negocio.!
             </h6>
             <p>
-              Ya sea que necesites mejorar tu presencia en redes sociales,
-              desarrollar campañas publicitarias efectivas o aumentar la
-              visibilidad de tu marca, nuestro servicio de coaching de marketing
-              te brinda las herramientas y conocimientos necesarios para
-              alcanzar tus objetivos.
+              El coaching de administración te brinda las herramientas y
+              conocimientos necesarios para mejorar tus habilidades de liderazgo,
+              tomar decisiones estratégicas y desarrollar un plan efectivo para el crecimiento de tu empresa.
             </p>
             <q-btn
               class="button bg-green"
@@ -60,11 +57,11 @@
               @click="navigateToNextPage('1005')"
             />
             <p>
-              Contamos con un equipo de expertos en marketing dispuestos a
-              ayudarte a tomar decisiones inteligentes y estratégicas para tu
-              negocio. No importa si eres un emprendedor individual o una
-              empresa establecida, adaptaremos nuestras sesiones de coaching a
-              tus necesidades específicas.
+              Nuestro equipo de coaches expertos en administración te ayudará a identificar áreas de mejora,
+              establecer metas claras y diseñar estrategias adaptadas a tus necesidades específicas.
+              Ya sea que necesites optimizar tus procesos internos,
+              mejorar la comunicación en tu equipo o implementar cambios organizacionales,
+              el coaching de administración te proporcionará las herramientas y el apoyo necesario para alcanzar el éxito.
             </p>
           </div>
           <div class="image">
@@ -72,7 +69,7 @@
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Marketing_Mix_4P.svg/278px-Marketing_Mix_4P.svg.png"
               alt="Marketing"
             />
-            <p>Imagen referencial de Marketing</p>
+            <p>Imagen referencial de Administración</p>
           </div>
         </div>
       </body>

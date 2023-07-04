@@ -41,30 +41,28 @@
       <body>
         <div class="container">
           <div class="description">
-            <h2>Coaching de Marketing</h2>
+            <h2>Coaching de Contabilidad</h2>
             <h6>
-              ¡Obtén el asesoramiento que necesitas para impulsar tu estrategia
-              de marketing!
+              ¡Obtén el asesoramiento especializado que necesitas para optimizar la gestión contable de tu negocio.!
             </h6>
             <p>
-              Ya sea que necesites mejorar tu presencia en redes sociales,
-              desarrollar campañas publicitarias efectivas o aumentar la
-              visibilidad de tu marca, nuestro servicio de coaching de marketing
-              te brinda las herramientas y conocimientos necesarios para
-              alcanzar tus objetivos.
+              El coaching de contabilidad te brinda las herramientas y
+              conocimientos necesarios para mejorar tus habilidades financieras,
+              gestionar eficientemente tus registros contables y
+              tomar decisiones informadas sobre el aspecto económico de tu empresa.
             </p>
             <q-btn
-              class="button bg-green"
-              style="margin-left: 45%;"
+              class="button bg-green "
+              style="margin-left: 45%; "
               label="Pedir Asesoramiento"
               @click="navigateToNextPage('1005')"
             />
             <p>
-              Contamos con un equipo de expertos en marketing dispuestos a
-              ayudarte a tomar decisiones inteligentes y estratégicas para tu
-              negocio. No importa si eres un emprendedor individual o una
-              empresa establecida, adaptaremos nuestras sesiones de coaching a
-              tus necesidades específicas.
+              Nuestro equipo de coaches expertos en contabilidad te ayudará a comprender y
+              aplicar los principios contables, analizar tus estados financieros,
+              identificar oportunidades de mejora y
+              desarrollar estrategias para el crecimiento económico de tu negocio.
+
             </p>
           </div>
           <div class="image">
@@ -72,7 +70,7 @@
               src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Marketing_Mix_4P.svg/278px-Marketing_Mix_4P.svg.png"
               alt="Marketing"
             />
-            <p>Imagen referencial de Marketing</p>
+            <p>Imagen referencial de Contabilidad</p>
           </div>
         </div>
       </body>
@@ -154,5 +152,6 @@ ody {
 .image {
   width: 200px;
   margin-left: 20px;
+
 }
 </style>
