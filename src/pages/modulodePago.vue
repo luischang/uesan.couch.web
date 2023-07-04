@@ -42,12 +42,14 @@
       <p class="comprobe">Esta informacion sera enviada a tu perfil</p>
     </div>
     <q-dialog v-model="modalOpen" class="confirmar-compra">
-      <q-card>
-        Confirmar
-        <div>¿Desea confirmar la compra?</div>
+      <q-card class="confirmar-compra-box">
+        <p>Confirmar</p>
+        <p>¿Desea confirmar la compra?</p>
         <div>
           <button @click="endModal(coach)">Sí, confirmo</button>
-          <button @click="closeModal(coach)">No, quiero regresar</button>
+          <button style="--c: #f0932b" @click="closeModal(coach)">
+            No, quiero regresar
+          </button>
         </div>
       </q-card>
     </q-dialog>
@@ -428,12 +430,70 @@ input:focus {
 }
 
 .confirmar-compra {
-  padding: 20px;
+  height: 100vh;
+  margin: 0;
+  display: grid;
+  place-content: center;
+  grid-auto-flow: column;
+  gap: 40px;
+  background: #f2dca2;
+}
+
+.confirmar-compra-box {
+  width: 600px;
+  height: 250px;
+  padding: 30px;
   border-radius: 10px;
 }
 
+.confirmar-compra-box p {
+  font-family: system-ui, sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+}
+.confirmar-compra-box p:first-child {
+  margin: 5px 150px;
+}
+.confirmar-compra-box p:not(p:first-child) {
+  margin: 0 10px;
+}
+.confirmar-compra-box > div {
+  margin: 10px 22px;
+  padding: 0px;
+  display: inline-block;
+}
+
+.confirmar-compra-box > div > button {
+  margin: 0 10px;
+}
 .confirmar-compra button {
-  padding: 10px;
-  margin: 5px 15px;
+  --c: #f9ca24; /* the color*/
+
+  box-shadow: 0 0 0 0.1em inset var(--c);
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p, 0%)) 0%,
+    var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p, 0%)) 100%;
+  background-size: 50.5% calc(var(--_p, 0%) / 2 + 0.5%);
+  outline-offset: 0.1em;
+  transition: background-size 0.4s, background-position 0s 0.4s;
+}
+.confirmar-compra button:hover {
+  --_p: 100%;
+  transition: background-position 0.4s, background-size 0s;
+}
+.confirmar-compra button:active {
+  box-shadow: 0 0 9e9Q inset #0009;
+  background-color: var(--c);
+  color: #fff;
+}
+.confirmar-compra button {
+  font-family: system-ui, sans-serif;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0.1em 0.6em;
+  font-weight: bold;
+  border: none;
 }
 </style>
