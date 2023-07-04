@@ -21,7 +21,7 @@
             <img src="public\test\persona.jpg" alt="Imagen" />
           </div>
           <div class="emprendedor-user-info">
-            <h3>Carlos Villanueva</h3>
+            <h3>{{ nombre }} {{ apellido }}</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
               Voluptates tempore placeat eligendi, dolor inventore expedita
@@ -74,7 +74,50 @@
   </body>
 </template>
 
-<script></script>
+<script>
+import { ref } from "vue";
+
+export default {
+  methods: {
+    getIdTipoFromLocalStorage() {
+      var datosSeleccionados = localStorage.getItem("datosSeleccionados");
+      var userResult = localStorage.getItem("userResult");
+      if (datosSeleccionados) {
+        var datos = JSON.parse(datosSeleccionados);
+        var datos2 = JSON.parse(userResult);
+        this.nombreServicio = datos.nombreServicio;
+        this.resultadoMultiplicacion = datos.resultadoMultiplicacion;
+        this.nombre = datos2.nombre;
+        this.apellido = datos2.apellido;
+      } else {
+        console.log("No se encontraron datos seleccionados en el localStorage");
+      }
+    },
+    openModal(seguro) {
+      this.modalOpen = true;
+    },
+    closeModal(seguro) {
+      this.modalOpen = false;
+    },
+    endModal(seguro) {
+      this.$router.push("/intEmprendedor");
+    },
+  },
+  mounted() {
+    this.getIdTipoFromLocalStorage();
+  },
+  data() {
+    return {
+      modalOpen: false,
+      resultadoMultiplicacion: 0,
+      nombre: "",
+      nombreServicio: "",
+      apellido: "",
+      // ID de servicio que quieres consultar
+    };
+  },
+};
+</script>
 
 <style>
 #Emprendedor {

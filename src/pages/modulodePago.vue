@@ -28,24 +28,18 @@
       <div class="coontainer">
         <div class="col">
           <p>Cost:</p>
-          <p class="cost">$400</p>
+          <p class="cost">${{ resultadoMultiplicacion }}</p>
           <br />
           <p>Name:</p>
-          <p class="seller">Codedgar</p>
+          <p class="seller">{{ nombre }} {{ apellido }}</p>
         </div>
         <div class="col">
-          <p>Bought Items:</p>
-          <p class="bought-items">Corsair Mouse</p>
-          <p class="bought-items description">Gaming mouse with shiny lights</p>
-          <p class="bought-items price">$200 (50% discount)</p>
-          <br />
-          <p class="bought-items">Gaming keyboard</p>
-          <p class="bought-items description">Look mommmy, it has colors!</p>
-          <p class="bought-items price">$200 (50% discount)</p>
+          <p>Curso Suscrito:</p>
+          <p class="bought-items">{{ nombreServicio }}</p>
           <br />
         </div>
       </div>
-      <p class="comprobe">This information will be sended to your email</p>
+      <p class="comprobe">Esta informacion sera enviada a tu perfil</p>
     </div>
     <q-dialog v-model="modalOpen">
       <q-card>
@@ -72,6 +66,20 @@ import { ref } from "vue";
 
 export default {
   methods: {
+    getIdTipoFromLocalStorage() {
+      var datosSeleccionados = localStorage.getItem("datosSeleccionados");
+      var userResult = localStorage.getItem("userResult");
+      if (datosSeleccionados) {
+        var datos = JSON.parse(datosSeleccionados);
+        var datos2 = JSON.parse(userResult);
+        this.nombreServicio = datos.nombreServicio;
+        this.resultadoMultiplicacion = datos.resultadoMultiplicacion;
+        this.nombre = datos2.nombre;
+        this.apellido = datos2.apellido;
+      } else {
+        console.log("No se encontraron datos seleccionados en el localStorage");
+      }
+    },
     openModal(seguro) {
       this.modalOpen = true;
     },
@@ -82,9 +90,16 @@ export default {
       this.$router.push("/intEmprendedor");
     },
   },
+  mounted() {
+    this.getIdTipoFromLocalStorage();
+  },
   data() {
     return {
       modalOpen: false,
+      resultadoMultiplicacion: 0,
+      nombre: "",
+      nombreServicio: "",
+      apellido: "",
       // ID de servicio que quieres consultar
     };
   },
