@@ -81,10 +81,11 @@
 
             <div class="card-button">
               <q-btn
+                @click="guardarIdTipoEnLocalStorage(1011)"
                 to="/moduloPago"
                 label="Seleccionar"
                 type="submit"
-                color="secundary"
+                color="secondary"
               />
             </div>
           </div>
@@ -138,10 +139,11 @@
 
             <div class="card-button">
               <q-btn
+                @click="guardarIdTipoEnLocalStorage(1010)"
                 to="/moduloPago"
                 label="Seleccionar"
                 type="submit"
-                color="secundary"
+                color="secondary"
               />
             </div>
           </div>
@@ -152,7 +154,7 @@
       class="retrocederrr"
       href="#"
       onclick="history.back(); return false;"
-   />
+    />
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
       <q-toolbar>
@@ -171,12 +173,13 @@ export default {
     return {
       inputValue: 0,
       result: 0,
+      idTipo: 0,
     };
   },
   watch: {
     inputValue() {
       this.calculateResult();
-      this.result = multiplicarYMostrar(this.inputValue);
+      this.result = multiplicarYMostrar(this.inputValue, this.idTipo);
     },
   },
   methods: {
@@ -186,6 +189,18 @@ export default {
         this.result = value * 2;
       } else {
         this.result = "";
+      }
+    },
+    guardarIdTipoEnLocalStorage(idTipo) {
+      var datosSeleccionados = localStorage.getItem("datosSeleccionados");
+
+      if (datosSeleccionados) {
+        var datos = JSON.parse(datosSeleccionados);
+        datos.idTipo = idTipo;
+        console.log(idTipo);
+        localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+      } else {
+        console.log("No se encontraron datos seleccionados en el localStorage");
       }
     },
   },
@@ -206,6 +221,7 @@ function multiplicarYMostrar(inputValue) {
     var resultadoMultiplicacion = datos.tarifaHora * otroParametro;
 
     // Actualizar la regla CSS dinámicamente
+
     datos.resultadoMultiplicacion = resultadoMultiplicacion;
     localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
     return resultadoMultiplicacion;

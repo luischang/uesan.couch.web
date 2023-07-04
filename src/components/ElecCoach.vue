@@ -88,7 +88,8 @@
                   seleccionarCoach(
                     selectedCoach.idCoach,
                     selectedCoach.idServicio,
-                    selectedCoach.tarifaHora
+                    selectedCoach.tarifaHora,
+                    selectedCoach.idServicioNavigation.nombreServicio
                   )
                 "
               />
@@ -143,15 +144,26 @@ export default {
     };
   },
   methods: {
-    seleccionarCoach(idCoach, idServicio, tarifaHora) {
+    seleccionarCoach(idCoach, idServicio, tarifaHora, nombreServicio) {
       console.log("coachSeleccionado:", this.coachSeleccionado);
-      this.guardarSeleccionEnLocalStorage(idCoach, idServicio, tarifaHora);
+      this.guardarSeleccionEnLocalStorage(
+        idCoach,
+        idServicio,
+        tarifaHora,
+        nombreServicio
+      );
     },
-    guardarSeleccionEnLocalStorage(idCoach, idServicio, tarifaHora) {
+    guardarSeleccionEnLocalStorage(
+      idCoach,
+      idServicio,
+      tarifaHora,
+      nombreServicio
+    ) {
       const data = {
         idCoach: idCoach,
         idServicio: idServicio,
         tarifaHora: tarifaHora,
+        nombreServicio: nombreServicio,
       };
       localStorage.setItem("datosSeleccionados", JSON.stringify(data));
     },
@@ -187,6 +199,7 @@ export default {
               idServicio: response.data.idServicio,
               idPersonaNavigation: response.data.idPersonaNavigation,
               idServicioNavigation: response.data.idServicioNavigation,
+              nombreServicio: response.data.idServicioNavigation.nombreServicio,
               tarifaHora: response.data.tarifaHora,
             },
           ];
