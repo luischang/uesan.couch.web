@@ -41,7 +41,7 @@
       </div>
       <p class="comprobe">Esta informacion sera enviada a tu perfil</p>
     </div>
-    <q-dialog v-model="modalOpen">
+    <q-dialog v-model="modalOpen" class="confirmar-compra">
       <q-card>
         Confirmar
         <div>¿Desea confirmar la compra?</div>
@@ -267,7 +267,7 @@ a:hover {
 @import url("https://fonts.googleapis.com/css?family=Work+Sans");
 .burbuu {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
   content: "";
   position: absolute;
   top: 0;
@@ -276,7 +276,9 @@ a:hover {
 
   background-image: url("public/imagenPro/register.png");
   z-index: -999;
+  background-repeat: no-repeat;
   background-size: cover;
+  height: 100%;
 }
 
 .card {
@@ -423,5 +425,15 @@ input:focus {
     width: 100%;
     text-align: center;
   }
+}
+
+.confirmar-compra {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.confirmar-compra button {
+  padding: 10px;
+  margin: 5px 15px;
 }
 </style>

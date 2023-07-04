@@ -24,16 +24,6 @@
 
     <q-page-container class="conti">
       <body>
-        <div class="q-pa-sm">
-          <div class="q-gutter-sm" style="max-width: 300px; margin-left: 20px">
-            <q-input
-              outlined
-              v-model="inputValue"
-              type="number"
-              label="Ingresa un valor numérico"
-            />
-          </div>
-        </div>
         <div class="card-container">
           <div class="card">
             <div class="card-title">Por Hora:</div>
@@ -69,13 +59,26 @@
                 6) Gestión del equilibrio entre trabajo y vida personal: <br />
                 Encontrar un equilibrio saludable en la vida emprendedora.
               </p>
-            </div>
-            <div class="card-input" style="display: flex">
-              <div style="width: 9%">
-                <p>Total a Pagar</p>
+              <div class="q-pa-sm">
+                <div
+                  class="q-gutter-sm"
+                  style="max-width: 300px; margin-left: 20px"
+                >
+                  <q-input
+                    outlined
+                    v-model="inputValue"
+                    type="number"
+                    label="Ingresa el número de horas a contratar:"
+                  />
+                </div>
               </div>
-              <div style="width: -9px; margin-top: 14px">
-                <p>{{ result }}</p>
+              <div class="card-input">
+                <div style="width: 9%">
+                  <p>Total a Pagar</p>
+                </div>
+                <div>
+                  <p>{{ result }}</p>
+                </div>
               </div>
             </div>
 
@@ -318,7 +321,9 @@ function multiplicarYMostrar(inputValue) {
 .q-pa-md {
   margin-left: 40px;
 }
-
+.q-pa-sm {
+  margin: 0 70px;
+}
 .card-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -329,18 +334,24 @@ function multiplicarYMostrar(inputValue) {
 .card {
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 10px;
+  padding: 0px;
   height: auto;
 }
 
 .card-title {
+  font-family: "Inter", sans-serif;
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
 .card-description {
+  font-family: "Inter", sans-serif;
   margin-bottom: 10px;
+  border-top: 1px solid #e0e0e0;
+  padding: 2em;
+  pointer-events: all;
+  overflow: auto;
 }
 
 .card-input {
@@ -376,7 +387,7 @@ function multiplicarYMostrar(inputValue) {
   flex: 1;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 10px;
+  padding: 30px;
   margin-right: 60px;
 
   height: auto;
@@ -400,7 +411,7 @@ function multiplicarYMostrar(inputValue) {
 }
 
 .card-button {
-  background-color: #4caf50;
+  background-color: #4caf4f00;
   color: white;
   border: none;
   text-align: center;

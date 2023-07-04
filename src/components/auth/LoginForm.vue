@@ -34,7 +34,7 @@
                 required
               />
             </div>
-            <button class="button loginn__submit" @click="login">
+            <button class="button loginn__submit" @click.prevent="login">
               Ingresar
               <i class="button__icon fas fa-chevron-right"></i>
             </button>

@@ -47,12 +47,33 @@
             :key="coach.idCoach"
             @click="openModal(coach)"
           >
-            <div class="coach-data">
-              <p>Tarifa por hora: {{ coach.tarifaHora }}</p>
+            <div class="cards-coaches">
+              <!-- <p>Tarifa por hora: {{ coach.tarifaHora }}</p>
               <p>Nombre del usuario: {{ coach.idPersonaNavigation.nombre }}</p>
               <p>
                 Apellido del usuario: {{ coach.idPersonaNavigation.apellido }}
-              </p>
+              </p> -->
+              <div class="nft">
+                <div class="main">
+                  <img
+                    class="tokenImage"
+                    src="https://img.freepik.com/vector-premium/caricatura-joven-anteojos-vector-persona-ilustracion-lindo-macho-retrato_641602-613.jpg?w=2000"
+                    alt="NFT"
+                  />
+                  <h4>{{ coach.idPersonaNavigation.nombre }}</h4>
+                  <p class="description">
+                    El profesional
+                    {{ coach.idPersonaNavigation.nombre }}
+                    {{ coach.idPersonaNavigation.apellido }}
+                    se destaca muy bien dentro del servicio requerido.
+                  </p>
+                  <div class="tokenInfo">
+                    <div class="price">
+                      <p>Price: {{ coach.tarifaHora }} dollars</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </q-btn>
           <div v-if="coaches.length === 0">
@@ -60,13 +81,9 @@
           </div>
         </div>
         <q-dialog v-model="modalOpen">
-          <q-card>
-            <div class="card-img">
-              <q-img class="img-fluid" />
-            </div>
-
-            <q-card-section>
-              <div class="card-title">
+          <q-card class="cards-coaches-container">
+            <q-card-section class="cards-coaches">
+              <!-- <div class="card-title">
                 <p>Tarifa por hora: {{ selectedCoach.tarifaHora }}</p>
                 <p>
                   Nombre del usuario:
@@ -76,24 +93,44 @@
                   Apellido del usuario:
                   {{ selectedCoach.idPersonaNavigation.apellido }}
                 </p>
+              </div> -->
+              <div class="nft">
+                <div class="main">
+                  <img
+                    class="tokenImage"
+                    src="https://img.freepik.com/vector-premium/caricatura-joven-anteojos-vector-persona-ilustracion-lindo-macho-retrato_641602-613.jpg?w=2000"
+                    alt="NFT"
+                  />
+                  <h4>{{ selectedCoach.idPersonaNavigation.nombre }}</h4>
+                  <p class="description">
+                    El profesional
+                    {{ selectedCoach.idPersonaNavigation.nombre }}
+                    {{ selectedCoach.idPersonaNavigation.apellido }}
+                    se destaca muy bien dentro del servicio requerido.
+                  </p>
+                  <div class="tokenInfo">
+                    <div class="price">
+                      <p>Price: {{ selectedCoach.tarifaHora }} dollars</p>
+                    </div>
+                  </div>
+                </div>
+                <q-card-actions>
+                  <q-btn
+                    to="/planPagos"
+                    class="btn"
+                    label="elegir coach"
+                    @click="
+                      seleccionarCoach(
+                        selectedCoach.idCoach,
+                        selectedCoach.idServicio,
+                        selectedCoach.tarifaHora,
+                        selectedCoach.idServicioNavigation.nombreServicio
+                      )
+                    "
+                  />
+                </q-card-actions>
               </div>
             </q-card-section>
-
-            <q-card-actions>
-              <q-btn
-                to="/planPagos"
-                class="btn"
-                label="elegir coach"
-                @click="
-                  seleccionarCoach(
-                    selectedCoach.idCoach,
-                    selectedCoach.idServicio,
-                    selectedCoach.tarifaHora,
-                    selectedCoach.idServicioNavigation.nombreServicio
-                  )
-                "
-              />
-            </q-card-actions>
           </q-card>
         </q-dialog>
       </div>
@@ -322,5 +359,113 @@ a:hover {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.cards-coaches-container {
+  background-color: #34495e;
+}
+.cards-coaches {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  opacity: 90%;
+  padding: 0px;
+  margin: 10px;
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  overflow: hidden;
+  background-color: rgb(22, 20, 24);
+  color: #34495e;
+}
+
+.nft {
+  user-select: none;
+  max-width: 300px;
+  margin: auto;
+  border: 1px solid #ffffff22;
+  background-color: #282c34;
+  background: linear-gradient(
+    0deg,
+    rgba(40, 44, 52, 1) 0%,
+    rgba(17, 0, 32, 0.5) 100%
+  );
+  box-shadow: 0 7px 20px 5px #00000088;
+  border-radius: 0.7rem;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  overflow: hidden;
+  transition: 0.5s all;
+}
+
+.nft hr {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #88888855;
+  margin-top: 0;
+}
+
+.nft ins {
+  text-decoration: none;
+}
+
+.nft .main {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 1rem;
+}
+
+.nft .main .tokenImage {
+  border-radius: 0.5rem;
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.nft .main .description {
+  margin: 0.5rem 0;
+  color: #a89ec9;
+}
+
+.nft .main .tokenInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nft .main .tokenInfo .price {
+  display: flex;
+  align-items: center;
+  color: #ee83e5;
+  font-weight: 700;
+}
+
+.nft .main .tokenInfo .price ins {
+  margin-left: -0.3rem;
+  margin-right: 0.5rem;
+}
+
+.nft::before {
+  position: fixed;
+  content: "";
+  box-shadow: 0 0 100px 40px #ffffff08;
+  top: -10%;
+  left: -100%;
+  transform: rotate(-45deg);
+  height: 60rem;
+  transition: 0.7s all;
+}
+
+.nft:hover {
+  border: 1px solid #ffffff44;
+  box-shadow: 0 7px 50px 10px #000000aa;
+  transform: scale(1.015);
+  filter: brightness(0.8);
+}
+
+.nft:hover::before {
+  filter: brightness(0.5);
+  top: -100%;
+  left: 200%;
 }
 </style>
