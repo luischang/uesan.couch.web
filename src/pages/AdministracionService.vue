@@ -66,7 +66,7 @@
           </div>
           <div class="image">
             <q-img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Marketing_Mix_4P.svg/278px-Marketing_Mix_4P.svg.png"
+              src="https://carrerasymas.com/wp-content/uploads/2022/05/20945988-scaled-1-1024x683.jpg.webp"
               alt="Marketing"
             />
             <p>Imagen referencial de Administración</p>

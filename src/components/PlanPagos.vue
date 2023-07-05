@@ -84,7 +84,7 @@
 
             <div class="card-button">
               <q-btn
-                @click="guardarIdTipoEnLocalStorage(1011)"
+                @click="guardarIdTipoEnLocalStorage(1)"
                 to="/moduloPago"
                 label="Seleccionar"
                 type="submit"
@@ -144,7 +144,7 @@
               <q-btn
                 @click="
                   () => {
-                    guardarIdTipoEnLocalStorage(1010);
+                    guardarIdTipoEnLocalStorage(1);
                     set_matricula();
                   }
                 "

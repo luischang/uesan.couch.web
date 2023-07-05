@@ -54,7 +54,7 @@
               <div class="column">
                 <i class="login__icon fas fa-phone-alt"></i>
                 <q-input
-                  type="text"
+                  type="number"
                   class="login__input"
                   v-model="Usuarios.nroContacto"
                   placeholder="N° Contacto"
@@ -463,5 +463,6 @@ export default {
         });
     },
   },
+  
 };
 </script>

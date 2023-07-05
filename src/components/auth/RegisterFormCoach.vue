@@ -103,7 +103,7 @@
                 />
               </div>
 
-              <div class="q-gutter-md">
+              <!-- <div class="q-gutter-md">
                 <q-input
                   class="login__inputGenero"
                   type="text"
@@ -113,7 +113,7 @@
                   required
                 >
                 </q-input>
-              </div>
+              </div> -->
 
               <div class="q-pa-md login__inputGenero">
                 <div class="q-gutter-xm">
@@ -123,12 +123,12 @@
                     standout
                     transition-show="scale"
                     transition-hide="scale"
-                    v-model="Coach.idServicio"
+                    v-model="Coach.idServicio "
                     :options="options"
                     label="especialidad"
                     style="
                       margin-top: -160px;
-                      margin-left: -490px;
+                      margin-left: -340px;
                       width: 300px;
                     "
                     emit-value
@@ -137,6 +137,7 @@
                 </div>
               </div>
             </div>
+
             <!---===========================================================================-->
 
             <div class="social-login">
@@ -148,14 +149,16 @@
                 ><a href="src\pages\terminos.html">Terms & Privacy</a>.</label
               >
             </div>
-            <q-button
+            <q-btn
+            style="margin-top: 9px; margin-left: 490px;"
               class="button login__submit"
               @click="signUps"
-              to="/login"
-            >
-              Registrar
+            to="/RegisterFormCoach"
+            label="Registrar datos"
+            />
               <i class="button__icon fas fa-chevron-right"></i>
-            </q-button>
+
+
           </form>
         </div>
         <div class="screen__background">
@@ -475,15 +478,15 @@ export default {
     return {
       model: ref(null),
       Coach: {
-        idCoach: 0,
-        idPersona: 0,
+
+        idPersona: "",
         tarifaHora: "",
         isActive: true,
         idServicio: "",
       },
 
       Usuarios: {
-        idPersona:0,
+
         nombre: "",
         apellido: "",
         genero: "",
@@ -525,16 +528,19 @@ export default {
   },
   methods: {
     signUps() {
-      //console.log("Aquí registrare....." + JSON.stringify(this.user))
-      var url = "http://localhost:5083/api/Usuarios/SignUp";
+      var urlUsuarios = "http://localhost:5083/api/Usuarios/SignUpCoach";
+      var urlCoach = "http://localhost:5083/api/Coach";
 
       axios
-        .post(url, this.Usuarios)
+        .post(urlUsuarios, this.Usuarios)
         .then((response) => {
-          this.Usuarios.idUsuario = response.data.IdPersona;
-      // Obtener el valor de idPersona
-      const idPersona = this.Usuarios.idPersona;
-        console.log("Valor de idPersona:", idPersona);
+          var generatedId = response.data;
+          console.log("Valor capturado: " + generatedId);
+          this.Coach.idPersona = generatedId; // Utilizar el valor capturado en el atributo idPersona
+
+          return axios.post(urlCoach, this.Coach); // Devolver la segunda solicitud POST
+        })
+        .then((response) => {
           console.log("Aquí va la respuesta " + JSON.stringify(response));
           this.$q.notify({
             message: "Registro exitoso",
@@ -543,31 +549,6 @@ export default {
             timeout: 3000,
           });
           this.$router.push("/");
-        })
-        .catch((error) => {
-          console.log("Ocurrió un error " + error);
-          this.$q.notify({
-            message: "Ocurrió un error",
-            color: "negative",
-            position: "top",
-            timeout: 3000,
-          });
-        });
-    },
-    CoachRegister() {
-      var url = "http://localhost:5083/api/Coach";
-
-      axios
-        .post(url, this.Coach)
-        .then((response) => {
-          console.log("Aquí va la respuesta " + JSON.stringify(response));
-          this.$q.notify({
-            message: "Registro exitoso",
-            color: "positive",
-            position: "bottom",
-            timeout: 3000,
-          });
-          this.$router.push("/login");
         })
         .catch((error) => {
           console.log("Ocurrió un error " + error);
