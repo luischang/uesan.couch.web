@@ -71,6 +71,7 @@
                     label="Ingresa el número de horas a contratar:"
                     @keydown="validarEntradas"
                     min="1"
+                    max="9"
                     required
                   />
                 </div>
@@ -202,9 +203,24 @@ export default {
       const tecla = event.key.toLowerCase();
 
       // Verificar si la tecla presionada es "e"
-      if (tecla === "e" || tecla === "-") {
+      if (
+        tecla === "e" ||
+        tecla === "-" ||
+        tecla === "+" ||
+        tecla === "." ||
+        tecla === "0" ||
+        tecla === "," ||
+        tecla === "}" ||
+        tecla === "{" ||
+        tecla === "|" ||
+        tecla === "?"
+      ) {
         event.preventDefault(); // Prevenir la acción predeterminada de la tecla
         return false; // Evitar que se ingrese la tecla "e"
+      }
+
+      if (/\d/.test(tc) && this.inputValue.length >= 1) {
+        event.preventDefault();
       }
     },
     cargarDatosSeleccionados() {
