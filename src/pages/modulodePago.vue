@@ -196,7 +196,7 @@ export default {
 
       if (1 == 1) {
         console.log(this.idPersona);
-        var url = `http://localhost:5083/api/Emprendedores/501`;
+        var url = `http://localhost:5083/api/Emprendedores/${this.idPersona}`;
         axios
           .get(url, {})
           .then((response) => {
@@ -213,7 +213,10 @@ export default {
             );
           })
           .catch((error) => {
-            console.error("Error al obtener los datos:", error);
+            console.error(
+              "Error al obtener los datos:FIJATE QUE EL TIPO DE PERSONA SEA EMPRENDEDOR Y NO COACH",
+              error
+            );
           });
       }
       console.log(this.idEmprendedor, this.resultadoMultiplicacion);
