@@ -28,7 +28,7 @@
                 <i class="login__icon fas fa-male"></i>
                 <q-select
                   label="Género"
-                  color="teal"
+                  color="black"
                   options-selected-class="text-deep-orange"
                   class="login__input"
                   v-model="Usuarios.genero"
@@ -41,7 +41,7 @@
 
               <div class="column">
                 <i class="login__icon fas fa-phone-alt"></i>
-                <q-input class="login__input" v-model="Usuarios.nroContacto" filled type="number" label="N° celular" standout="bg-late text-black"  required/>
+                <q-input class="login__input" v-model="Usuarios.nroContacto" filled type="number" label="N° celular" standout="bg-late text-black" min="0" @keydown="validarEntradas" :maxlength="9" required/>
               </div>
             </div>
             <div class="login__field">
@@ -66,7 +66,7 @@
             <!---===========================================================================-->
             <div class="login__field">
               <div class="q-gutter-md">
-                <q-input style="margin-top: -219px; margin-right: -180px"  class="login__inputGenero" v-model="Coach.tarifaHora" filled type="number" label="TarifaHora" standout="bg-late text-black"  required/>
+                <q-input style="margin-top: -219px; margin-right: -180px"  class="login__inputGenero" v-model="Coach.tarifaHora" filled type="number" label="TarifaHora" standout="bg-late text-black" min="1" max="100" @keydown="validarEntrada" required/>
               </div>
 
               <!-- <div class="q-gutter-md">
@@ -491,7 +491,7 @@ export default {
   },
   methods: {
     signUps() {
-      
+
       var urlUsuarios = "http://localhost:5083/api/Usuarios/SignUpCoach";
       var urlCoach = "http://localhost:5083/api/Coach";
 
@@ -523,14 +523,34 @@ export default {
             timeout: 3000,
           });
         });
+
     },
-  },
-  setup(){
-    return{
-      isPwd: ref(true),
+    validarEntrada(event) {
+
+    const tecla = event.key.toLowerCase();
+
+    // Verificar si la tecla presionada es "e"
+    if (tecla === "e" || tecla === "-") {
+      event.preventDefault();
+      return false;
+    }
+    },
+    validarEntradas(event) {
+    const tc = event.key;
+    const tecla = event.key.toLowerCase();
+
+    // Verificar si la tecla presionada es "e"
+    if (tecla === "e" || tecla === "-") {
+      event.preventDefault(); // Prevenir la acción predeterminada de la tecla
+      return false; // Evitar que se ingrese la tecla "e"
     }
 
-  }
+    if(/\d/.test(tc) && this.Usuarios.nroContacto.length >= 9){
+      event.preventDefault();
+    }
+    }
+  },
 
 };
+
 </script>
