@@ -48,7 +48,7 @@
         <p>Confirmar</p>
         <p>¿Desea confirmar la compra?</p>
         <div>
-          <button @click="endModal(coach)">Sí, confirmo</button>
+          <button @click="set_matricula()">Sí, confirmo</button>
           <button style="--c: #f0932b" @click="closeModal(coach)">
             No, quiero regresar
           </button>
@@ -67,7 +67,7 @@
 
 <script>
 import { ref } from "vue";
-
+import axios from "axios";
 export default {
   data() {
     return {
@@ -77,6 +77,15 @@ export default {
       nombreServicio: "",
       apellido: "",
       fecha: "",
+      idCoach: "",
+      emprendedor: [],
+      idPlan: "",
+      multiplicador: "",
+      idServicio: "",
+      isActive: true,
+      idPersona: "",
+      idEmprendedor: "",
+
       // ID de servicio que quieres consultar
     };
   },
@@ -111,10 +120,164 @@ export default {
           const fechaActual = new Date(data.datetime);
           const fechaFormateada = fechaActual.toLocaleDateString("es-PE");
           this.fecha = fechaFormateada;
+          localStorage.setItem("fecha", JSON.stringify(data.datetime));
         })
         .catch((error) => {
           console.log("Error al obtener la fecha actual:", error);
         });
+    },
+    set_matricula: function () {
+      this.datosSeleccionados = JSON.parse(
+        localStorage.getItem("datosSeleccionados")
+      );
+      this.userResult = JSON.parse(localStorage.getItem("userResult"));
+      this.idDetCoachServicio = JSON.parse(
+        localStorage.getItem("idDetCoachServicio")
+      );
+      this.idEmprendedor = JSON.parse(localStorage.getItem("idEmprendedor"));
+      this.fecha = JSON.parse(localStorage.getItem("fecha"));
+      this.idPago = JSON.parse(localStorage.getItem("idPago"));
+      this.idPersona = this.userResult.idPersona;
+      this.idEmprendedor = this.idEmprendedor.idEmprendedor;
+
+      console.log("IDPERSONA", this.idPersona);
+      // Verificar si los valores están definidos y no son nulos
+      if (
+        this.datosSeleccionados &&
+        this.datosSeleccionados.idCoach &&
+        this.datosSeleccionados.idTipo &&
+        this.datosSeleccionados.resultadoMultiplicacion &&
+        this.datosSeleccionados.idServicio
+      ) {
+        // Realizar el resto del código aquí
+        this.idCoach = this.datosSeleccionados.idCoach;
+        this.idTipo = this.datosSeleccionados.idTipo;
+        this.resultadoMultiplicacion =
+          this.datosSeleccionados.resultadoMultiplicacion;
+        this.idServicio = this.datosSeleccionados.idServicio;
+        var data = {
+          idCoach: this.idCoach,
+          idPlan: this.idTipo,
+          multiplicador: this.resultadoMultiplicacion,
+          idServicio: this.idServicio,
+          isActive: true,
+        };
+        var url = "http://localhost:5083/api/DetalleCouchServicio/Insert";
+        axios
+          .post(url, data)
+          .then((response) => {
+            console.log("Aquí va la respuesta " + JSON.stringify(response));
+            localStorage.setItem(
+              "idDetCoachServicio",
+              JSON.stringify(response.data)
+            );
+          })
+          .catch((error) => {
+            console.log("Ocurrió un error " + error);
+          });
+      } else {
+        // Manejar la situación cuando los valores no son válidos o están indefinidos
+        console.log("Los valores no son válidos o están indefinidos");
+      }
+
+      if (1 == 1) {
+        console.log(this.idPersona);
+        var url = `http://localhost:5083/api/Emprendedores/501`;
+        axios
+          .get(url, {})
+          .then((response) => {
+            console.log(response);
+            console.log(JSON.stringify(response.data));
+            this.emprendedor = [
+              {
+                idEmprendedor: response.data.idEmprendedor,
+              },
+            ];
+            localStorage.setItem(
+              "idEmprendedor",
+              JSON.stringify(response.data)
+            );
+          })
+          .catch((error) => {
+            console.error("Error al obtener los datos:", error);
+          });
+      }
+      console.log(this.idEmprendedor, this.resultadoMultiplicacion);
+      if (1 == 1) {
+        // Realizar el resto del código aquí
+        this.datosSeleccionados = JSON.parse(
+          localStorage.getItem("datosSeleccionados")
+        );
+        this.userResult = JSON.parse(localStorage.getItem("userResult"));
+        this.idDetCoachServicio = JSON.parse(
+          localStorage.getItem("idDetCoachServicio")
+        );
+        this.idEmprendedor = JSON.parse(localStorage.getItem("idEmprendedor"));
+        this.fecha = JSON.parse(localStorage.getItem("fecha"));
+        this.idPago = JSON.parse(localStorage.getItem("idPago"));
+        this.idPersona = this.userResult.idPersona;
+        this.idEmprendedor = this.idEmprendedor.idEmprendedor;
+        this.resultadoMultiplicacion =
+          this.datosSeleccionados.resultadoMultiplicacion;
+        this.idPago = this.idPago;
+        this.idDetCoachServicio = this.idDetCoachServicio;
+        var data = {
+          idPago: this.idPago,
+          idDetCoachServicio: this.idDetCoachServicio,
+          nroSolicitudes: this.resultadoMultiplicacion,
+        };
+        var url = "http://localhost:5083/api/DetallePago/Insert";
+        axios
+          .post(url, data)
+          .then((response) => {
+            console.log("Aquí va la respuesta " + JSON.stringify(response));
+            localStorage.clear();
+            console.log("LocalStorage borrado.");
+            this.$router.push("/intEmprendedor");
+          })
+          .catch((error) => {
+            console.log("Ocurrió un error " + error);
+          });
+      } else {
+        // Manejar la situación cuando los valores no son válidos o están indefinidos
+        console.log("Los valores no son válidos o están indefinidos");
+      }
+      if (1 == 1) {
+        // Realizar el resto del código aquí
+        this.datosSeleccionados = JSON.parse(
+          localStorage.getItem("datosSeleccionados")
+        );
+        this.userResult = JSON.parse(localStorage.getItem("userResult"));
+        this.idDetCoachServicio = JSON.parse(
+          localStorage.getItem("idDetCoachServicio")
+        );
+        this.idEmprendedor = JSON.parse(localStorage.getItem("idEmprendedor"));
+        this.fecha = JSON.parse(localStorage.getItem("fecha"));
+        this.idPago = JSON.parse(localStorage.getItem("idPago"));
+        this.idPersona = this.userResult.idPersona;
+        this.idEmprendedor = this.idEmprendedor.idEmprendedor;
+        this.resultadoMultiplicacion =
+          this.datosSeleccionados.resultadoMultiplicacion;
+        var data = {
+          idEmprendedor: this.idEmprendedor,
+          fechaRegistro: this.fecha,
+          totalPago: this.resultadoMultiplicacion,
+          isActive: true,
+        };
+        var url = "http://localhost:5083/api/Pago/Insert";
+        axios
+          .post(url, data)
+          .then((response) => {
+            console.log("Aquí va la respuesta " + JSON.stringify(response));
+            localStorage.setItem("idPago", JSON.stringify(response.data));
+          })
+          .catch((error) => {
+            console.log("Ocurrió un error " + error);
+          });
+      } else {
+        // Manejar la situación cuando los valores no son válidos o están indefinidos
+        console.log("Los valores no son válidos o están indefinidos");
+      }
     },
   },
   mounted() {
@@ -122,6 +285,7 @@ export default {
     this.obtenerFechaActual();
   },
 };
+
 function goBack() {
   window.history.back();
 }
