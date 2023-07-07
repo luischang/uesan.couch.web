@@ -248,6 +248,12 @@ export default {
             localStorage.clear();
             console.log("LocalStorage borrado.");
             this.$router.push("/intEmprendedor");
+            this.$q.notify({
+              message: "Compra exitosa",
+              color: "positive",
+              position: "top",
+              timeout: 1000,
+            });
           })
           .catch((error) => {
             console.log("Ocurrió un error " + error);
