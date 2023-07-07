@@ -69,6 +69,9 @@
                     v-model="inputValue"
                     type="number"
                     label="Ingresa el número de horas a contratar:"
+                    @keydown="validarEntradas"
+                    min="1"
+                    required
                   />
                 </div>
               </div>
@@ -194,6 +197,17 @@ export default {
     },
   },
   methods: {
+    validarEntradas(event) {
+    const tc = event.key;
+    const tecla = event.key.toLowerCase();
+
+    // Verificar si la tecla presionada es "e"
+    if (tecla === "e" || tecla === "-") {
+      event.preventDefault(); // Prevenir la acción predeterminada de la tecla
+      return false; // Evitar que se ingrese la tecla "e"
+    }
+
+    },
     cargarDatosSeleccionados() {
       // Obtener los datos seleccionados del localStorage
       var datosSeleccionados = localStorage.getItem("datosSeleccionados");
