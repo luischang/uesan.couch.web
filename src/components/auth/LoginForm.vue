@@ -132,7 +132,7 @@ function goBack() {
 }
 </script>
 
-<style>
+<style scoped>
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 .burbuu {
   position: relative;

@@ -15,23 +15,11 @@
             <div class="login__field">
               <div class="column">
                 <i class="login__icon fas fa-user"></i>
-                <input
-                  type="text"
-                  v-model="Usuarios.nombre"
-                  class="login__input"
-                  placeholder="Nombre"
-                  required
-                />
+                <q-input class="login__input" v-model="Usuarios.nombre" filled type="text" label="Nombre" standout="bg-late text-black"  required/>
               </div>
               <div class="column">
                 <i class="login__icon fas fa-address-book"></i>
-                <input
-                  class="login__input"
-                  type="text"
-                  v-model="Usuarios.apellido"
-                  placeholder="Apellido"
-                  required
-                />
+                <q-input class="login__input" v-model="Usuarios.apellido" filled type="text" label="Apellido" standout="bg-late text-black"  required/>
               </div>
             </div>
 
@@ -53,54 +41,32 @@
 
               <div class="column">
                 <i class="login__icon fas fa-phone-alt"></i>
-                <input
-                  type="password"
-                  class="login__input"
-                  v-model="Usuarios.nroContacto"
-                  placeholder="N° Contacto"
-                  required
-                />
+                <q-input class="login__input" v-model="Usuarios.nroContacto" filled type="number" label="N° celular" standout="bg-late text-black"  required/>
               </div>
             </div>
             <div class="login__field">
               <div class="column">
                 <i class="login__icon fas fa-mail-bulk"></i>
-                <input
-                  type="text"
-                  v-model="Usuarios.correoElectronico"
-                  placeholder="Email"
-                  name="email"
-                  class="login__input"
-                  id="email"
-                  required
-                />
+                <q-input name="email" id="email" class="login__input" v-model="Usuarios.correoElectronico" filled type="text" label="CorreoElectronico" standout="bg-late text-black"  required/>
               </div>
               <div class="column">
-                <i class="login__icon fas fa-lock"></i>
-                <input
-                  type="password"
-                  class="login__input"
-                  v-model="Usuarios.contrasena"
-                  placeholder="Contraseña"
-                  name="psw"
-                  id="psw"
-                  required
-                />
+                <i class="login__icon fas fa-lock" style="margin-top: 10px;"></i>
+                <q-input style="margin-top: 11px;margin-right: 20px;" required v-model="Usuarios.contrasena" filled :type="isPwd ? 'password' : 'text'" label="Contraseña" req>
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+      </q-input>
+                <!-- <q-input name="psw" id="psw" class="login__input" v-model="" filled type="password" label="Contraseña" standout="bg-late text-black"  required/> -->
               </div>
             </div>
             <!---===========================================================================-->
             <div class="login__field">
               <div class="q-gutter-md">
-                <q-input
-                  class="login__inputGenero"
-                  type="text"
-                  rounded
-                  standout
-                  v-model="Coach.tarifaHora"
-                  placeholder="TarifaHora"
-                  style="margin-top: -90px; margin-right: -180px"
-                  equired
-                />
+                <q-input style="margin-top: -219px; margin-right: -180px"  class="login__inputGenero" v-model="Coach.tarifaHora" filled type="number" label="TarifaHora" standout="bg-late text-black"  required/>
               </div>
 
               <!-- <div class="q-gutter-md">
@@ -127,7 +93,7 @@
                     :options="options"
                     label="especialidad"
                     style="
-                      margin-top: -160px;
+                      margin-top: -230px;
                       margin-left: -340px;
                       width: 300px;
                     "
@@ -140,7 +106,7 @@
 
             <!---===========================================================================-->
 
-            <div class="social-login">
+            <div class="social-login" style="margin-top: 140px;">
               <input type="checkbox" id="acepto-terminos" />
               <label for="acepto-terminos"
                 ><strong
@@ -150,15 +116,12 @@
               >
             </div>
             <q-btn
-            style="margin-top: 9px; margin-left: 490px;"
+            style="margin-top: -99px; margin-left: 490px;"
               class="button login__submit"
               @click="signUps"
             to="/RegisterFormCoach"
             label="Registrar datos"
             />
-              <i class="button__icon fas fa-chevron-right"></i>
-
-
           </form>
         </div>
         <div class="screen__background">
@@ -250,7 +213,7 @@
 .screen {
   background: linear-gradient(90deg, #bb9221, #f0b923);
   position: relative;
-  height: 550px;
+  height: 650px;
   width: 850px;
   box-shadow: 0px 0px 50px #ad871f;
   animation: containerFadeIn 1.1s ease-in-out forwards;
@@ -528,6 +491,7 @@ export default {
   },
   methods: {
     signUps() {
+      
       var urlUsuarios = "http://localhost:5083/api/Usuarios/SignUpCoach";
       var urlCoach = "http://localhost:5083/api/Coach";
 
@@ -543,7 +507,7 @@ export default {
         .then((response) => {
           console.log("Aquí va la respuesta " + JSON.stringify(response));
           this.$q.notify({
-            message: "Registro exitoso",
+            message: "En hora buena! Tu cuenta ha sido creada con éxito. Bienvenido a nuestra comunidad!",
             color: "positive",
             position: "bottom",
             timeout: 3000,
@@ -561,5 +525,12 @@ export default {
         });
     },
   },
+  setup(){
+    return{
+      isPwd: ref(true),
+    }
+
+  }
+
 };
 </script>
