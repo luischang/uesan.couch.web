@@ -76,7 +76,7 @@
                 <div style="width: 9%">
                   <p>Total a Pagar</p>
                 </div>
-                <div>
+                <div placeholder="máximo 8 horas">
                   <p>{{ result }}</p>
                 </div>
               </div>
@@ -85,7 +85,6 @@
             <div class="card-button">
               <q-btn
                 @click="guardarIdTipoEnLocalStorage(1011)"
-                to="/moduloPago"
                 label="Seleccionar"
                 type="submit"
                 color="secondary"
@@ -147,7 +146,6 @@
                     guardarIdTipoEnLocalStorage(1010);
                   }
                 "
-                to="/moduloPago"
                 label="Seleccionar"
                 type="submit"
                 color="secondary"
@@ -174,6 +172,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -188,9 +187,14 @@ export default {
     this.calculateResult2();
   },
   watch: {
-    inputValue() {
-      this.calculateResult();
-      this.result = multiplicarYMostrar(this.inputValue, this.idTipo);
+    inputValue(newValue) {
+      const value = parseFloat(newValue);
+      if (!isNaN(value) && value > 0 && value < 9) {
+        this.calculateResult();
+        this.result = multiplicarYMostrar(this.inputValue, this.idTipo);
+      } else {
+        this.result = 0; // O cualquier otro valor predeterminado que desees
+      }
     },
   },
   methods: {
@@ -235,27 +239,52 @@ export default {
     },
     guardarIdTipoEnLocalStorage(idTipo) {
       var datosSeleccionados = localStorage.getItem("datosSeleccionados");
+      var userResult = localStorage.getItem("userResult"); // Agregar esta línea para obtener los datos de "userResult"
 
-      if (datosSeleccionados) {
+      if (datosSeleccionados && userResult) {
+        // Verificar que ambos datos existan en el localStorage
         var datos = JSON.parse(datosSeleccionados);
         if (idTipo == 1011) {
-          datos.idTipo = idTipo;
-          datos.resultadoMultiplicacion = this.result;
-          console.log(idTipo);
-          localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+          if (this.result !== 0) {
+            // Validar que result sea distinto de 0
+            datos.idTipo = idTipo;
+            datos.resultadoMultiplicacion = this.result;
+            console.log(idTipo);
+            localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+            this.$router.push("/moduloPago");
+          } else {
+            console.log("result es igual a 0. No es válido");
+            this.$q.notify({
+              message: "Numero de horas incorrecto",
+              color: "negative",
+              position: "top",
+              timeout: 1000,
+            });
+          }
         } else if (idTipo == 1010) {
-          datos.idTipo = idTipo;
-          datos.resultadoMultiplicacion = this.result2;
-          console.log(idTipo);
-          localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+          if (this.result2 !== 0) {
+            // Validar que result2 sea distinto de 0
+            datos.idTipo = idTipo;
+            datos.resultadoMultiplicacion = this.result2;
+            console.log(idTipo);
+            localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+            this.$router.push("/moduloPago");
+          } else {
+            console.log("result2 es igual a 0. No es válido");
+          }
         }
       } else {
-        console.log("No hay nada en la localStorage");
+        this.$q.notify({
+          message: "Debe ingresar con su cuenta",
+          color: "negative",
+          position: "top",
+          timeout: 1000,
+        });
+        console.log("No hay nada en el localStorage");
       }
     },
   },
 };
-
 function multiplicarYMostrar(inputValue) {
   // Obtener los datos seleccionados del localStorage
   var datosSeleccionados = localStorage.getItem("datosSeleccionados");
@@ -278,6 +307,9 @@ function multiplicarYMostrar(inputValue) {
   } else {
     console.log("No se encontraron datos seleccionados en el localStorage");
   }
+}
+function goBack() {
+  window.history.back();
 }
 </script>
 

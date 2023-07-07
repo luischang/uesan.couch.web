@@ -1,7 +1,11 @@
 <template>
   <div class="burbuu">
     <div class="card">
-      <button class="proceed" @click="openModal(coach)">
+      <button
+        class="proceed"
+        :disabled="!areInputsComplete"
+        @click="openModal(coach)"
+      >
         <svg class="sendicon" width="24" height="24" viewBox="0 0 24 24">
           <path
             d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
@@ -18,11 +22,12 @@
         type="text"
         class="input cardnumber"
         placeholder="1234 5678 9101 1121"
+        v-model="cardInput"
       />
       <label>Name:</label>
-      <input class="input name" placeholder="Edgar Pérez" />
-      <label class="toleft">CCV:</label>
-      <input class="input toleft ccv" placeholder="321" />
+      <input class="input name" placeholder="Edgar Pérez" v-model="nameInput" />
+      <label class="toleft">CCV: </label>
+      <input class="input toleft ccv" placeholder="321" v-model="cvvInput" />
     </div>
     <div class="receipt">
       <div class="coontainer">
@@ -33,7 +38,7 @@
           <p>Name:</p>
           <p class="seller">{{ nombre }} {{ apellido }}</p>
           <p>Fecha</p>
-          <p class="seller">{{ fecha }}</p>
+          <p class="seller">{{ fechaa }}</p>
         </div>
         <div class="col">
           <p>Curso Suscrito:</p>
@@ -76,7 +81,7 @@ export default {
       nombre: "",
       nombreServicio: "",
       apellido: "",
-      fecha: "",
+      fechaa: "",
       idCoach: "",
       emprendedor: [],
       idPlan: "",
@@ -85,9 +90,19 @@ export default {
       isActive: true,
       idPersona: "",
       idEmprendedor: "",
+      nameInput: "",
+      cvvInput: "",
+      cardInput: "",
 
       // ID de servicio que quieres consultar
     };
+  },
+  computed: {
+    areInputsComplete() {
+      return (
+        this.nameInput != "" && this.ccvInput !== "" && this.cardInput != ""
+      );
+    },
   },
   methods: {
     getIdTipoFromLocalStorage() {
@@ -119,7 +134,7 @@ export default {
         .then((data) => {
           const fechaActual = new Date(data.datetime);
           const fechaFormateada = fechaActual.toLocaleDateString("es-PE");
-          this.fecha = fechaFormateada;
+          this.fechaa = fechaFormateada;
           localStorage.setItem("fecha", JSON.stringify(data.datetime));
         })
         .catch((error) => {
@@ -138,7 +153,6 @@ export default {
       this.fecha = JSON.parse(localStorage.getItem("fecha"));
       this.idPago = JSON.parse(localStorage.getItem("idPago"));
       this.idPersona = this.userResult.idPersona;
-      this.idEmprendedor = this.idEmprendedor.idEmprendedor;
 
       console.log("IDPERSONA", this.idPersona);
       // Verificar si los valores están definidos y no son nulos
