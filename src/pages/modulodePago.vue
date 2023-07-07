@@ -32,6 +32,8 @@
           <br />
           <p>Name:</p>
           <p class="seller">{{ nombre }} {{ apellido }}</p>
+          <p>Fecha</p>
+          <p class="seller">{{ fecha }}</p>
         </div>
         <div class="col">
           <p>Curso Suscrito:</p>
@@ -67,6 +69,17 @@
 import { ref } from "vue";
 
 export default {
+  data() {
+    return {
+      modalOpen: false,
+      resultadoMultiplicacion: 0,
+      nombre: "",
+      nombreServicio: "",
+      apellido: "",
+      fecha: "",
+      // ID de servicio que quieres consultar
+    };
+  },
   methods: {
     getIdTipoFromLocalStorage() {
       var datosSeleccionados = localStorage.getItem("datosSeleccionados");
@@ -91,19 +104,22 @@ export default {
     endModal(seguro) {
       this.$router.push("/intEmprendedor");
     },
+    obtenerFechaActual() {
+      fetch("https://worldtimeapi.org/api/timezone/America/Lima")
+        .then((response) => response.json())
+        .then((data) => {
+          const fechaActual = new Date(data.datetime);
+          const fechaFormateada = fechaActual.toLocaleDateString("es-PE");
+          this.fecha = fechaFormateada;
+        })
+        .catch((error) => {
+          console.log("Error al obtener la fecha actual:", error);
+        });
+    },
   },
   mounted() {
     this.getIdTipoFromLocalStorage();
-  },
-  data() {
-    return {
-      modalOpen: false,
-      resultadoMultiplicacion: 0,
-      nombre: "",
-      nombreServicio: "",
-      apellido: "",
-      // ID de servicio que quieres consultar
-    };
+    this.obtenerFechaActual();
   },
 };
 function goBack() {
