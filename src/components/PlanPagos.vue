@@ -180,7 +180,7 @@
 export default {
   data() {
     return {
-      inputValue: 0,
+      inputValue: "",
       result: 0,
       result2: 0,
       idTipo: 0,
@@ -198,15 +198,14 @@ export default {
   },
   methods: {
     validarEntradas(event) {
-    const tc = event.key;
-    const tecla = event.key.toLowerCase();
+      const tc = event.key;
+      const tecla = event.key.toLowerCase();
 
-    // Verificar si la tecla presionada es "e"
-    if (tecla === "e" || tecla === "-") {
-      event.preventDefault(); // Prevenir la acción predeterminada de la tecla
-      return false; // Evitar que se ingrese la tecla "e"
-    }
-
+      // Verificar si la tecla presionada es "e"
+      if (tecla === "e" || tecla === "-") {
+        event.preventDefault(); // Prevenir la acción predeterminada de la tecla
+        return false; // Evitar que se ingrese la tecla "e"
+      }
     },
     cargarDatosSeleccionados() {
       // Obtener los datos seleccionados del localStorage
