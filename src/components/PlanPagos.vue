@@ -84,7 +84,7 @@
 
             <div class="card-button">
               <q-btn
-                @click="guardarIdTipoEnLocalStorage(1)"
+                @click="guardarIdTipoEnLocalStorage(1011)"
                 to="/moduloPago"
                 label="Seleccionar"
                 type="submit"
@@ -136,7 +136,7 @@
                 <p>Total a Pagar</p>
               </div>
               <div style="width: -9px; margin-top: 14px">
-                <p>{{ result }}</p>
+                <p>{{ result2 }}</p>
               </div>
             </div>
 
@@ -144,10 +144,10 @@
               <q-btn
                 @click="
                   () => {
-                    guardarIdTipoEnLocalStorage(1);
-                    set_matricula();
+                    guardarIdTipoEnLocalStorage(1010);
                   }
                 "
+                to="/moduloPago"
                 label="Seleccionar"
                 type="submit"
                 color="secondary"
@@ -174,15 +174,18 @@
 </template>
 
 <script>
-import axios from "axios";
-import { ref } from "vue";
 export default {
   data() {
     return {
       inputValue: 0,
       result: 0,
+      result2: 0,
       idTipo: 0,
     };
+  },
+  mounted() {
+    this.cargarDatosSeleccionados();
+    this.calculateResult2();
   },
   watch: {
     inputValue() {
@@ -191,6 +194,20 @@ export default {
     },
   },
   methods: {
+    cargarDatosSeleccionados() {
+      // Obtener los datos seleccionados del localStorage
+      var datosSeleccionados = localStorage.getItem("datosSeleccionados");
+
+      if (datosSeleccionados) {
+        // Convertir los datos de texto a objeto JavaScript
+        var datos = JSON.parse(datosSeleccionados);
+
+        // Guardar el valor en result2
+        this.result2 = datos.tarifaHora * 20;
+      } else {
+        console.log("No se encontraron datos seleccionados en el localStorage");
+      }
+    },
     calculateResult() {
       const value = parseFloat(this.inputValue);
       if (!isNaN(value)) {
@@ -199,61 +216,41 @@ export default {
         this.result = "";
       }
     },
+    calculateResult2() {
+      // Obtener los datos seleccionados del localStorage
+      var datosSeleccionados = localStorage.getItem("datosSeleccionados");
+
+      if (datosSeleccionados) {
+        // Convertir los datos de texto a objeto JavaScript
+        var datos = JSON.parse(datosSeleccionados);
+
+        // Calcular el resultado de la multiplicación
+        var resultadoMultiplicacion = datos.tarifaHora * 20;
+
+        // Guardar el valor en result2
+        this.result2 = resultadoMultiplicacion;
+      } else {
+        console.log("No se encontraron datos seleccionados en el localStorage");
+      }
+    },
     guardarIdTipoEnLocalStorage(idTipo) {
       var datosSeleccionados = localStorage.getItem("datosSeleccionados");
 
       if (datosSeleccionados) {
         var datos = JSON.parse(datosSeleccionados);
-        datos.idTipo = idTipo;
-        console.log(idTipo);
-        localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+        if (idTipo == 1011) {
+          datos.idTipo = idTipo;
+          datos.resultadoMultiplicacion = this.result;
+          console.log(idTipo);
+          localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+        } else if (idTipo == 1010) {
+          datos.idTipo = idTipo;
+          datos.resultadoMultiplicacion = this.result2;
+          console.log(idTipo);
+          localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+        }
       } else {
-        console.log("No se encontraron datos seleccionados en el localStorage");
-      }
-    },
-    set_matricula: function () {
-      const storedData = localStorage.getItem("datosSeleccionados");
-      this.datosSeleccionados = JSON.parse(storedData);
-      // Verificar si los valores están definidos y no son nulos
-      if (
-        this.datosSeleccionados &&
-        this.datosSeleccionados.idCoach &&
-        this.datosSeleccionados.idTipo &&
-        this.datosSeleccionados.resultadoMultiplicacion &&
-        this.datosSeleccionados.idServicio
-      ) {
-        // Realizar el resto del código aquí
-        this.idCoach = this.datosSeleccionados.idCoach;
-        this.idTipo = this.datosSeleccionados.idTipo;
-        this.resultadoMultiplicacion =
-          this.datosSeleccionados.resultadoMultiplicacion;
-        this.idServicio = this.datosSeleccionados.idServicio;
-        var data = {
-          idCoach: this.idCoach,
-          idPlan: this.idTipo,
-          multiplicador: this.resultadoMultiplicacion,
-          idServicio: this.idServicio,
-          isActive: true,
-        };
-        var url = "http://localhost:5083/api/DetalleCouchServicio/Insert";
-
-        axios
-          .post(url, data)
-          .then((response) => {
-            console.log("Aquí va la respuesta " + JSON.stringify(response));
-            localStorage.setItem(
-              "idDetCoachServicio",
-              JSON.stringify(response.data)
-            );
-
-            this.$router.push("/moduloPago");
-          })
-          .catch((error) => {
-            console.log("Ocurrió un error " + error);
-          });
-      } else {
-        // Manejar la situación cuando los valores no son válidos o están indefinidos
-        console.log("Los valores no son válidos o están indefinidos");
+        console.log("No hay nada en la localStorage");
       }
     },
   },
@@ -276,7 +273,7 @@ function multiplicarYMostrar(inputValue) {
     // Actualizar la regla CSS dinámicamente
 
     datos.resultadoMultiplicacion = resultadoMultiplicacion;
-    localStorage.setItem("datosSeleccionados", JSON.stringify(datos));
+
     return resultadoMultiplicacion;
   } else {
     console.log("No se encontraron datos seleccionados en el localStorage");
