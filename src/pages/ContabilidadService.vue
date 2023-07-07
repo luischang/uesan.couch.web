@@ -56,7 +56,7 @@
               @click="navigateToNextPage('1005')"
             /> -->
             <div class="wrapper">
-              <a class="cta" @click="navigateToNextPage('1005')">
+              <a class="cta" @click="navigateToNextPage('1002')">
                 <span>Pedir Asesoramiento</span>
                 <span>
                   <svg

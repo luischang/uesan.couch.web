@@ -107,7 +107,7 @@
             <!---===========================================================================-->
 
             <div class="social-login" style="margin-top: 140px;">
-              <input type="checkbox" id="acepto-terminos" />
+              <input type="checkbox" id="acepto-terminos" required />
               <label for="acepto-terminos"
                 ><strong
                   >Al crear una cuenta, aceptas nuestros términos y
@@ -119,9 +119,8 @@
             style="margin-top: -99px; margin-left: 490px;"
               class="button login__submit"
               @click="signUps"
-            to="/RegisterFormCoach"
             label="Registrar datos"
-            />
+            to="/login"/>
           </form>
         </div>
         <div class="screen__background">

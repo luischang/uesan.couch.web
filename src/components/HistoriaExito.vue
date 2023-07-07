@@ -42,6 +42,8 @@ https://quasar.dev/vue-components/carousel#example--multi-image-slides
           <q-img class="rounded-borders col-6 full-height" src="https://cdn.quasar.dev/img/donuts.png"></q-img>
         </div>
       </q-carousel-slide>
+      
+
     </q-carousel>
   </div>
 </div>

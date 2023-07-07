@@ -69,6 +69,10 @@
                     v-model="inputValue"
                     type="number"
                     label="Ingresa el número de horas a contratar:"
+                    @keydown="validarEntradas"
+                    min="1"
+                    max="9"
+                    required
                   />
                 </div>
               </div>
@@ -176,7 +180,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      inputValue: 0,
+      inputValue: "",
       result: 0,
       result2: 0,
       idTipo: 0,
@@ -198,6 +202,31 @@ export default {
     },
   },
   methods: {
+    validarEntradas(event) {
+      const tc = event.key;
+      const tecla = event.key.toLowerCase();
+
+      // Verificar si la tecla presionada es "e"
+      if (
+        tecla === "e" ||
+        tecla === "-" ||
+        tecla === "+" ||
+        tecla === "." ||
+        tecla === "0" ||
+        tecla === "," ||
+        tecla === "}" ||
+        tecla === "{" ||
+        tecla === "|" ||
+        tecla === "?"
+      ) {
+        event.preventDefault(); // Prevenir la acción predeterminada de la tecla
+        return false; // Evitar que se ingrese la tecla "e"
+      }
+
+      if (/\d/.test(tc) && this.inputValue.length >= 1) {
+        event.preventDefault();
+      }
+    },
     cargarDatosSeleccionados() {
       // Obtener los datos seleccionados del localStorage
       var datosSeleccionados = localStorage.getItem("datosSeleccionados");
