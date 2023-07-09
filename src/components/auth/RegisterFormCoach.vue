@@ -512,7 +512,7 @@ export default {
             position: "bottom",
             timeout: 3000,
           });
-          this.$router.push("/RegisterCoach/login");
+          this.$router.push("");
         })
         .catch((error) => {
           console.log("Ocurrió un error " + error);
