@@ -155,12 +155,24 @@ https://quasar.dev/vue-components/card#example--expandable
     </q-page-container>
 
     <q-footer reveal elevated class="bg-yellow-7 text-black">
-      <q-toolbar>
-        <q-toolbar-title style="text-align: center">
-          <div>Emprende Facil &copy; 2023</div>
-        </q-toolbar-title>
-      </q-toolbar>
-    </q-footer>
+  <q-toolbar>
+    <q-toolbar-title style="text-align: center">
+      <div>Emprende Facil &copy; 2023</div>
+    </q-toolbar-title>
+    <div class="q-ml-md">
+      <a href="https://www.facebook.com/tu_pagina_de_facebook" target="_blank">
+        <q-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/220px-2021_Facebook_icon.svg.png" class="q-mr-sm" />
+      </a>
+      <a href="https://twitter.com/tu_cuenta_de_twitter" target="_blank">
+        <q-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/320px-Logo_of_Twitter.svg.png" class="q-mr-sm" />
+      </a>
+      <a href="https://www.instagram.com/tu_cuenta_de_instagram" target="_blank">
+        <q-img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/150px-Instagram_logo_2022.svg.png" />
+      </a>
+    </div>
+  </q-toolbar>
+</q-footer>
+
   </q-layout>
 </template>
 
