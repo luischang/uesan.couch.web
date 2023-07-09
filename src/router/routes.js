@@ -26,6 +26,10 @@ const routes = [
     component: () => import("src/components/auth/LoginForm.vue"),
   },
   {
+    path: "/RegisterCoach/login",
+    component: () => import("src/components/auth/LoginForm.vue"),
+  },
+  {
     path: "/Register",
     component: () =>
       import("components/RegistroCoachEmpredor/InterfazDeRegistro.vue"),

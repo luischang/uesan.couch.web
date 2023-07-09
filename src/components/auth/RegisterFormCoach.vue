@@ -115,12 +115,12 @@
                 ><a href="src\pages\terminos.html">Terms & Privacy</a>.</label
               >
             </div>
-            <q-btn
+            <q-btn to="/Inicio"
             style="margin-top: -99px; margin-left: 490px;"
               class="button login__submit"
               @click="signUps"
             label="Registrar datos"
-            to="/login"/>
+             />
           </form>
         </div>
         <div class="screen__background">

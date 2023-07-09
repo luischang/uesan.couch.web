@@ -58,6 +58,7 @@
                   class="login__input"
                   v-model="Usuarios.nroContacto"
                   placeholder="N° Contacto"
+                  min="0" @keydown="validarEntradas" :maxlength="9"
                   required
                 />
               </div>
@@ -462,7 +463,21 @@ export default {
           });
         });
     },
+validarEntradas(event) {
+const tc = event.key;
+const tecla = event.key.toLowerCase();
+
+// Verificar si la tecla presionada es "e"
+if (tecla === "e" || tecla === "-") {
+  event.preventDefault(); // Prevenir la acción predeterminada de la tecla
+  return false; // Evitar que se ingrese la tecla "e"
+}
+
+if(/\d/.test(tc) && this.Usuarios.nroContacto.length >= 9){
+  event.preventDefault();
+}
+}
   },
-  
+
 };
 </script>
