@@ -233,7 +233,7 @@ export default {
         this.fecha = JSON.parse(localStorage.getItem("fecha"));
         this.idPago = JSON.parse(localStorage.getItem("idPago"));
         this.idPersona = this.userResult.idPersona;
-        this.idEmprendedor = this.idEmprendedor.idEmprendedor;
+
         this.resultadoMultiplicacion =
           this.datosSeleccionados.resultadoMultiplicacion;
         this.idPago = this.idPago;
@@ -254,8 +254,8 @@ export default {
             this.$q.notify({
               message: "Compra exitosa",
               color: "positive",
-              position: "top",
-              timeout: 1000,
+              position: "bottom",
+              timeout: 6000,
             });
           })
           .catch((error) => {
