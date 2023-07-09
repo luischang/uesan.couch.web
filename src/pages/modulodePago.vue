@@ -17,17 +17,19 @@
         class="logo-card"
       />
       <label>Card number:</label>
-      <input
-        id="user"
-        type="text"
-        class="input cardnumber"
-        placeholder="1234 5678 9101 1121"
-        v-model="cardInput"
-      />
+      <q-input
+      id="user"
+      type="text"
+      class="input cardnumber "
+      placeholder="1234-5678-9101-1121"
+      v-model="cardInput"
+      @input="formatCardNumber"
+      @keydown="validarEntradas"
+    />
       <label>Name:</label>
-      <input class="input name" placeholder="Edgar Pérez" v-model="nameInput" />
+      <q-input class="input name" placeholder="Edgar Pérez" v-model="nameInput" @keydown="validarEntrada" />
       <label class="toleft">CCV: </label>
-      <input class="input toleft ccv" placeholder="321" v-model="cvvInput" />
+      <q-input class="input toleft ccv" placeholder="321" v-model="cvvInput" @keydown="validarEntradass" />
     </div>
     <div class="receipt">
       <div class="coontainer">
@@ -105,6 +107,166 @@ export default {
     },
   },
   methods: {
+    formatCardNumber() {
+      // Eliminar los guiones actuales
+      this.cardInput = this.cardInput.replace(/-/g, '');
+
+      // Agregar guiones cada 4 dígitos
+      if (this.cardInput.length > 0) {
+        this.cardInput = this.cardInput.match(new RegExp('.{1,4}', 'g')).join('-');
+      }
+    },
+
+    validarEntradas(event) {
+      const tc = event.key;
+      const tecla = event.key.toLowerCase();
+
+      // Verificar si la tecla presionada es "e"
+      if (
+  tecla === "e" ||
+  tecla === "¿" ||
+  tecla === "''" ||
+  tecla === "+" ||
+  tecla === "." ||
+  tecla === "o" ||
+  tecla === "," ||
+  tecla === "}" ||
+  tecla === "{" ||
+  tecla === "|" ||
+  tecla === "?" ||
+  tecla === "a" ||
+  tecla === "á" ||
+  tecla === "b" ||
+  tecla === "c" ||
+  tecla === "d" ||
+  tecla === "e" ||
+  tecla === "é" ||
+  tecla === "f" ||
+  tecla === "g" ||
+  tecla === "h" ||
+  tecla === "i" ||
+  tecla === "í" ||
+  tecla === "j" ||
+  tecla === "k" ||
+  tecla === "l" ||
+  tecla === "m" ||
+  tecla === "n" ||
+  tecla === "ñ" ||
+  tecla === "o" ||
+  tecla === "ó" ||
+  tecla === "p" ||
+  tecla === "q" ||
+  tecla === "r" ||
+  tecla === "s" ||
+  tecla === "t" ||
+  tecla === "u" ||
+  tecla === "ú" ||
+  tecla === "ü" ||
+  tecla === "v" ||
+  tecla === "w" ||
+  tecla === "x" ||
+  tecla === "y" ||
+  tecla === "z"
+) {
+        event.preventDefault(); // Prevenir la acción predeterminada de la tecla
+        return false; // Evitar que se ingrese la tecla "e"
+      }
+
+      if (/\d/.test(tc) && this.cardInput.length >= 19) {
+        event.preventDefault();
+      }
+    },
+  validarEntradass(event) {
+      const tc = event.key;
+      const tecla = event.key.toLowerCase();
+
+      // Verificar si la tecla presionada es "e"
+      if (
+  tecla === "e" ||
+  tecla === "¿" ||
+  tecla === "''" ||
+  tecla === "+" ||
+  tecla === "." ||
+  tecla === "o" ||
+  tecla === "," ||
+  tecla === "}" ||
+  tecla === "{" ||
+  tecla === "|" ||
+  tecla === "?" ||
+  tecla === "a" ||
+  tecla === "á" ||
+  tecla === "b" ||
+  tecla === "c" ||
+  tecla === "d" ||
+  tecla === "e" ||
+  tecla === "é" ||
+  tecla === "f" ||
+  tecla === "g" ||
+  tecla === "h" ||
+  tecla === "i" ||
+  tecla === "í" ||
+  tecla === "j" ||
+  tecla === "k" ||
+  tecla === "l" ||
+  tecla === "m" ||
+  tecla === "n" ||
+  tecla === "ñ" ||
+  tecla === "o" ||
+  tecla === "ó" ||
+  tecla === "p" ||
+  tecla === "q" ||
+  tecla === "r" ||
+  tecla === "s" ||
+  tecla === "t" ||
+  tecla === "u" ||
+  tecla === "ú" ||
+  tecla === "ü" ||
+  tecla === "v" ||
+  tecla === "w" ||
+  tecla === "x" ||
+  tecla === "y" ||
+  tecla === "z"
+) {
+        event.preventDefault(); // Prevenir la acción predeterminada de la tecla
+        return false; // Evitar que se ingrese la tecla "e"
+      }
+
+      if (/\d/.test(tc) && this.cvvInput.length >= 3) {
+        event.preventDefault();
+      }
+    },
+  validarEntrada(event) {
+
+      const tecla = event.key.toLowerCase();
+
+      // Verificar si la tecla presionada es "e"
+      if (
+
+  tecla === "¿" ||
+  tecla === "''" ||
+  tecla === "-" ||
+  tecla === "+" ||
+  tecla === "." ||
+  tecla === "," ||
+  tecla === "}" ||
+  tecla === "{" ||
+  tecla === "|" ||
+  tecla === "?" ||
+  tecla === "0" ||
+  tecla === "1" ||
+  tecla === "2" ||
+  tecla === "3" ||
+  tecla === "4" ||
+  tecla === "5" ||
+  tecla === "6" ||
+  tecla === "7" ||
+  tecla === "8" ||
+  tecla === "9"
+){
+        event.preventDefault(); // Prevenir la acción predeterminada de la tecla
+        return false; // Evitar que se ingrese la tecla "e"
+  }
+},
     getIdTipoFromLocalStorage() {
       var datosSeleccionados = localStorage.getItem("datosSeleccionados");
       var userResult = localStorage.getItem("userResult");
@@ -372,9 +534,10 @@ card-title {
   text-align: center;
   padding: 1rem 2.6578rem;
   font-size: 0.8rem;
-  color: rgb(0, 0, 0);
+  color: rgb(241, 232, 232);
   line-height: 1.4rem;
 }
+
 
 #name {
   font-size: 0.8rem;
@@ -556,11 +719,11 @@ input:focus {
   padding: 5%;
   padding-top: 180px;
   max-width: 600px;
-  max-height: 650px;
+ height: 450px;
   display: block;
   margin: auto;
   animation: containerFadeIn 1.1s ease-in-out forwards;
-  margin-top: -150px;
+  margin-top: -100px;
   z-index: -999;
   margin-bottom: 80px;
   position: relative;
@@ -601,13 +764,14 @@ input:focus {
   border-radius: 50%;
   left: 18rem;
   background: #1abc9c;
-
+margin-bottom:90px;
   border: none;
   color: white;
   transition: box-shadow 0.2s, transform 0.4s;
   cursor: pointer;
   animation: containerFadeIn 1.1s ease-in-out forwards;
 }
+
 .proceed:active {
   outline: none;
 }
@@ -698,5 +862,18 @@ input:focus {
   padding: 0.1em 0.6em;
   font-weight: bold;
   border: none;
+}
+.q-field__native, .q-field__prefix, .q-field__suffix, .q-field__input {
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.00937em;
+    text-decoration: inherit;
+    text-transform: inherit;
+    border: none;
+    border-radius: 0;
+    background: none;
+    color: rgba(253, 250, 250, 0.87);
+    outline: 0;
+    padding: 6px 0;
 }
 </style>
