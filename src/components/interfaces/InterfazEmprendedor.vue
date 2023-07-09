@@ -23,10 +23,10 @@
           <div class="emprendedor-user-info">
             <h3>{{ nombre }} {{ apellido }}</h3>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Voluptates tempore placeat eligendi, dolor inventore expedita
-              deserunt totam! Enim, inventore quod nulla excepturi asperiores
-              similique, ea quidem amet dignissimos suscipit sed.
+              Nos complace darte la más cordial bienvenida a nuestra comunidad
+              de mentores y mentees. En primer lugar, queremos agradecerte por
+              unirte a nosotros y confiar en nuestro programa de mentoría para
+              impulsar tu crecimiento personal y profesional.
             </p>
             <br />
             <p>Lorem, ipsum dolor.</p>
@@ -34,17 +34,43 @@
           </div>
           <div class="emprendedor-button-container">
             <button class="button">Actualizar Perfil</button>
-            <button class="button">Cerrar Sesión</button>
+            <button class="button" @click="cerrar()">Cerrar Sesión</button>
           </div>
         </div>
       </div>
       <div class="emprendedor-info">
         <div class="emprendedor-caja">
           <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum,
-            odio modi. Rerum facilis, saepe dolores aperiam ex porro officia
-            nihil optio, tempore dicta qui excepturi facere pariatur, dolor vel
-            earum!
+            Aquí en nuestra plataforma, te ofrecemos un espacio seguro y
+            enriquecedor donde podrás encontrar el apoyo y la orientación
+            necesaria para alcanzar tus metas.
+            <br />
+            <br />
+            Creemos firmemente en el poder transformador de la mentoría. A
+            través de este programa, podrás establecer conexiones significativas
+            con profesionales exitosos que han recorrido el camino que tú deseas
+            seguir.
+            <br />
+            <br />
+            Aprovecha esta oportunidad para aprender de su experiencia, recibir
+            consejos personalizados y desafiar tus propias limitaciones. Nuestro
+            enfoque se basa en la colaboración y la confianza mutua. Queremos
+            que te sientas cómodo(a) y seguro(a) al compartir tus metas,
+            inquietudes y desafíos con tu mentor asignado. Juntos, trabajaremos
+            para crear un plan personalizado que te permita superar obstáculos,
+            adquirir nuevas habilidades y tomar decisiones informadas. Además,
+            nuestro servicio de mentoring va más allá de la simple orientación.
+            <br />
+            <br />
+            También te brindamos recursos educativos, herramientas prácticas y
+            acceso a una red de contactos profesionales que pueden ampliar tus
+            horizontes y abrir puertas hacia oportunidades emocionantes. Estamos
+            emocionados por acompañarte en este viaje de crecimiento y
+            aprendizaje. Esperamos que esta experiencia de mentoría sea
+            enriquecedora y te ayude a alcanzar tus metas de manera exitosa.
+            <br />
+            <br />
+            Saludos cordiales, EmprendeFácil.
           </p>
         </div>
         <div class="emprendedor-clases">
@@ -62,10 +88,15 @@
           </div>
           <div class="emprendedor-coach">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-              provident assumenda, cumque quo reprehenderit excepturi quas
-              blanditiis nihil cum ratione in deserunt culpa laboriosam ipsam
-              dolores debitis alias vitae delectus.
+              el coaching es un proceso transformador que brinda apoyo y guía
+              personalizada para que las personas alcancen su máximo potencial.
+              Si estás buscando un enfoque centrado en el crecimiento y el logro
+              de tus metas, el coaching puede ser la herramienta perfecta para
+              ti.
+              <br />
+              <br />
+              ¡Empieza hoy mismo y descubre el poder de desbloquear tu verdadero
+              potencial con la ayuda de un coach profesional!
             </p>
           </div>
         </div>
