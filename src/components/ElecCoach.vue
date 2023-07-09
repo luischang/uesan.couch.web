@@ -221,30 +221,21 @@ export default {
       // Implement your track delivery logic here
     },
     fetchData() {
-      var idServicio = this.$route.params.idServicio;
-      console.log(idServicio);
-      var url = `http://localhost:5083/api/Coach/${idServicio}`;
+  var idServicio = this.$route.params.idServicio;
+  console.log(idServicio);
+  var url = `http://localhost:5083/api/Coach/${idServicio}`;
 
-      axios
-        .get(url, {})
-        .then((response) => {
-          console.log(response);
-          console.log(JSON.stringify(response.data));
-          this.coaches = [
-            {
-              idCoach: response.data.idCoach,
-              idServicio: response.data.idServicio,
-              idPersonaNavigation: response.data.idPersonaNavigation,
-              idServicioNavigation: response.data.idServicioNavigation,
-              nombreServicio: response.data.idServicioNavigation.nombreServicio,
-              tarifaHora: response.data.tarifaHora,
-            },
-          ];
-        })
-        .catch((error) => {
-          console.error("Error al obtener los datos:", error);
-        });
-    },
+  axios
+    .get(url, {})
+    .then((response) => {
+      console.log(response);
+      console.log(JSON.stringify(response.data));
+      this.coaches = response.data;
+    })
+    .catch((error) => {
+      console.error("Error al obtener los datos:", error);
+    });
+},
   },
 };
 </script>
