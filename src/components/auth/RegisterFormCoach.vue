@@ -115,11 +115,12 @@
                 ><a href="src\pages\terminos.html">Terms & Privacy</a>.</label
               >
             </div>
-            <q-btn to="/Inicio"
+            <q-btn
             style="margin-top: -99px; margin-left: 490px;"
               class="button login__submit"
               @click="signUps"
             label="Registrar datos"
+            to="/intCoach"
              />
           </form>
         </div>
@@ -511,7 +512,7 @@ export default {
             position: "bottom",
             timeout: 3000,
           });
-          this.$router.push("/");
+          this.$router.push("/RegisterCoach/login");
         })
         .catch((error) => {
           console.log("Ocurrió un error " + error);
@@ -548,7 +549,9 @@ export default {
       event.preventDefault();
     }
     }
+
   },
+
 
 };
 
