@@ -193,7 +193,7 @@
 
 <script></script>
 
-<style>
+<style scoped>
 #coach {
   font-style: none;
   text-decoration: none;

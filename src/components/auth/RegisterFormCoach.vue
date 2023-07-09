@@ -512,16 +512,17 @@ export default {
             position: "bottom",
             timeout: 3000,
           });
-          this.$router.push("");
+          this.$router.push("/login");
         })
         .catch((error) => {
           console.log("Ocurrió un error " + error);
           this.$q.notify({
-            message: "Ocurrió un error",
+            message: "No se ingresaron datos",
             color: "negative",
             position: "top",
             timeout: 3000,
           });
+          this.$router.push("/RegisterCoach")
         });
 
     },

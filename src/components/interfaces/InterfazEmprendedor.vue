@@ -150,7 +150,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #Emprendedor {
   font-style: none;
   text-decoration: none;
